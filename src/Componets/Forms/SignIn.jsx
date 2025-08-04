@@ -1,11 +1,8 @@
 import { Formik, useFormik } from "formik";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router";
-import axios from "axios";
-import toast from "react-hot-toast";
-import { FaGoogle } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
 import * as Yup from "yup";
+import InputBox from "./InputBox";
+
 function SignIn() {
   //validation
   const validationSchema = Yup.object({
@@ -69,6 +66,9 @@ function SignIn() {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
       />
+      {formik.errors.email && formik.touched.email && (
+        <p className="text-danger">{formik.errors.email}</p>
+      )}
     </div>
   );
 }

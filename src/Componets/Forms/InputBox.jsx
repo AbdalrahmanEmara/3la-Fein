@@ -1,5 +1,5 @@
 import { Formik } from "formik";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 Formik;
 function InputBox(props) {
   return (
