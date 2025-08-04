@@ -3,8 +3,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      <div>a ein</div>
-      <div>aaa</div>
+      <div>test api</div>
     </>
   );
 }
