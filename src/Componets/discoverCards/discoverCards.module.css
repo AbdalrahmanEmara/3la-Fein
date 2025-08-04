@@ -1,0 +1,51 @@
+.discoverCards{
+  background-color: #FCFCFD;
+  width: 256px;
+  height: 365px;
+  transition: 0.2s;
+}
+
+.discoverCards img{
+  width: 256px;
+  height: 220px;
+  border-radius: 16px 16px 0px 0px;
+}
+
+.discoverCards:hover{
+  transform: scale(1.02);
+}
+
+
+p{
+  margin-left: 8px;
+}
+
+
+.rating{
+  color: #23262F;
+  font: 600 12px 'Poppins';
+}
+
+.discoverHeart{
+  display: flex;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 32px;
+  background: var(--Neutrals-8, #FCFCFD);
+  box-shadow: 0 8px 16px -8px rgba(15, 15, 15, 0.10);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.opened{
+  font: 600 12px 'Poppins';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+}
