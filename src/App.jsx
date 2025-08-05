@@ -1,21 +1,12 @@
-import './App.css';
-import PublicGroups from './components/PublicGroups';
-import Discover from './components/Discover'  ;
+import React from 'react';
 import Navigator from './Components/Navigator';
 import History from './Components/History';
-
+import './App.css';
 
 
 function App() {
   return (
     <>
-    <div>
-      
-      <PublicGroups />
-
-      <Discover />
-
-    </div>
     <div className="navigator-container">
       <Navigator 
         color="blue" 
@@ -36,11 +27,14 @@ function App() {
         text="Fully layered dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt..." 
       />
     </div>
+
     <div className="App">
       <History />
     </div>
     </>
   );
 }
+
+
 
 export default App;
