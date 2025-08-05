@@ -40,3 +40,36 @@
 .read-the-docs {
   color: #888;
 }
+.navigator-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #ffffff;
+  margin: 50px;
+  /* margin-right: 70px; */
+  margin-left: 70px;
+}
+.navigator {
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navigator:hover {
+  color: #2980b9;
+}
+.blue { background-color:  #ffffff; }
+.yellow { background-color:  #ffffff; }
+.pink { background-color:  #ffffff; }
+.icon-container {
+  font-size: 2.5em;
+  margin-bottom: 10px;  display: inline-block;
+  padding: 10px;
+  border-radius: 8px;
+}
+n.blue .icon-container { background-color: #87CEEB; }
+.yellow .icon-container { background-color: #E6E600; }
+.pink .icon-container { background-color: #FF69B4; }
+h3 { font-size: 1.0em; margin: 10px 0; color: #060606; }
+p { font-size: 0.9em; color: #555; }

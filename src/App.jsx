@@ -1,10 +1,11 @@
 import './App.css';
 import PublicGroups from './components/PublicGroups';
 import Discover from './components/Discover'  ;
-
+import Navigator from './Components/Navigator';
 
 function App() {
   return (
+    <>
     <div>
       
       <PublicGroups />
@@ -12,6 +13,27 @@ function App() {
       <Discover />
 
     </div>
+        <div className="navigator-container">
+      <Navigator 
+        color="blue" 
+        icon={<span role="img" aria-label="lightbulb">💡</span>} 
+        title="Tell us what you want to do" 
+        text="Fully layered dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt..." 
+      />
+      <Navigator 
+        color="yellow" 
+        icon={<span role="img" aria-label="bolt">⚡</span>} 
+        title="Share your travel preference" 
+        text="Fully layered dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt..." 
+      />
+      <Navigator 
+        color="pink" 
+        icon={<span role="img" aria-label="star">⭐</span>} 
+        title="We'll give you recommendations" 
+        text="Fully layered dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt..." 
+      />
+    </div>
+    </>
   );
 }
 
