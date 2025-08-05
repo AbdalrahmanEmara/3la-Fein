@@ -1,12 +1,17 @@
-import "./App.css";
-import SignIn from "./Componets/Forms/SignIn";
+import './App.css';
+import PublicGroups from './components/PublicGroups';
+import Discover from './components/Discover'  ;
+
 
 function App() {
   return (
-    <>
-      <div>see our test api</div>
-      <SignIn />
-    </>
+    <div>
+      
+      <PublicGroups />
+
+      <Discover />
+
+    </div>
   );
 }
 

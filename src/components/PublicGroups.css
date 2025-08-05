@@ -1,0 +1,76 @@
+
+.public-groups-container {
+  text-align: center;
+  padding: 5rem 1rem;
+}
+.section-title {
+font-family: "DM Sans";
+font-size: 48px;
+font-style: normal;
+font-weight: 700;
+line-height: 56px; 
+letter-spacing: -0.96px;
+}
+
+.book-btn {
+  background-color: #3FAFC6;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom:5rem;
+  margin-top: 3rem;
+  
+}
+.book-btn:hover {
+  background-color: #009db2;
+}
+
+.wave-line {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2rem;
+  position: relative;
+  flex-wrap: nowrap;
+}
+
+.wave-line::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  border-top: 2px dotted #3FAFC6;
+  z-index: 0;
+}
+
+.person {
+  position: relative;
+  z-index: 1;
+}
+
+.person img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #3FAFC6;
+}
+
+.person-0 { transform: translateY(0); }
+.person-1 { transform: translateY(50px); }
+.person-2 { transform: translateY(-20px); }
+.person-3 { transform: translateY(30px); }
+.person-4 { transform: translateY(-20px); }
+.person-5 { transform: translateY(40px); }
+.person-6 { transform: translateY(-20px); }
+
+.quote {
+  color: #777;
+  max-width: 600px;
+  margin: 10rem auto 0;
+  font-style: italic;
+  font-size: 0.95rem;
+}
