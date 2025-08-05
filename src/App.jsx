@@ -1,6 +1,7 @@
 import './App.css';
 import PublicGroups from './components/PublicGroups';
 import Discover from './components/Discover'  ;
+import Footer from './components/Footer';
 
 
 function App() {
@@ -10,6 +11,8 @@ function App() {
       <PublicGroups />
 
       <Discover />
+
+      <Footer />
 
     </div>
   );
