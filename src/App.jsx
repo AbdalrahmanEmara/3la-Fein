@@ -1,14 +1,13 @@
-import "./App.css";
-import PublicGroups from "./components/PublicGroups";
-import Discover from "./components/Discover";
+import SignIn from "./Componets/Forms/SignIn";
+import Reviews from "./Componets/Forms/Reviews";
 
 function App() {
   return (
-    <div>
-      <PublicGroups />
-
-      <Discover />
-    </div>
+    <>
+      <div>see our 3la fein</div>
+      <SignIn />
+      <Reviews />
+    </>
   );
 }
 
