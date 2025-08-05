@@ -1,30 +1,37 @@
-/* Sign In */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.content {
-  text-align: center;
-  background-color: white;
+
+body,
+html {
   height: 100%;
-  margin-left: 200px;
+  width: 100%;
 }
 
-.logo {
-  margin-bottom: 30px;
+/* Content Box */
+.content {
+  max-width: 420px;
+  margin: 0 auto;
 }
 
+/* Logo */
 .logoImg {
   width: 64px;
   height: 64px;
 }
+
+/* Input */
 input {
-  width: 352px;
+  width: 100%;
   border: 1px solid #eee;
   border-radius: 30px;
   padding: 10px 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
+/* Button Main */
 .main-btn {
   background: #4ac63f;
   border: none;
@@ -32,17 +39,21 @@ input {
   padding: 12px 40px;
   color: white;
   font-weight: 500;
-  margin-top: 20px;
-  width: 150px;
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
 }
 
+/* Social Buttons */
 .icon {
   width: 20px;
   height: 20px;
 }
+
 .buttons button {
   border-radius: 50px;
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
   padding: 12px 20px;
   background-color: white;
   border: 2px solid #eee;
@@ -50,11 +61,10 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 10px;
 }
 
+/* Eye Icon */
 .eye-slash {
-  content: "";
   width: 20px;
   height: 20px;
   position: absolute;
@@ -63,79 +73,23 @@ input {
   transform: translateY(-50%);
   cursor: pointer;
 }
-/* Media Queries for Responsiveness */
-@media (max-width: 992px) {
-  .content {
-    width: 100%;
-    padding: 20px;
-    margin-left: 0;
-  }
+.container-fluid {
+  min-height: 100vh !important;
+  overflow: hidden !important;
 }
 
+/* Responsive Fixes */
 @media (max-width: 768px) {
-  .content {
-    width: 100% !important;
-    text-align: center !important;
-    margin: auto !important;
-  }
-  .row {
-    flex-direction: column;
-  }
-
-  .col-lg-4,
-  .col-lg-8 {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .buttons button {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .main-btn {
-    width: 100%;
-    max-width: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .content {
-    width: 100% !important;
-    text-align: center !important;
-    margin: auto !important;
-  }
-  input {
-    width: 100%;
-    max-width: 100%;
-  }
-
   .buttons {
     flex-direction: column;
-  }
-
-  .buttons button {
-    width: 100%;
-    margin-bottom: 20px;
+    gap: 10px;
   }
 
   .main-btn {
-    padding: 12px 20px;
+    width: 100%;
+  }
+
+  .content {
+    padding: 20px;
   }
 }
-/* .error-message-wrapper {
-  min-height: 5px;
-  margin-top: 5px;
-  min-width: 100px;
-}
-.input-wrapper {
-  position: relative;
-  width: 100%;
-  height: 40px;
-}
-
-.input-wrapper input {
-  width: 100%;
-  height: 100%;
-  padding-right: 40px;
-} */

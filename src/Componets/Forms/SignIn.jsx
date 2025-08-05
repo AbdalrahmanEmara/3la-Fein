@@ -59,8 +59,8 @@ function SignIn() {
     validationSchema: validationSchema,
   });
   return (
-    <div className="container-fluid d-flex vh-100">
-      <div className="row">
+    <div className="container-fluid vh-100">
+      <div className="row h-100">
         <div className="col-lg-4 d-none d-lg-block">
           <img
             src="/background.png"
@@ -73,69 +73,70 @@ function SignIn() {
           />
         </div>
 
-        <div className="col-lg-8 col-10 col-sm-12 content d-flex flex-column justify-content-center align-items-center w-100 w-md-75 w-lg-50">
-          <div className="logo">
-            <img className="logoImg" src="/Logo symbol.png" />
-          </div>
-
-          <h2 className="mb-3">Sign in</h2>
-
-          <p className="text-secondary">Use Your OpenID to Sign in</p>
-
-          <div className="buttons d-flex justify-content-evenly mb-5">
-            <button className="d-flex btn-white align-items-center">
-              <img className="icon" src="/google.png" />
-              <span>Google</span>
-            </button>
-            <button className="d-flex align-items-center">
-              <img className="icon" src="/Apple.png" />
-              <span>Apple ID</span>
-            </button>
-          </div>
-
-          <form onSubmit={formik.handleSubmit}>
-            <div className="mb-4">
-              <InputBox
-                type="email"
-                name="email"
-                id="Inemail"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                placeholder="Enter your email"
-              />
-
-              {formik.errors.email && formik.touched.email && (
-                <p className="text-danger">{formik.errors.email}</p>
-              )}
+        <div className="col-lg-8 col-md-12 d-flex justify-content-center align-items-center">
+          <div className="content text-center w-100 px-3 px-md-5">
+            <div className="logo">
+              <img className="logoImg" src="/Logo symbol.png" />
             </div>
 
-            <div className="mb-4">
-              <div style={{ position: "relative" }}>
+            <h2 className="mb-3">Sign in</h2>
+
+            <p className="text-secondary">Use Your OpenID to Sign in</p>
+
+            <div className="buttons gap-3 d-flex justify-content-evenly mb-5">
+              <button className="d-flex btn-white align-items-center">
+                <img className="icon" src="/google.png" />
+                <span>Google</span>
+              </button>
+              <button className="d-flex align-items-center">
+                <img className="icon" src="/Apple.png" />
+                <span>Apple ID</span>
+              </button>
+            </div>
+
+            <form onSubmit={formik.handleSubmit}>
+              <div className="mb-4">
                 <InputBox
-                  type="password"
-                  name="password"
-                  id="Inpassword"
-                  value={formik.values.password}
+                  type="email"
+                  name="email"
+                  id="Inemail"
+                  value={formik.values.email}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  placeholder="Password"
+                  placeholder="Enter your email"
                 />
-                <img src="/eye-slash.png" className="eye-slash" />
-              </div>
-              <div className="error-message-wrapper">
-                {formik.errors.password && formik.touched.password && (
-                  <p className="text-danger">{formik.errors.password}</p>
+
+                {formik.errors.email && formik.touched.email && (
+                  <p className="text-danger">{formik.errors.email}</p>
                 )}
               </div>
-            </div>
-          </form>
 
-          <p className="text-center mb-3">Forget Password?</p>
+              <div className="mb-4">
+                <div style={{ position: "relative" }}>
+                  <InputBox
+                    type="password"
+                    name="password"
+                    id="Inpassword"
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    placeholder="Password"
+                  />
+                </div>
+                <div className="error-message-wrapper">
+                  {formik.errors.password && formik.touched.password && (
+                    <p className="text-danger">{formik.errors.password}</p>
+                  )}
+                </div>
+              </div>
+            </form>
 
-          <button type="submit" className="main-btn">
-            login
-          </button>
+            <p className="text-center mb-3">Forget Password?</p>
+
+            <button type="submit" className="main-btn">
+              login
+            </button>
+          </div>
         </div>
       </div>
     </div>

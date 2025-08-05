@@ -52,64 +52,66 @@ function SignUP() {
     validationSchema: validationSchema,
   });
   return (
-    <div className="d-flex vh-100">
-      <div className="row">
-        <img
-          src="/background.png"
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
-      </div>
-
-      <div className="content d-flex flex-column justify-content-center align-items-center w-50">
-        <div className="logo">
-          <img className="logoImg" src="/Logo symbol.png" />
+    <div className="container-fluid vh-100">
+      <div className="row h-100">
+        <div className="col-lg-4 d-none d-lg-block">
+          <img
+            src="/background.png"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              marginLeft: "-15px",
+            }}
+          />
         </div>
 
-        <h2 className="mb-3">Sign Up</h2>
+        <div className="col-lg-8 col-md-12 d-flex justify-content-center align-items-center">
+          <div className="content text-center w-100 px-3 px-md-5">
+            <div className="logo">
+              <img className="logoImg" src="/Logo symbol.png" />
+            </div>
 
-        <p className="text-secondary">Use Your OpenID to Sign in</p>
+            <h2 className="mb-3">Sign Up</h2>
 
-        <div className="buttons d-flex justify-content-evenly mb-5">
-          <button className="d-flex btn-white align-items-center">
-            <img className="icon" src="/google.png" />
-            <span>Google</span>
-          </button>
-          <button className="d-flex align-items-center">
-            <img className="icon" src="/Apple.png" />
-            <span>Apple ID</span>
-          </button>
-        </div>
+            <p className="text-secondary">Use Your OpenID to Sign in</p>
 
-        <form onSubmit={formik.handleSubmit}>
-          <div className="mb-4">
-            <InputBox
-              type="email"
-              name="email"
-              id="Inemail"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              placeholder="Enter your email"
-            />
+            <div className="buttons gap-3 d-flex justify-content-evenly mb-5">
+              <button className="d-flex btn-white align-items-center">
+                <img className="icon" src="/google.png" />
+                <span>Google</span>
+              </button>
+              <button className="d-flex align-items-center">
+                <img className="icon" src="/Apple.png" />
+                <span>Apple ID</span>
+              </button>
+            </div>
 
-            {formik.errors.email && formik.touched.email && (
-              <p className="text-danger">{formik.errors.email}</p>
-            )}
+            <form onSubmit={formik.handleSubmit}>
+              <div className="mb-4">
+                <InputBox
+                  type="email"
+                  name="email"
+                  id="Inemail"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  placeholder="Enter your email"
+                />
+
+                {formik.errors.email && formik.touched.email && (
+                  <p className="text-danger">{formik.errors.email}</p>
+                )}
+              </div>
+            </form>
+
+            <p className="text-center mb-3">Forget Password?</p>
+
+            <button type="submit" className="main-btn">
+              login
+            </button>
           </div>
-        </form>
-
-        <p className="text-center mb-3">Forget Password?</p>
-
-        <button type="submit" className="main-btn">
-          Sign up
-        </button>
-
-        <p className="mt-4">
-          Already have an account?
-          <Link to="/signin" style={{ textDecoration: "none" }}>
-            Login
-          </Link>
-        </p>
+        </div>
       </div>
     </div>
   );
