@@ -1,17 +1,18 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { UserProvider } from "./Context/UserContext";
 import "./index.css";
-import SignUP from "./Componets/Forms/SignUP";
-import SignIn from "./Componets/Forms/SignIn";
+import { Toaster } from "react-hot-toast";
+// import { Link } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes";
 
 function App() {
   return (
     <>
-      <UserProvider>
-        <SignIn />
-        <SignUP />
-      </UserProvider>
+      <div>
+        <Toaster />
+        <RouterProvider router={router} />
+      </div>
     </>
   );
 }

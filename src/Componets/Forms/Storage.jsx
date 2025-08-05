@@ -9,6 +9,14 @@ export const saveUser = (newUser) => {
   localStorage.setItem("users", JSON.stringify(users));
 };
 
+export const clearCurrentUser = () => {
+  localStorage.removeItem("currentUser");
+};
+
+export const clearAllUsers = () => {
+  localStorage.removeItem("users");
+};
+
 export const setCurrentUser = (user) => {
   localStorage.setItem("currentUser", JSON.stringify(user));
 };
@@ -16,8 +24,4 @@ export const setCurrentUser = (user) => {
 export const getCurrentUser = () => {
   const user = localStorage.getItem("currentUser");
   return user ? JSON.parse(user) : null;
-};
-
-export const clearCurrentUser = () => {
-  localStorage.removeItem("currentUser");
 };
