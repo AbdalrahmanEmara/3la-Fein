@@ -1,11 +1,14 @@
-import SignIn from "./Componets/Forms/SignIn";
-import Reviews from "./Componets/Forms/Reviews";
+import Reviews from "./components/Reviews";
+import PublicGroups from "./components/PublicGroups";
+import Discover from "./components/Discover";
+import "./App.css";
 
 function App() {
   return (
     <>
-      <div>see our 3la fein</div>
-      <SignIn />
+      <PublicGroups />
+
+      <Discover />
       <Reviews />
     </>
   );
