@@ -1,10 +1,23 @@
+import { Toaster } from "react-hot-toast";
 import SignIn from "./Componets/Forms/SignIn";
+import SignUp from "./Componets/Forms/SignUP";
+import "./index.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Home from "./Pages/Home";
 
+let routes = createBrowserRouter([
+  {
+    index: true,
+    element: <Home />,
+  },
+  { path: "/signin", element: <SignIn /> },
+  { path: "/signup", element: <SignUp /> },
+]);
 function App() {
   return (
     <>
-      <div>see our 3la fein</div>
-      <SignIn />
+      <RouterProvider router={routes} />
+      <Toaster />
     </>
   );
 }

@@ -1,21 +1,24 @@
 import { Formik } from "formik";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 Formik;
 function InputBox(props) {
   return (
     <div>
       <div className="mb-3">
-        <label htmlFor={props.id} className="form-label">
-          {props.name[0] + props.name.slice(1)}
-        </label>
+        {/* <label htmlFor={props.id} className="form-label">
+          {props.name[0].toUpperCase() + props.name.slice(1)}
+        </label> */}
         <input
           type={props.type}
           name={props.name}
           id={props.id}
-          className="form-control"
+          // className="form-control"
           value={props.value}
           onChange={props.onChange}
           onBlur={props.onBlur}
+          placeholder={props.placeholder}
+          style={{ position: "relative" }}
         />
       </div>
     </div>
