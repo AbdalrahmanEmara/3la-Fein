@@ -5,6 +5,7 @@ import InputBox from "./InputBox";
 import toast from "react-hot-toast";
 import { getUsers, saveUser, setCurrentUser } from "./Storage";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   const validationSchema = Yup.object({
@@ -76,13 +77,25 @@ function SignUp() {
         </div>
 
         <div className="col-lg-8 col-md-12 d-flex justify-content-center align-items-center">
-          <div className="content text-center w-100 px-3 px-md-5">
-            <div className="logo">
-              <img className="logoImg" src="/Logo symbol.png" alt="logo" />
+          <div className="content text-center  w-100 px-3 px-md-5">
+            <div className="logo mb-5">
+              <img className="logoImg" src="/Logo symbol.png" />
             </div>
 
-            <h2 className="mb-3">Sign Up</h2>
-            <p className="text-secondary">Create your account</p>
+            <h2 className="mb-4">Sign Up</h2>
+
+            <p className="text-secondary mb-5">Use your email and password</p>
+
+            <div className="buttons gap-4 d-flex justify-content-evenly mb-5">
+              <button className="d-flex btn-white align-items-center">
+                <img className="icon" src="/google.png" />
+                <span>Google</span>
+              </button>
+              <button className="d-flex align-items-center">
+                <img className="icon" src="/Apple.png" />
+                <span>Apple ID</span>
+              </button>
+            </div>
 
             <form onSubmit={formik.handleSubmit}>
               <div className="mb-4">
@@ -114,13 +127,13 @@ function SignUp() {
                   <p className="text-danger">{formik.errors.password}</p>
                 )}
               </div>
-
               <button type="submit" className="main-btn">
                 Create Account
               </button>
             </form>
-
-            <p className="text-center mt-3">Already have an account?</p>
+            <p className="text-center mt-3">
+              Already have an account? <Link to="/signin">Sign In</Link>
+            </p>
           </div>
         </div>
       </div>

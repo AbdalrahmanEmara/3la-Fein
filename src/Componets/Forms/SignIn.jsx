@@ -4,6 +4,7 @@ import InputBox from "./InputBox";
 import { getUsers, setCurrentUser } from "./Storage";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function SignIn() {
   const navigate = useNavigate();
@@ -55,12 +56,23 @@ function SignIn() {
 
         <div className="col-lg-8 col-md-12 d-flex justify-content-center align-items-center">
           <div className="content text-center w-100 px-3 px-md-5">
-            <div className="logo">
-              <img className="logoImg" src="/Logo symbol.png" alt="logo" />
+            <div className="logo mb-5">
+              <img className="logoImg" src="/Logo symbol.png" />
             </div>
 
-            <h2 className="mb-3">Sign In</h2>
-            <p className="text-secondary">Use your email and password</p>
+            <h2 className="mb-4">Sign In</h2>
+            <p className="text-secondary mb-5">Use your email and password</p>
+
+            <div className="buttons gap-3 d-flex justify-content-evenly mb-5">
+              <button className="d-flex btn-white align-items-center">
+                <img className="icon" src="/google.png" />
+                <span>Google</span>
+              </button>
+              <button className="d-flex align-items-center">
+                <img className="icon" src="/Apple.png" />
+                <span>Apple ID</span>
+              </button>
+            </div>
 
             <form onSubmit={formik.handleSubmit}>
               <div className="mb-4">
@@ -91,8 +103,6 @@ function SignIn() {
                 Login
               </button>
             </form>
-
-            <p className="text-center mb-3">Forgot Password?</p>
           </div>
         </div>
       </div>
