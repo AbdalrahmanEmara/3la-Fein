@@ -67,16 +67,16 @@ function SignUP() {
         </div>
 
         <div className="col-lg-8 col-md-12 d-flex justify-content-center align-items-center">
-          <div className="content text-center w-100 px-3 px-md-5">
-            <div className="logo">
+          <div className="content text-center  w-100 px-3 px-md-5">
+            <div className="logo mb-5">
               <img className="logoImg" src="/Logo symbol.png" />
             </div>
 
-            <h2 className="mb-3">Sign Up</h2>
+            <h2 className="mb-4">Sign Up</h2>
 
-            <p className="text-secondary">Use Your OpenID to Sign in</p>
+            <p className="text-secondary mb-5">Use Your OpenID to Sign in</p>
 
-            <div className="buttons gap-3 d-flex justify-content-evenly mb-5">
+            <div className="buttons gap-4 d-flex justify-content-evenly mb-5">
               <button className="d-flex btn-white align-items-center">
                 <img className="icon" src="/google.png" />
                 <span>Google</span>
@@ -107,8 +107,8 @@ function SignUP() {
 
             <p className="text-center mb-3">Forget Password?</p>
 
-            <button type="submit" className="main-btn">
-              login
+            <button type="submit" className="main-btn mt-3">
+              sign up
             </button>
           </div>
         </div>
