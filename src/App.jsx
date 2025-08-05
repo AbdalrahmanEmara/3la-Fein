@@ -1,14 +1,18 @@
 import "./App.css";
-import AnimationTest from "./AnimationTest/AnimationTest";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { UserProvider } from "./Context/UserContext";
+import "./index.css";
+import SignUP from "./Componets/Forms/SignUP";
 import SignIn from "./Componets/Forms/SignIn";
 
 function App() {
   return (
-    <UserProvider>
-      <SignIn />
-    </UserProvider>
+    <>
+      <UserProvider>
+        <SignIn />
+        <SignUP />
+      </UserProvider>
+    </>
   );
 }
 
