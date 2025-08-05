@@ -1,11 +1,11 @@
 import "./App.css";
-import SignIn from "./Componets/Forms/SignIn";
+import AnimationTest from "./AnimationTest/AnimationTest";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <>
-      <div>see our test api</div>
-      <SignIn />
+      <AnimationTest />
     </>
   );
 }
