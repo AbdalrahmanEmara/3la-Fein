@@ -1,0 +1,36 @@
+.tour-card {
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.tour-card-content {
+  padding: 16px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+
+}
+
+.tour-btn {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: 1px solid white;
+  padding: 4px 4px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+  margin-left: 0px;
+  
+}
+
+.tour-card h2 {
+  margin: 0;
+}
