@@ -2,6 +2,9 @@ import './App.css';
 import PublicGroups from './components/PublicGroups';
 import Discover from './components/Discover'  ;
 import Navigator from './Components/Navigator';
+import History from './Components/History';
+
+
 
 function App() {
   return (
@@ -13,7 +16,7 @@ function App() {
       <Discover />
 
     </div>
-        <div className="navigator-container">
+    <div className="navigator-container">
       <Navigator 
         color="blue" 
         icon={<span role="img" aria-label="lightbulb">💡</span>} 
@@ -32,6 +35,9 @@ function App() {
         title="We'll give you recommendations" 
         text="Fully layered dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt..." 
       />
+    </div>
+    <div className="App">
+      <History />
     </div>
     </>
   );

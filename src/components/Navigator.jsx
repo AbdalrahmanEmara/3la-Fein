@@ -1,4 +1,5 @@
 import React from 'react';
+import './Navigator.css'
 
 const Navigator = ({ color, icon, title, text }) => (
   <button className={`navigator ${color}`}>
