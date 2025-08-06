@@ -1,8 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
+// <<<<<<< HEAD:src/components/CardReview.jsx
+import React, { useState } from "react";
 import Style from "./ReviewStyle.module.css";
 import CurrentReviewHead from "./CurrentReviewHead";
 
 const CardReview = () => {
+  
   const current__reviews = [
     <CurrentReviewHead
       name="Isabelle O'Conner"
@@ -83,3 +85,25 @@ const CardReview = () => {
 };
 
 export default CardReview;
+// =======
+// import Style from "./ReviewStyle.module.css";
+// import CurrentReviewHead from "./CurrentReviewHead";
+
+// const CardReview = () => {
+//   return (
+//     <section className={Style["card-review"]}>
+//       <div className={Style["current-review"]}>
+//         <CurrentReviewHead name="Isabelle O'Conner" job="BA at Robin" />
+
+//         <p className={Style["review-content-text"]}>
+//           An enim nullam tempor gravida donec enim congue magna at pretium purus
+//           pretium ligula rutrum luctus risusd diam eget risus varius blandit sit
+//           amet non magna.
+//         </p>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default CardReview;
+// >>>>>>> 50406cac44b90b704be828f16be253136a0e1aea:src/Componets/Reviews/CardReview.jsx

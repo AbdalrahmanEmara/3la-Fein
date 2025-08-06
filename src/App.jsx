@@ -1,15 +1,18 @@
-import Reviews from "./components/Reviews";
-import PublicGroups from "./components/PublicGroups";
-import Discover from "./components/Discover";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
+import { Toaster } from "react-hot-toast";
+// import { Link } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes";
 
 function App() {
   return (
     <>
-      <PublicGroups />
-
-      <Discover />
-      <Reviews />
+      <div>
+        <Toaster />
+        <RouterProvider router={router} />
+      </div>
     </>
   );
 }

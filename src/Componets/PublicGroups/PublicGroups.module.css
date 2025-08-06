@@ -1,0 +1,133 @@
+.publicGroupsContainer {
+  text-align: center;
+  margin: 100px 0;
+}
+.sectionTitle {
+  font-family: "DM Sans";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.96px;
+}
+
+.bookBtn {
+  background-color: #3fafc6;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 5rem;
+  margin-top: 3rem;
+}
+.bookBtn:hover {
+  background-color: #009db2;
+}
+
+.waveLine {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 8rem;
+  position: relative;
+  flex-wrap: nowrap;
+  transform: translateY(-100px);
+}
+
+.person {
+  position: relative;
+  z-index: 1;
+}
+
+.person img {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: #009db2 solid 1px;
+  padding: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.person img:hover {
+  transform: scale(1.3);
+  box-shadow: 0 0 10px #009db2aa;
+  border-color: #00798a;
+}
+.person0 {
+  transform: translateY(-240px);
+}
+.person1 {
+  transform: translateY(-60px) translateX(20px) scale(calc(131 / 88));
+}
+.person2 {
+  transform: translateY(-250px) translateX(10px) scale(calc(110 / 88));
+}
+.person3 {
+  transform: translateY(-150px) translateX(15px) scale(calc(137 / 88));
+}
+.person4 {
+  transform: translateY(-230px) translateX(40px) scale(calc(124 / 88));
+}
+.person5 {
+  transform: translateY(-45px) translateX(35px) scale(calc(105 / 88));
+}
+.person6 {
+  transform: translateY(-230px) translateX(5px) scale(calc(107 / 88));
+}
+
+.quote {
+  color: #777;
+  max-width: 600px;
+  margin: 0 auto;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.vector634stroke {
+  width: 100%;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 1919px) {
+  .sectionTitle {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .waveLine {
+    flex-wrap: wrap;
+    justify-content: center;
+    transform: none;
+    gap: 1.5rem;
+  }
+
+  .person {
+    transform: none !important;
+    scale: 1.5 !important;
+    margin: 30px 3rem;
+  }
+
+  .person img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .vector634stroke {
+    margin-bottom: 2rem;
+  }
+
+  .bookBtn {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .quote {
+    font-size: 0.85rem;
+    margin-top: 3rem;
+  }
+}
