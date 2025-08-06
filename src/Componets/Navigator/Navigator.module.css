@@ -1,28 +1,43 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #ffffff;
+  margin: 5%;
+}
+
 .navigator {
   width: 100%;
   max-width: 300px;
   padding: 20px;
   border-radius: 10px;
   text-align: left;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
   margin: 10px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e0e0e0;
 }
 
 .navigator:hover {
-  color: #2980b9;
+  background-color: #f9f9f9;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.blue {
-  background-color: #ffffff;
+.blue .iconContainer {
+  background-color: #87ceeb;
 }
-.yellow {
-  background-color: #ffffff;
+.yellow .iconContainer {
+  background-color: #e6e600;
 }
-.pink {
-  background-color: #ffffff;
+.pink .iconContainer {
+  background-color: #ff69b4;
 }
 
-.icon-container {
+.iconContainer {
   font-size: 2.5em;
   margin-bottom: 10px;
   display: inline-block;
@@ -30,22 +45,13 @@
   border-radius: 8px;
 }
 
-.blue .icon-container {
-  background-color: #87ceeb;
-}
-.yellow .icon-container {
-  background-color: #e6e600;
-}
-.pink .icon-container {
-  background-color: #ff69b4;
-}
-
-.navigator h3 {
+.title {
   font-size: 1em;
   margin: 10px 0;
   color: #060606;
 }
-.navigator p {
+
+.text {
   font-size: 0.9em;
   color: #555;
 }
