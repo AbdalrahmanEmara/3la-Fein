@@ -1,4 +1,4 @@
-// import "./History.module.css";
+import styles from "./History.module.css";
 
 const History = () => {
   const trips = [
@@ -32,27 +32,31 @@ const History = () => {
   ];
 
   return (
-    <div className="history-container">
-      <h2>My History</h2>
+    <div className={styles.container}>
+      <h2 className={styles.heading}>My History</h2>
       {trips.map((trip) => (
-        <div key={trip.id} className="trip-card">
-          <img src={trip.image} alt={trip.title} className="trip-image" />
-          <div className="trip-details">
-            <div className="trip-info">
-              <h3>{trip.title}</h3>
-              <span className={`trip-type ${trip.type.replace(" ", "-")}`}>
+        <div key={trip.id} className={styles.tripCard}>
+          <img src={trip.image} alt={trip.title} className={styles.tripImage} />
+          <div className={styles.tripDetails}>
+            <div className={styles.tripInfo}>
+              <h3 className={styles.tripTitle}>{trip.title}</h3>
+              <span
+                className={`${styles.tripType} ${
+                  styles[trip.type.replace(" ", "-")]
+                }`}
+              >
                 {trip.type.charAt(0).toUpperCase() + trip.type.slice(1)}
               </span>
-              <p>
+              <p className={styles.tripDate}>
                 Check-in: {trip.checkIn} | Check-out: {trip.checkOut}
               </p>
-              <p className="trip-price">{trip.price}</p>
+              <p className={styles.tripPrice}>{trip.price}</p>
             </div>
-            <button className="detail-btn">Detail</button>
+            <button className={styles.detailBtn}>Detail</button>
           </div>
         </div>
       ))}
-      <button className="show-reviews">Show all reviews</button>
+      <button className={styles.showReviews}>Show all reviews</button>
     </div>
   );
 };
