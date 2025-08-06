@@ -3,9 +3,11 @@
   max-width: 350px;
   border-radius: 20px;
   transition: 0.3s;
+  transform-origin: center;
 }
 .categoryCard:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+  z-index: 1;
 }
 .categoryCard a {
   text-decoration: none;

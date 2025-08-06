@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Nav.module.css";
+import { getCurrentUser } from "../../Componets/Forms/Storage";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const user = getCurrentUser();
+    setCurrentUser(user);
+  }, []);
 
   return (
     <nav
@@ -18,7 +25,7 @@ const Nav = () => {
       }}
     >
       <div className="container">
-        <Link className={`nav-link ${styles.navLink}`} to="/home">
+        <Link className={`nav-link ${styles.navLink}`} to="/">
           <div className={`${styles.logo} pe-3`}>
             <img
               src="./logo.png"
@@ -30,19 +37,38 @@ const Nav = () => {
           </div>
         </Link>
 
+        {/* Mobile Buttons */}
         <div className="d-md-flex d-lg-none">
           <div className={styles.hideOnSmall}>
-            <Link className={`nav-link me-2`} to="/login">
-              <button className={`${styles.mainBtn} ${styles.butt}`}>
+            <Link className="nav-link me-2" to="/search">
+              <button
+                className={
+                  currentUser
+                    ? `${styles.mainBtn} ${styles.searchWide}`
+                    : `${styles.mainBtn} ${styles.butt}`
+                }
+              >
                 <img src="./Shape.svg" alt="search" />
+                {currentUser && <span className="ms-2">Search</span>}
               </button>
             </Link>
           </div>
           <Link className="nav-link" to="/signup">
-            <button className={styles.mainBtn}>Sign Up</button>
+            {currentUser ? (
+              <Link className="nav-link" to="/profile">
+                <img
+                  src={currentUser.src}
+                  alt="avatar"
+                  className={styles.avatar}
+                />
+              </Link>
+            ) : (
+              <button className={styles.mainBtn}>Sign Up</button>
+            )}
           </Link>
         </div>
 
+        {/* Burger Toggle */}
         <button
           className="navbar-toggler"
           type="button"
@@ -54,6 +80,7 @@ const Nav = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
+        {/* Nav Links */}
         <div
           className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}
           id="navbarNav"
@@ -62,7 +89,7 @@ const Nav = () => {
             className={`navbar-nav m-md-0 m-sm-0 mx-lg-auto d-flex justify-content-between w-50 ${styles.navbarFont}`}
           >
             <li className="nav-item text-md-center">
-              <Link className="nav-link" to="/home">
+              <Link className="nav-link" to="/">
                 Home
               </Link>
             </li>
@@ -104,14 +131,32 @@ const Nav = () => {
           </ul>
         </div>
 
+        {/* Desktop Buttons */}
         <div className="d-none d-lg-flex">
-          <Link className="nav-link me-2" to="/signup">
-            <button className={`${styles.mainBtn} ${styles.butt}`}>
+          <Link className="nav-link me-2" to="/search">
+            <button
+              className={
+                currentUser
+                  ? `${styles.mainBtn} ${styles.searchWide}`
+                  : `${styles.mainBtn} ${styles.butt}`
+              }
+            >
               <img src="./Shape.svg" alt="search" />
+              {currentUser && <span className="ms-2">Search</span>}
             </button>
           </Link>
           <Link className="nav-link" to="/signup">
-            <button className={styles.mainBtn}>Sign Up</button>
+            {currentUser ? (
+              <Link className="nav-link" to="/profile">
+                <img
+                  src={currentUser.src}
+                  alt="avatar"
+                  className={styles.avatar}
+                />
+              </Link>
+            ) : (
+              <button className={styles.mainBtn}>Sign Up</button>
+            )}
           </Link>
         </div>
       </div>
