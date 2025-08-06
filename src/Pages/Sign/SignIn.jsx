@@ -1,10 +1,12 @@
 import { useFormik } from "formik";
-import "bootstrap/dist/css/bootstrap.min.css";
-import InputBox from "../../Componets/Forms/InputBox";
-import { getUsers, setCurrentUser } from "../../Componets/Forms/Storage";
-import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import toast from "react-hot-toast";
+
+import Style from "./Sign.module.css";
+import InputBox from "../../Componets/Forms/InputBox";
+import { getUsers, setCurrentUser } from "../../Componets/Forms/Storage";
 
 function SignIn() {
   const navigate = useNavigate();
@@ -39,7 +41,7 @@ function SignIn() {
   });
 
   return (
-    <div className="container-fluid vh-100">
+    <div className={`container-fluid vh-100 ${Style.containerFluid}`}>
       <div className="row h-100">
         <div className="col-lg-4 d-none d-lg-block">
           <img
@@ -55,21 +57,23 @@ function SignIn() {
         </div>
 
         <div className="col-lg-8 col-md-12 d-flex justify-content-center align-items-center">
-          <div className="content text-center w-100 px-3 px-md-5">
+          <div className={`${Style.content} text-center w-100 px-3 px-md-5`}>
             <div className="logo mb-5">
-              <img className="logoImg" src="/Logo symbol.png" />
+              <img className={Style.logoImg} src="/Logo symbol.png" />
             </div>
 
             <h2 className="mb-4">Sign In</h2>
             <p className="text-secondary mb-5">Use your email and password</p>
 
-            <div className="buttons gap-3 d-flex justify-content-evenly mb-5">
+            <div
+              className={`buttons gap-3 d-flex justify-content-evenly mb-5 ${Style.buttons}`}
+            >
               <button className="d-flex btn-white align-items-center">
-                <img className="icon" src="/google.png" />
+                <img className={Style.icon} src="/google.png" />
                 <span>Google</span>
               </button>
               <button className="d-flex align-items-center">
-                <img className="icon" src="/Apple.png" />
+                <img className={Style.icon} src="/Apple.png" />
                 <span>Apple ID</span>
               </button>
             </div>
@@ -99,10 +103,14 @@ function SignIn() {
                 />
               </div>
 
-              <button type="submit" className="main-btn mb-3">
+              <button type="submit" className={`${Style.mainBtn} mb-3`}>
                 Login
               </button>
             </form>
+
+            <p className="text-center mt-3">
+              Don't have an account? <Link to="/signup">Sign Up</Link>
+            </p>
           </div>
         </div>
       </div>

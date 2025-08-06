@@ -1,8 +1,8 @@
-.public-groups-container {
+.publicGroupsContainer {
   text-align: center;
   margin: 100px 0;
 }
-.section-title {
+.sectionTitle {
   font-family: "DM Sans";
   font-size: 48px;
   font-style: normal;
@@ -11,7 +11,7 @@
   letter-spacing: -0.96px;
 }
 
-.book-btn {
+.bookBtn {
   background-color: #3fafc6;
   color: white;
   border: none;
@@ -22,11 +22,11 @@
   margin-bottom: 5rem;
   margin-top: 3rem;
 }
-.book-btn:hover {
+.bookBtn:hover {
   background-color: #009db2;
 }
 
-.wave-line {
+.waveLine {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -48,7 +48,6 @@
   object-fit: cover;
   border: #009db2 solid 1px;
   padding: 4px;
-
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
@@ -57,25 +56,25 @@
   box-shadow: 0 0 10px #009db2aa;
   border-color: #00798a;
 }
-.person-0 {
+.person0 {
   transform: translateY(-240px);
 }
-.person-1 {
+.person1 {
   transform: translateY(-60px) translateX(20px) scale(calc(131 / 88));
 }
-.person-2 {
+.person2 {
   transform: translateY(-250px) translateX(10px) scale(calc(110 / 88));
 }
-.person-3 {
+.person3 {
   transform: translateY(-150px) translateX(15px) scale(calc(137 / 88));
 }
-.person-4 {
+.person4 {
   transform: translateY(-230px) translateX(40px) scale(calc(124 / 88));
 }
-.person-5 {
+.person5 {
   transform: translateY(-45px) translateX(35px) scale(calc(105 / 88));
 }
-.person-6 {
+.person6 {
   transform: translateY(-230px) translateX(5px) scale(calc(107 / 88));
 }
 
@@ -87,7 +86,7 @@
   font-size: 0.95rem;
 }
 
-.vector-634-stroke {
+.vector634stroke {
   width: 100%;
   position: relative;
   max-width: 100%;
@@ -95,12 +94,12 @@
 }
 
 @media (max-width: 1919px) {
-  .section-title {
+  .sectionTitle {
     font-size: 36px;
     line-height: 1.2;
   }
 
-  .wave-line {
+  .waveLine {
     flex-wrap: wrap;
     justify-content: center;
     transform: none;
@@ -118,11 +117,11 @@
     height: 64px;
   }
 
-  .vector-634-stroke {
+  .vector634stroke {
     margin-bottom: 2rem;
   }
 
-  .book-btn {
+  .bookBtn {
     margin-top: 2rem;
     margin-bottom: 3rem;
   }

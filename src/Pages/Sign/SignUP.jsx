@@ -1,17 +1,20 @@
 import { useFormik } from "formik";
-import "bootstrap/dist/css/bootstrap.min.css";
 import * as Yup from "yup";
-import InputBox from "../../Componets/Forms/InputBox";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 import toast from "react-hot-toast";
+import Style from "./Sign.module.css";
+import InputBox from "../../Componets/Forms/InputBox";
 import {
   getUsers,
   saveUser,
   setCurrentUser,
 } from "../../Componets/Forms/Storage";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 function SignUp() {
+  const navigate = useNavigate();
+
   const validationSchema = Yup.object({
     email: Yup.string().email("Invalid email").required("Email is required"),
     password: Yup.string()
@@ -19,17 +22,15 @@ function SignUp() {
       .max(13, "Password must not exceed 13 characters")
       .matches(
         /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{7,13}$/,
-        "Password must include at least one uppercase letter, one number, and one special character"
+        "Password must include an uppercase letter, number, and special character"
       )
       .required("Password is required"),
   });
 
-  const navigate = useNavigate();
-
   const handleRegister = (values) => {
     const users = getUsers();
-
     const alreadyExists = users.find((u) => u.email === values.email);
+
     if (alreadyExists) {
       toast.error("Email already registered!", {
         position: "bottom-center",
@@ -41,7 +42,7 @@ function SignUp() {
     const newUser = {
       email: values.email,
       password: values.password,
-      src: "https://i.ibb.co/3y0x5fH/Avatar.png", // Default avatar
+      src: "https://i.ibb.co/3y0x5fH/Avatar.png", // default image
     };
 
     saveUser(newUser);
@@ -60,12 +61,12 @@ function SignUp() {
       email: "",
       password: "",
     },
-    onSubmit: handleRegister,
     validationSchema,
+    onSubmit: handleRegister,
   });
 
   return (
-    <div className="container-fluid vh-100">
+    <div className={`container-fluid vh-100 ${Style.containerFluid}`}>
       <div className="row h-100">
         <div className="col-lg-4 d-none d-lg-block">
           <img
@@ -81,22 +82,23 @@ function SignUp() {
         </div>
 
         <div className="col-lg-8 col-md-12 d-flex justify-content-center align-items-center">
-          <div className="content text-center w-100 px-3 px-md-5">
+          <div className={`${Style.content} text-center w-100 px-3 px-md-5`}>
             <div className="logo mb-5">
-              <img className="logoImg" src="/Logo symbol.png" />
+              <img className={Style.logoImg} src="/Logo symbol.png" />
             </div>
 
             <h2 className="mb-4">Sign Up</h2>
-
             <p className="text-secondary mb-5">Use your email and password</p>
 
-            <div className="buttons gap-4 d-flex justify-content-evenly mb-5">
+            <div
+              className={`buttons gap-4 d-flex justify-content-evenly mb-5 ${Style.buttons}`}
+            >
               <button className="d-flex btn-white align-items-center">
-                <img className="icon" src="/google.png" />
+                <img className={Style.icon} src="/google.png" />
                 <span>Google</span>
               </button>
               <button className="d-flex align-items-center">
-                <img className="icon" src="/Apple.png" />
+                <img className={Style.icon} src="/Apple.png" />
                 <span>Apple ID</span>
               </button>
             </div>
@@ -112,7 +114,7 @@ function SignUp() {
                   onBlur={formik.handleBlur}
                   placeholder="Enter your email"
                 />
-                {formik.errors.email && formik.touched.email && (
+                {formik.touched.email && formik.errors.email && (
                   <p className="text-danger">{formik.errors.email}</p>
                 )}
               </div>
@@ -127,14 +129,16 @@ function SignUp() {
                   onBlur={formik.handleBlur}
                   placeholder="Enter your password"
                 />
-                {formik.errors.password && formik.touched.password && (
+                {formik.touched.password && formik.errors.password && (
                   <p className="text-danger">{formik.errors.password}</p>
                 )}
               </div>
-              <button type="submit" className="main-btn">
+
+              <button type="submit" className={`${Style.mainBtn} mb-3`}>
                 Create Account
               </button>
             </form>
+
             <p className="text-center mt-3">
               Already have an account? <Link to="/signin">Sign In</Link>
             </p>

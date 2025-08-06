@@ -1,4 +1,5 @@
-/* // Reem */
+/* Sign.module.css */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,19 +12,21 @@ html {
   width: 100%;
 }
 
-/* Content Box */
+.containerFluid {
+  min-height: 100vh !important;
+  overflow: hidden !important;
+}
+
 .content {
   max-width: 420px;
   margin: 0 auto;
 }
 
-/* Logo */
 .logoImg {
   width: 64px;
   height: 64px;
 }
 
-/* Input */
 input {
   width: 100%;
   border: 1px solid #eee;
@@ -32,8 +35,7 @@ input {
   margin-bottom: 10px;
 }
 
-/* Button Main */
-.main-btn {
+.mainBtn {
   background: #4ac63f;
   border: none;
   border-radius: 200px;
@@ -45,7 +47,6 @@ input {
   margin: auto;
 }
 
-/* Social Buttons */
 .icon {
   width: 20px;
   height: 20px;
@@ -64,8 +65,7 @@ input {
   align-items: center;
 }
 
-/* Eye Icon */
-.eye-slash {
+.eyeSlash {
   width: 20px;
   height: 20px;
   position: absolute;
@@ -74,12 +74,7 @@ input {
   transform: translateY(-50%);
   cursor: pointer;
 }
-.container-fluid {
-  min-height: 100vh !important;
-  overflow: hidden !important;
-}
 
-/* Responsive Fixes */
 @media (max-width: 768px) {
   .buttons {
     flex-direction: column;
@@ -87,7 +82,7 @@ input {
     align-items: center;
   }
 
-  .main-btn {
+  .mainBtn {
     width: 100%;
   }
 

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import PublicGroups from "../Componets/PublicGroups/PublicGroups";
 import Discover from "../Componets/Discover/Discover";
 import Footer from "../Componets/Footer/Footer";
+import Reviews from "../Componets/Reviews/Reviews";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Link to="/signin">Sign In</Link>
       <PublicGroups />
       <Discover />
+      <Reviews />
       <Footer />
     </div>
   );

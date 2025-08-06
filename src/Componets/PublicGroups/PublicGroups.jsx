@@ -1,5 +1,4 @@
-import React from "react";
-import "./PublicGroups.css";
+import Style from "./PublicGroups.module.css";
 
 const people = [
   { img: "/images/person1.png" },
@@ -13,24 +12,27 @@ const people = [
 
 export default function PublicGroups() {
   return (
-    <div className="public-groups-container">
-      <h2 className="section-title">Public Groups</h2>
+    <div className={Style.publicGroupsContainer}>
+      <h2 className={Style.sectionTitle}>Public Groups</h2>
 
-      <button className="book-btn">Book now</button>
+      <button className={Style.bookBtn}>Book now</button>
       <img
         alt=""
         src="/images/Vector634(Stroke).svg"
-        className="vector-634-stroke"
+        className={Style.vector634stroke}
       />
-      <div className="wave-line">
+      <div className={Style.waveLine}>
         {people.map((person, index) => (
-          <div className={`person person-${index}`} key={index}>
+          <div
+            className={`${Style.person} ${Style[`person${index}`]}`}
+            key={index}
+          >
             <img src={person.img} alt={`person-${index}`} />
           </div>
         ))}
       </div>
 
-      <p className="quote">
+      <p className={Style.quote}>
         “An enim nullam tempor gravida donec enim congue magna at pretium purus
         pretium ligula rutrum luctus risus diam.”
       </p>
