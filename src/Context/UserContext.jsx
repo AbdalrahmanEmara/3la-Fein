@@ -1,39 +1,18 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import {
-  getCurrentUser,
-  setCurrentUser,
-  clearCurrentUser,
-} from "../Componets/Forms/Storage";
+import { createContext, useState, useContext } from "react";
 
-// 1. Create the context
-export const UserContext = createContext();
+// Create the context
+const LocationContext = createContext();
 
-// 2. Create the provider component
-export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-
-  // Load user on app startup
-  useEffect(() => {
-    const storedUser = getCurrentUser();
-    if (storedUser) setUser(storedUser);
-  }, []);
-
-  const login = (userData) => {
-    setCurrentUser(userData);
-    setUser(userData);
-  };
-
-  const logout = () => {
-    clearCurrentUser();
-    setUser(null);
-  };
+// Provider component
+export const LocationProvider = ({ children }) => {
+  const [location, setLocation] = useState(null);
 
   return (
-    <UserContext.Provider value={{ user, login, logout }}>
+    <LocationContext.Provider value={{ location, setLocation }}>
       {children}
-    </UserContext.Provider>
+    </LocationContext.Provider>
   );
 };
 
-// Export hook
-export const useUser = () => useContext(UserContext);
+// Hook for easy access
+export const useLocation = () => useContext(LocationContext);

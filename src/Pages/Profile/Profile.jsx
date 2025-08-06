@@ -13,7 +13,7 @@ const Profile = () => {
 
   const handleLogout = () => {
     clearCurrentUser();
-    navigate("/"); // or "/" if you prefer
+    navigate("/");
   };
 
   return (

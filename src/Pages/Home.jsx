@@ -6,12 +6,14 @@ import Nav from "../Componets/Nav/Nav";
 import Footer from "../Componets/Footer/Footer";
 import NavigatorEidget from "../Componets/Navigator/NavigatorWidget/NavigatorEidget";
 import MainCategories from "../Componets/categoriessec/maincategories";
+import LocationPickerButton from "../Componets/Location/LocationPickerButton";
 
 export default function Home() {
   return (
     <div>
       <Nav />
       <Hero />
+      <LocationPickerButton />
       <MainCategories />
       <PublicGroups />
       <Discover />
