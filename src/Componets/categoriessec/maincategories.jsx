@@ -1,14 +1,54 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import categoriesData from "./categorisedata";
 import Categories from "./categories";
-import styles from "./categoriesstyle.module.css"; // ← import styles
+import styles from "./categoriesstyle.module.css";
+import axios from "axios";
+
+const UNSPLASH_ACCESS_KEY = "F40xPBLNDZNgteLeR4nAeQ0X9yoeJH0bK34kTuElI58";
 
 function MainCategories() {
   const [currentPage, setCurrentPage] = useState(0);
+  const [categoriesWithImages, setCategoriesWithImages] = useState([]);
   const cardsPerPage = 3;
 
-  const totalPages = Math.ceil(categoriesData.length / cardsPerPage);
+  useEffect(() => {
+    const fetchImage = async (query) => {
+      try {
+        const response = await axios.get(
+          `https://api.unsplash.com/search/photos`,
+          {
+            params: {
+              query,
+              per_page: 1,
+              orientation: "landscape",
+            },
+            headers: {
+              Authorization: `Client-ID ${UNSPLASH_ACCESS_KEY}`,
+            },
+          }
+        );
+        return response.data.results[0]?.urls?.regular || "";
+      } catch (err) {
+        console.error("Image fetch failed for:", query, err);
+        return "";
+      }
+    };
+
+    const loadImages = async () => {
+      const updated = await Promise.all(
+        categoriesData.map(async (category) => {
+          const image = await fetchImage(category.title);
+          return { ...category, image };
+        })
+      );
+      setCategoriesWithImages(updated);
+    };
+
+    loadImages();
+  }, []);
+
+  const totalPages = Math.ceil(categoriesWithImages.length / cardsPerPage);
 
   const handleNext = () => {
     if (currentPage < totalPages - 1) {
@@ -23,7 +63,7 @@ function MainCategories() {
   };
 
   const startIndex = currentPage * cardsPerPage;
-  const visibleCards = categoriesData.slice(
+  const visibleCards = categoriesWithImages.slice(
     startIndex,
     startIndex + cardsPerPage
   );
@@ -31,16 +71,14 @@ function MainCategories() {
   return (
     <section className="py-5 bg-light">
       <div className="container">
-        <div className="d-flex align-items-center justify-content-between mb-4 flex-wrap">
-          <div className="flex-grow-1 me-3">
+        <div className="d-flex align-items-center justify-content-center mb-5 flex-wrap">
+          <div className="flex-grow-1 me-3 ms-5 ">
             <h2>Categories</h2>
             <p className="text-muted mb-0">
-              An enim nullam tempor gravida donec enim congue magna at pretium
-              purus pretium ligula rutrum luctus risus diam eget risus varius
-              blandit sit amet non magna.
+              Bored? Looking for an adventure? We've got you.
             </p>
           </div>
-          <div className="d-flex gap-2 mt-3 mt-md-0">
+          <div className="d-flex gap-2 mt-3 mt-md-0 me-5">
             <button
               className={styles.scrollBtn}
               onClick={handlePrev}

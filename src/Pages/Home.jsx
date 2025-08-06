@@ -7,8 +7,13 @@ import Footer from "../Componets/Footer/Footer";
 import NavigatorEidget from "../Componets/Navigator/NavigatorWidget/NavigatorEidget";
 import MainCategories from "../Componets/categoriessec/maincategories";
 import LocationPickerButton from "../Componets/Location/LocationPickerButton";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <Nav />

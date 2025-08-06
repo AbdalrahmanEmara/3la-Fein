@@ -7,6 +7,7 @@ import {
 } from "../../Componets/Forms/Storage";
 import MainHeroSec from "../../Componets/ProfHeroSec/mainHeroSec";
 import History from "../../Componets/History/History";
+import LocationPickerButton from "../../Componets/Location/LocationPickerButton";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const Profile = () => {
 
   return (
     <div>
+      <LocationPickerButton />
       <Nav />
       <MainHeroSec />
       <button className="btn btn-danger m-3" onClick={handleLogout}>

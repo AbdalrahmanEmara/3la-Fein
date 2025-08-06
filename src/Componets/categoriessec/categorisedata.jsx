@@ -1,66 +1,57 @@
 const categoriesData = [
   {
     id: 1,
-    image: "https://picsum.photos/600/400?random=1",
-    title: "Pack wisely before traveling",
-    description:
-      "It is almost impossible to read the news without coming across a lead story elections through fake social media accounts...",
+    title: "Restaurants",
+    description: "Explore top-rated restaurants near you.",
+    geoCategory: "catering.restaurant",
   },
   {
     id: 2,
-    image: "https://picsum.photos/600/400?random=2",
-    title: "Introducing this amazing city",
-    description:
-      "It is almost impossible to read the news without coming across a lead story elections through fake social media accounts...",
+    title: "Cafés",
+    description: "Discover cozy cafés around you.",
+    geoCategory: "catering.cafe",
   },
   {
     id: 3,
-    image: "https://picsum.photos/600/400?random=3",
-    title: "How to travel with paper map",
-    description:
-      "It is almost impossible to read the news without coming across a lead story elections through fake social media accounts...",
+    title: "Cinemas",
+    description: "Enjoy the latest movies at local cinemas.",
+    geoCategory: "entertainment.cinema",
   },
   {
     id: 4,
-    image: "https://picsum.photos/600/400?random=3",
-    title: "How to travel with paper map",
-    description:
-      "It is almost impossible to read the news without coming across a lead story elections through fake social media accounts...",
+    title: "Shopping Malls",
+    description: "Browse popular shopping malls and shops.",
+    geoCategory: "shopping.mall",
   },
   {
     id: 5,
-    image: "https://picsum.photos/600/400?random=3",
-    title: "How to travel with paper map",
-    description:
-      "It is almost impossible to read the news without coming across a lead story elections through fake social media accounts...",
+    title: "Landmarks",
+    description: "Visit famous attractions & cultural sites.",
+    geoCategory: "tourist_attraction",
   },
   {
     id: 6,
-    image: "https://picsum.photos/600/400?random=3",
-    title: "How to travel with paper map",
-    description:
-      "It is almost impossible to read the news without coming across a lead story elections through fake social media accounts...",
+    title: "Amusement Parks",
+    description: "Have fun at theme parks and rides.",
+    geoCategory: "entertainment.theme_park",
   },
   {
     id: 7,
-    image: "https://picsum.photos/600/400?random=3",
-    title: "How to travel with paper map",
-    description:
-      "It is almost impossible to read the news without coming across a lead story elections through fake social media accounts...",
+    title: "Beaches & Diving",
+    description: "Relax at beaches or dive in the Red Sea.",
+    geoCategory: "tourist_attraction", // or natural.seashore based on API support
   },
   {
     id: 8,
-    image: "https://picsum.photos/600/400?random=3",
-    title: "How to travel with paper map",
-    description:
-      "It is almost impossible to read the news without coming across a lead story elections through fake social media accounts...",
+    title: "Parks",
+    description: "Relax at nearby parks and open green spaces.",
+    geoCategory: "leisure.park",
   },
   {
     id: 9,
-    image: "https://picsum.photos/600/400?random=3",
-    title: "How to travel with paper map",
-    description:
-      "It is almost impossible to read the news without coming across a lead story elections through fake social media accounts...",
+    title: "Museums & Culture",
+    description: "Explore museums and cultural centers.",
+    geoCategory: "tourism.museum",
   },
 ];
 
