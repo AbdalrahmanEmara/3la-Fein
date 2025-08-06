@@ -4,6 +4,8 @@ import Reviews from "../Componets/Reviews/Reviews";
 import Hero from "../Componets/Hero/Hero";
 import Nav from "../Componets/Nav/Nav";
 import Footer from "../Componets/Footer/Footer";
+// import History from "../Componets/History/History";
+// import Navigator from "../Componets/Navigator/Navigator";
 
 export default function Home() {
   return (
@@ -11,6 +13,7 @@ export default function Home() {
       <Nav />
       <Hero />
       <PublicGroups />
+
       <Discover />
       <Reviews />
       <Footer />
