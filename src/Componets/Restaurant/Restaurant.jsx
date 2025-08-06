@@ -3,14 +3,15 @@ import './Restaurant.css';
 
 export default function Restaurant(props) {
     const [heartColor, setHeartColor] = useState("#B1B5C4");
+    
+        const changeColor = () => {
+        setHeartColor((prevColor) =>
+        prevColor === "#B1B5C4" ? "#FD7FE9" : "#B1B5C4"
+        );
+        };
+    
 
-    const changeColor = () => {
-    setHeartColor((prevColor) =>
-    prevColor === "#B1B5C4" ? "#FD7FE9" : "#B1B5C4"
-    );
-    };
-
-    const { image, name, location, rating, visitors } = props;
+    const { image, name, location, rating, visitors  } = props;
 
     return (
    

@@ -84,7 +84,7 @@ p {
 }
 
 .detailButton:hover {
-    border: 2px solid #E6E8EC;
+    border: 2px solid #B1B5C3;
     background-color: #f0fcff;
 }
 
@@ -113,8 +113,62 @@ p {
   transition: 0.2s;
   margin-left: 8px;
 }
+.ShowMoreButton:hover{
+  border: 2px solid #B1B5C3;
+  background-color: #f0fcff;
+}
 
 .RestPage{
   padding: 100px 0px;
-  gap: 32px
+  gap: 24px
+}
+
+
+.filterBtn{
+  width: 6.1875rem;
+  height: 1.75rem;
+  /* padding: rem rem; */
+  border: 2px solid #E6E8EC;
+  border-radius: 100px;
+  font: 700 14px 'poppins';
+  color: #777E90;
+  background-color: transparent;
+  display: flex;
+  gap:0.5rem;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.filterBtn:focus{
+  color: #FCFCFD;
+  background-color: #23262F;
+  border: transparent;
+}
+
+.filterBtnContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.title{
+  color: #141416;
+  font-family: "DM Sans";
+font-size: 3rem;
+font-style: normal;
+font-weight: 700;
+line-height: 3.5rem; 
+letter-spacing: -0.06rem;
+}
+
+.description{
+  color: #777E90;
+  font-family: Poppins;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.5rem;
 }
