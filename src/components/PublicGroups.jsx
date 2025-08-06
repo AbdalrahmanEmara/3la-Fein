@@ -15,9 +15,11 @@ const people = [
 export default function PublicGroups() {
   return (
     <div className="public-groups-container">
-      <h2 className="section-title">Public Groups</h2>
+      <div className="public-group-title">
+        <h2 className="section-title">What our happy clients say</h2>
 
-      <button className="book-btn">Book now</button>
+        <button className="book-btn">Book now</button>
+      </div>
 
       <div className="wave-line">
         {people.map((person, index) => (
