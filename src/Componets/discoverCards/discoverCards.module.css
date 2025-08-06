@@ -49,3 +49,94 @@ p{
   align-items: center;
   height: 20px;
 }
+
+
+
+
+
+
+
+
+.publicGroupsCards{
+    width: 256px;
+    height: 365px;
+    transition: 0.2s;
+}
+
+.publicGroupsCards:hover{
+  transform: scale(1.02);
+}
+
+.groupImage{
+  width: 260px;
+  height: 213px;
+  border-radius: 16px 16px 0px 0px;
+}
+
+.publicGroupsCardsDiv{
+  width: 240px;
+  height: 152px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+}
+
+.publicGroupsCardsDiv1{
+  width: 120px;
+  height: 152px;
+  margin: 0px 8px;
+}
+
+.smallButton{
+  width: 95px;
+  height: 27px;
+  border: 0px;
+  border-radius: 90px;
+  padding: 12px 16px;
+  background-color: #3FAFC6;
+  font: 400 12px 'Poppins';
+  color: #FCFCFD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.smallButton:hover{
+  background-color: #00a3c4;
+}
+
+.verticalLine{
+  height: 86px;
+  width: 1px;
+  background-color: #E6E8EC;
+}
+
+.publicGroupsCardsDiv2{
+ width: 61px;
+ height: 126px;
+ position: absolute;
+ right: 8px;
+ display: flex;
+ flex-wrap: wrap;
+ flex-direction: column;
+}
+
+.publicGroupsCardsDiv2 img{
+  width: 61px;
+  height: 61px;
+  border-radius: 48px;
+  transition: 0.2s;
+}
+
+.publicGroupsCardsDiv2 img:hover{
+  transform: scale(1.05);
+}
+
+.circleDiv{
+  position: relative;
+  width: 62px;
+  height: 20px;
+  margin: 4px 0px;
+}
