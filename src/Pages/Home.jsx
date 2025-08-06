@@ -6,14 +6,18 @@ import Nav from "../Componets/Nav/Nav";
 import Footer from "../Componets/Footer/Footer";
 import History from "../Componets/History/History";
 import NavigatorEidget from "../Componets/Navigator/NavigatorWidget/NavigatorEidget";
+import MainHeroSec from "../Componets/ProfHeroSec/mainHeroSec";
+import MainCategories from "../Componets/categoriessec/maincategories";
 
 export default function Home() {
   return (
     <div>
       <Nav />
       <Hero />
+      <MainCategories />
       <History />
       <PublicGroups />
+      <MainHeroSec />
       <Discover />
       <NavigatorEidget />
       <Reviews />
