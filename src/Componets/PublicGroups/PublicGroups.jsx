@@ -21,7 +21,7 @@ export default function PublicGroups() {
       <img
         alt=""
         src="/images/wave.svg"
-        className={Style.vector634stroke}
+        className={Style.wave}
       />
         {people.map((person, index) => (
           <div

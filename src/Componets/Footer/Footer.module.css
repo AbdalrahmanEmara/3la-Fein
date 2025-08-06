@@ -98,3 +98,62 @@
 .emoji {
   font-size: 1.1rem;
 }
+
+
+@media (max-width: 1024px) {
+  .footerContent {
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0 4rem;
+  }
+
+  .footerCol {
+    flex: 1 1 45%;
+    margin-bottom: 2rem;
+  }
+
+  .subscribeForm {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 1.5rem;
+  }
+
+  .footerCol {
+    width: 100%;
+    flex: unset;
+    margin-bottom: 2.5rem;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .logoCol p {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .subscribeForm {
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .subscribeForm input,
+  .subscribeForm button {
+    width: 100%;
+    border-radius: 20px;
+    box-sizing: border-box;
+  }
+
+  .subscribeForm button {
+    margin-top: 0.5rem;
+  }
+}
