@@ -1,0 +1,120 @@
+.Restaurant {
+  background-color: #FCFCFD;
+  border-radius: 16px 16px 0px 0px;
+  width: 256px;
+  height: 374px;
+  transition: 0.2s;
+  
+}
+
+.Restaurant img {
+  width: 256px ;
+  height: 220px ;
+  border-radius: 16px 16px 0px 0px ;
+}
+
+.Restaurant:hover {
+  transform: scale(1.02);
+}
+
+p {
+  margin-left: 8px;
+}
+
+.location {
+    color: #23262F;
+    font: 400 12px 'Poppins'
+}
+
+.rating {
+  color: #23262F;
+  font: 600 12px 'Poppins';
+}
+
+.restHeart {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 32px;
+  background: #FCFCFD;
+  box-shadow: 0 8px 16px -8px rgba(15, 15, 15, 0.1);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.bookButton {
+  width: 95px;
+  height: 28px;
+  padding: 12px 16px;
+  border: 0px;
+  border-radius: 90px;
+  padding: 12px 16px;
+  background-color: #3FAFC6;
+  font: 400 12px 'Poppins';
+  color: #FCFCFD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.bookButton:hover {
+  background-color: #00a3c4;
+}
+
+.detailButton {
+  width: 95px;
+  height: 28px;
+  border: 2px solid #E6E8EC;
+  border-radius: 90px;
+  padding: 12px 16px;
+  font: 400 12px 'Poppins';
+  color: #23262F;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+  margin-left: 8px;
+}
+
+.detailButton:hover {
+    border: 2px solid #E6E8EC;
+    background-color: #f0fcff;
+}
+
+
+.buttons-container {
+  gap: 22px;
+}
+.container{
+  width: 80% !important;
+  margin: auto !important;
+}
+
+.ShowMoreButton{
+  width: 203px;
+  height: 40px;
+  border: 2px solid #E6E8EC;
+  border-radius: 90px;
+  padding: 12px 16px;
+  font: 700 12px 'Poppins';
+  color: #23262F;
+  background-color: transparent;
+  display: flex;
+  gap:8px;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+  margin-left: 8px;
+}
+
+.RestPage{
+  padding: 100px 0px;
+  gap: 32px
+}
