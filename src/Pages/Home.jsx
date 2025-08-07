@@ -17,13 +17,25 @@ export default function Home() {
   return (
     <div>
       <Nav />
-      <Hero />
+      <section id="Hero">
+        <Hero />
+      </section>
       <LocationPickerButton />
-      <MainCategories />
-      <PublicGroups />
-      <Discover />
-      <NavigatorEidget />
-      <Reviews />
+      <section id="Categories">
+        <MainCategories />
+      </section>
+      <section id="Groups">
+        <PublicGroups />
+      </section>
+      <section id="Discover">
+        <Discover />
+      </section>
+      <section id="Navigator">
+        <NavigatorEidget />
+      </section>
+      <section id="Reviews">
+        <Reviews />
+      </section>
       <Footer />
     </div>
   );
