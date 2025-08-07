@@ -7,13 +7,7 @@ export default function Footer() {
 
   const navigateToSection = (sectionId) => {
     if (window.location.pathname !== "/") {
-      navigate("/", { replace: false });
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100); // Give time for Home to load
+      navigate("/", { state: { scrollTo: sectionId } });
     } else {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -23,7 +17,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className={Style.footer}>
+    <footer className={Style.footer} id="Footer">
       <div className={Style.footerContent}>
         <div className={`${Style.logoCol} ${Style.footerCol}`}>
           <div className={Style.logo}>

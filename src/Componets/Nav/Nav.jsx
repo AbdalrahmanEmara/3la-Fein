@@ -2,8 +2,22 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Nav.module.css";
 import { getCurrentUser } from "../../Componets/Forms/Storage";
+import { useNavigate } from "react-router-dom";
 
 const Nav = () => {
+  const navigate = useNavigate();
+
+  const navigateToSection = (sectionId) => {
+    if (window.location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: sectionId } });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   const [isOpen, setIsOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
@@ -99,14 +113,18 @@ const Nav = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">
+              <button
+                className="nav-link btn btn-link"
+                onClick={() => navigateToSection("Reviews")}>
                 About
-              </Link>
+              </button>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Contact">
+              <button
+                className="nav-link btn btn-link"
+                onClick={() => navigateToSection("Footer")}>
                 Contact
-              </Link>
+              </button>
             </li>
             <li
               className="d-lg-none d-sm-block px-3 py-2 mx-auto"
