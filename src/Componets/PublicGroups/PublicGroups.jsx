@@ -13,31 +13,27 @@ const people = [
 
 export default function PublicGroups() {
   return (
-
     <div className={Style.publicGroupsContainer}>
       <h2 className={Style.sectionTitle}>Public Groups</h2>
       <button className={Style.bookBtn}>Book now</button>
 
       <div className={Style.waveLine}>
-      <img
-        alt=""
-        src="/images/wave.svg"
-        className={Style.wave}
-      />
+        <img alt="" src="/images/wave.svg" className={Style.wave} />
 
         {people.map((person, index) => (
           <div
             className={`${Style.person} ${Style[`person${index}`]}`}
-            key={index}
-          >
-            <img src={person.img} alt={`person-${index}`} />  
+            key={index}>
+            <img src={person.img} alt={`person-${index}`} />
           </div>
         ))}
       </div>
 
       <p className={Style.quote}>
-        “An enim nullam tempor gravida donec enim congue magna at pretium purus
-        pretium ligula rutrum luctus risus diam.”
+        Join a public group and connect with others who are heading to the same
+        destination. Whether you're exploring new places, attending events, or
+        just looking for fun company — public groups make shared experiences
+        easier and more enjoyable.
       </p>
     </div>
   );

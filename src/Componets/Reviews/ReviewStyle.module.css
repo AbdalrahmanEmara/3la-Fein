@@ -278,4 +278,8 @@ section.main-section-review {
     padding: 80px 24px;
     gap: 40px;
   }
+
+  .client-pagingation {
+    display: none;
+  }
 }
