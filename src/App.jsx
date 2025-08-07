@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigator from './Components/Navigator';
 import History from './Components/History';
+import BookingCard from './Components/BookingCard';
 import './App.css';
 
 
@@ -30,6 +31,26 @@ function App() {
 
     <div className="App">
       <History />
+    </div>
+
+    <div>
+      <BookingCard
+        imageSrc= '/images/venice.png'
+        title="Venice, Rome & Milan"
+        subtitle="Karineside"
+        status="Opened"
+        dates="Sunday - Thursday"
+        priceDetails="Price Details"
+        row1="$102 x 3 nights "
+        res1="$306"
+        row2="10% campaign discount"
+        res2="-$30.6"
+        row3="Service fee"
+        res3="$50"
+        row4="Total"
+        res4="$225.4"
+        cancellationPolicy="Free cancellation until 3:00 PM on May 05, 2024"
+      />
     </div>
     </>
   );
