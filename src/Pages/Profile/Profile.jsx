@@ -7,17 +7,19 @@ import {
 } from "../../Componets/Forms/Storage";
 import MainHeroSec from "../../Componets/ProfHeroSec/mainHeroSec";
 import History from "../../Componets/History/History";
+import LocationPickerButton from "../../Componets/Location/LocationPickerButton";
 
 const Profile = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     clearCurrentUser();
-    navigate("/"); // or "/" if you prefer
+    navigate("/");
   };
 
   return (
     <div>
+      <LocationPickerButton />
       <Nav />
       <MainHeroSec />
       <History />

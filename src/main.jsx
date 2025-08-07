@@ -4,9 +4,12 @@ import App from "./App.jsx";
 import { Toaster } from "react-hot-toast";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
+import { LocationProvider } from "./Context/UserContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <LocationProvider>
+      <App />
+    </LocationProvider>
   </StrictMode>
 );
