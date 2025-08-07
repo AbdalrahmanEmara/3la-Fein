@@ -22,11 +22,10 @@ const Nav = () => {
         width: "70%",
         left: "50%",
         transform: "translateX(-50%)",
-      }}
-    >
+      }}>
       <div className="container">
         <Link className={`nav-link ${styles.navLink}`} to="/">
-          <div className={`${styles.logo} pe-3`}>
+          <div className={`${styles.logo} pe-1`}>
             <img
               src="./logo.png"
               alt="logo"
@@ -46,8 +45,7 @@ const Nav = () => {
                   currentUser
                     ? `${styles.mainBtn} ${styles.searchWide}`
                     : `${styles.mainBtn} ${styles.butt}`
-                }
-              >
+                }>
                 <img src="./Shape.svg" alt="search" />
                 {currentUser && <span className="ms-2">Search</span>}
               </button>
@@ -75,19 +73,16 @@ const Nav = () => {
           onClick={() => setIsOpen(!isOpen)}
           aria-controls="navbarNav"
           aria-expanded={isOpen}
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
 
         {/* Nav Links */}
         <div
           className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}
-          id="navbarNav"
-        >
+          id="navbarNav">
           <ul
-            className={`navbar-nav m-md-0 m-sm-0 mx-lg-auto d-flex justify-content-between w-50 ${styles.navbarFont}`}
-          >
+            className={`navbar-nav m-md-0 m-sm-0 mx-lg-auto d-flex justify-content-between w-50 ${styles.navbarFont}`}>
             <li className="nav-item text-md-center">
               <Link className="nav-link" to="/">
                 Home
@@ -120,8 +115,7 @@ const Nav = () => {
                 backgroundColor: "transparent",
                 borderRadius: "20px",
                 width: "fit-content",
-              }}
-            >
+              }}>
               <input
                 type="text"
                 style={{ backgroundColor: "transparent", border: "none" }}
@@ -139,8 +133,7 @@ const Nav = () => {
                 currentUser
                   ? `${styles.mainBtn} ${styles.searchWide}`
                   : `${styles.mainBtn} ${styles.butt}`
-              }
-            >
+              }>
               <img src="./Shape.svg" alt="search" />
               {currentUser && <span className="ms-2">Search</span>}
             </button>

@@ -18,14 +18,28 @@ export default function Home() {
   return (
     <div>
       <Nav />
-      <Hero />
+      <section id="Hero">
+        <Hero />
+      </section>
       <LocationPickerButton />
-      <DiscoverWeekly />
-      <MainCategories />
-      <PublicGroups />
-      <Discover />
-      <NavigatorEidget />
-      <Reviews />
+
+      <DiscoverWeekly />  
+
+      <section id="Categories">
+        <MainCategories />
+      </section>
+      <section id="Groups">
+        <PublicGroups />
+      </section>
+      <section id="Discover">
+        <Discover />
+      </section>
+      <section id="Navigator">
+        <NavigatorEidget />
+      </section>
+      <section id="Reviews">
+        <Reviews />
+      </section>
       <Footer />
     </div>
   );

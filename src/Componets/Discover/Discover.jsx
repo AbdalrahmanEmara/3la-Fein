@@ -12,23 +12,24 @@ const HeroSection = () => {
           3la Fe!n
         </h1>
         <p className={Style.description}>
-          An enim nullam tempor gravida donec enim congue magna at pretium purus
-          pretium ligula rutrum luctus risus diam eget risus varius blandit sit
-          amet non magna.
+          Discover exciting activities, events, and destinations with just one
+          click. Whether you're craving adventure, culture, or family fun — 3la
+          Fe!n connects you with experiences that match your interests, all in
+          one magical button.
         </p>
 
         <ul className={Style.features}>
           <li>
-            <FaCheckCircle className={Style.checkIcon} /> Luctus risusd diam
-            eget
+            <FaCheckCircle className={Style.checkIcon} /> Personalized activity
+            recommendations
           </li>
           <li>
-            <FaCheckCircle className={Style.checkIcon} /> Donec enim congue
-            magna
+            <FaCheckCircle className={Style.checkIcon} /> Discover trending
+            events near you
           </li>
           <li>
-            <FaCheckCircle className={Style.checkIcon} /> Blandit sit amet non
-            magna
+            <FaCheckCircle className={Style.checkIcon} /> Join groups with
+            shared interests
           </li>
         </ul>
 

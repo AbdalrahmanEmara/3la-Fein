@@ -1,6 +1,27 @@
+import { useNavigate } from "react-router-dom";
 import Style from "./Footer.module.css";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
+  const navigate = useNavigate();
+
+  const navigateToSection = (sectionId) => {
+    if (window.location.pathname !== "/") {
+      navigate("/", { replace: false });
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100); // Give time for Home to load
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <footer className={Style.footer}>
       <div className={Style.footerContent}>
@@ -16,11 +37,47 @@ export default function Footer() {
         </div>
         <div className={`${Style.footerCol}`}>
           <h5>About</h5>
-          <ul>
-            <li>Discover</li>
-            <li>Find Travel</li>
-            <li>Popular Destinations</li>
-            <li>Reviews</li>
+          <ul className={Style.footerLinksSections}>
+            <li className={Style.footerLi}>
+              <button
+                onClick={() => {
+                  navigateToSection("Hero");
+                }}>
+                Hero
+              </button>
+            </li>
+            <li className={Style.footerLi}>
+              <button
+                onClick={() => {
+                  navigateToSection("Categories");
+                }}>
+                Categories
+              </button>
+            </li>
+            <li className={Style.footerLi}>
+              <button
+                onClick={() => {
+                  navigateToSection("Discover");
+                }}>
+                Discover
+              </button>
+            </li>
+            <li className={Style.footerLi}>
+              <button
+                onClick={() => {
+                  navigateToSection("Navigator");
+                }}>
+                Navigator
+              </button>
+            </li>
+            <li className={Style.footerLi}>
+              <button
+                onClick={() => {
+                  navigateToSection("Reviews");
+                }}>
+                Reviews
+              </button>
+            </li>
           </ul>
         </div>
         <div className={`${Style.footerCol}`}>
