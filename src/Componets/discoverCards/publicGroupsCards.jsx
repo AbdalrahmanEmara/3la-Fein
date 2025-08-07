@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 import Style from './discoverCards.module.css';
 
-
-
-
 function PublicGroupsCards(publicGroups) {
     const circle = (LEFT) => {
         return(

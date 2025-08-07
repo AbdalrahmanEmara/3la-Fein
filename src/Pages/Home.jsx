@@ -7,6 +7,7 @@ import Footer from "../Componets/Footer/Footer";
 import NavigatorEidget from "../Componets/Navigator/NavigatorWidget/NavigatorEidget";
 import MainCategories from "../Componets/categoriessec/maincategories";
 import LocationPickerButton from "../Componets/Location/LocationPickerButton";
+import DiscoverWeekly from "../Componets/discoverWeekly";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <Nav />
       <Hero />
       <LocationPickerButton />
+      <DiscoverWeekly />
       <MainCategories />
       <PublicGroups />
       <Discover />
