@@ -100,16 +100,12 @@
 }
 
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 992px) {
   .footerContent {
+    margin: 0 3rem;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 2rem;
-    padding: 0 4rem;
-  }
-
-  .footerCol {
-    flex: 1 1 45%;
-    margin-bottom: 2rem;
   }
 
   .subscribeForm {
@@ -117,43 +113,50 @@
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .footerContent {
     flex-direction: column;
-    align-items: center;
+    margin: 0 1rem;
     text-align: center;
-    padding: 0 1.5rem;
+    align-items: center;
   }
 
   .footerCol {
     width: 100%;
-    flex: unset;
-    margin-bottom: 2.5rem;
   }
 
   .logo {
     justify-content: center;
   }
 
-  .logoCol p {
-    margin: 0 auto;
-    max-width: 100%;
-  }
-
   .subscribeForm {
     flex-direction: column;
-    width: 100%;
-    max-width: 100%;
+    align-items: center;
   }
 
-  .subscribeForm input,
-  .subscribeForm button {
+  .subscribeCol input {
     width: 100%;
     border-radius: 20px;
-    box-sizing: border-box;
+    margin-bottom: 0.5rem;
   }
 
   .subscribeForm button {
-    margin-top: 0.5rem;
+    border-radius: 20px;
+    width: 100%;
+    height: 40px;
+  }
+
+  .footerCol ul {
+    padding-left: 0;
+  }
+
+  .footerCol ul li {
+    font-size: 0.95rem;
+  }
+  .logoCol p {
+  margin: 0 auto;
+  max-width: 100%;
+  text-align: center;
   }
 }
+
