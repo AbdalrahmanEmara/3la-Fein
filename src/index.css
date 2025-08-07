@@ -1,6 +1,0 @@
-/* for the map */
-@import "leaflet/dist/leaflet.css";
-
-body {
-  overflow-x: hidden;
-}

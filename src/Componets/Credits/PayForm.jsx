@@ -9,10 +9,11 @@ function PayForm() {
   };
   return (
     <div className="container container-credit">
-      <div>
+      <div className="w-100">
+        <h2 className="mb-3 head">Confirm & Pay</h2>
         <h3 className="mb-3">Pay With</h3>
-        <p className="text-muted mb-3 ">SAVED CONTACT INFO</p>
-        <select value={method} name="select">
+        <p className="text-muted mb-2 ">SAVED CONTACT INFO</p>
+        <select className="select" value={method} name="select">
           <option value="Nganthuy">Nganthuy</option>
           <option value="Audi">Audi</option>
           <option value="veini">vieni</option>
@@ -29,16 +30,16 @@ function PayForm() {
         </div>
 
         <div>
-          <p className="text-muted mb-3">CARD NUMBER</p>
+          <p className="text-muted mb-2">CARD NUMBER</p>
           <input type="number" />
         </div>
 
         <div>
-          <p className="text-muted mb-3">CARD HOLDER</p>
+          <p className="text-muted mb-2">CARD HOLDER</p>
           <input type="text" />
         </div>
 
-        <div className=" d-flex justify-content-between gx-3 info">
+        <div className="mb-3 d-flex justify-content-between gx-3 info">
           <div>
             <p className="text-muted mb-3">EXPERATION DATE</p>
             <input type="date" />
@@ -49,7 +50,8 @@ function PayForm() {
             <input type="text" />
           </div>
         </div>
-        <div>
+
+        <div className="check d-flex g-2 align-items-center">
           <input id="save" type="checkbox" />
           <label htmlFor="save">Save Card</label>
         </div>
