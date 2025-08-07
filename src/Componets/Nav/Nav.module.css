@@ -1,3 +1,31 @@
+@media screen and (max-width: 480px) {
+  .container {
+    padding-left: 0 !important;
+  }
+  .logo {
+    font-size: 20px !important;
+    padding: 0 !important;
+  }
+  .logo img {
+    width: 35px !important;
+    height: 35px !important;
+  }
+  .navbar-toggler-icon {
+    width: 1em;
+    height: 1em;
+  }
+  .navbar-toggler {
+    padding: 2px 7px !important;
+  }
+}
+
+@media screen and (min-width: 481px) {
+  .nav-link {
+    font-size: 27px !important;
+  }
+}
+
+
 .navbarCustom {
   display: flex;
   align-items: center;
@@ -64,6 +92,13 @@
   text-align: center;
   margin-right: 10px !important;
 }
+@media screen and (max-width: 480px) {
+  .mainBtn {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+}
+
 
 .butt {
   border: 2px solid #e6e8ec;
@@ -99,3 +134,4 @@
   object-fit: cover;
   border: 2px solid #3fafc6;
 }
+

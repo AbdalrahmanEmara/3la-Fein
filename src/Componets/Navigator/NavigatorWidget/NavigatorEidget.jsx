@@ -14,7 +14,7 @@ const NavigatorEidget = () => {
             </span>
           }
           title="Tell us what you want to do"
-          text="Fully layered dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt..."
+          text="Select the types of activities you're interested in — from outdoor fun to cultural, educational, or relaxing experiences."
         />
         <Navigator
           color="yellow"
@@ -23,8 +23,8 @@ const NavigatorEidget = () => {
               ⚡
             </span>
           }
-          title="Share your travel preference"
-          text="Fully layered dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt..."
+          title="Share your travel preferences"
+          text="Let us know your location, time, and who you're going with. We'll tailor everything to your vibe and availability."
         />
         <Navigator
           color="pink"
@@ -34,7 +34,7 @@ const NavigatorEidget = () => {
             </span>
           }
           title="We'll give you recommendations"
-          text="Fully layered dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt..."
+          text="Get personalized suggestions instantly. Explore events, activities, and groups that match your interests."
         />
       </div>
     </>

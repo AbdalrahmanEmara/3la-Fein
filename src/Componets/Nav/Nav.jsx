@@ -28,7 +28,7 @@ const Nav = () => {
     >
       <div className="container">
         <Link className={`nav-link ${styles.navLink}`} to="/">
-          <div className={`${styles.logo} pe-3`}>
+          <div className={`${styles.logo} pe-1`}>
             <img
               src={navImage}
               alt="logo"
@@ -101,7 +101,7 @@ const Nav = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Groups">
+              <Link className="nav-link" to="/publicGroups">
                 Public Groups
               </Link>
             </li>
