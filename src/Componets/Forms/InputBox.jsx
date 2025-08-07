@@ -1,22 +1,45 @@
-import { Formik } from "formik";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
 
-Formik;
 function InputBox(props) {
+  const [showPassword, setShowPassword] = useState(false);
+  const isPassword = props.type === "password";
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
+
   return (
-    <div>
-      <div className="mb-3">
-        <input
-          type={props.type}
-          name={props.name}
-          id={props.id}
-          value={props.value}
-          onChange={props.onChange}
-          onBlur={props.onBlur}
-          placeholder={props.placeholder}
-          style={{ position: "relative" }}
-        />
-      </div>
+    <div className="mb-3" style={{ position: "relative" }}>
+      <input
+        type={isPassword && showPassword ? "text" : props.type}
+        name={props.name}
+        id={props.id}
+        value={props.value}
+        onChange={props.onChange}
+        onBlur={props.onBlur}
+        placeholder={props.placeholder}
+        className="form-control"
+      />
+      {isPassword && (
+        <button
+          type="button"
+          onClick={togglePasswordVisibility}
+          style={{
+            position: "absolute",
+            right: "10px",
+            top: "50%",
+            transform: "translateY(-50%)",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: 0,
+            fontSize: "0.9rem",
+            color: "#007bff",
+          }}
+        >
+          {showPassword ? "Hide" : "Show"}
+        </button>
+      )}
     </div>
   );
 }

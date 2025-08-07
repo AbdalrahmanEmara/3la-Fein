@@ -147,6 +147,7 @@ const LocationPickerButton = ({ onSelect, label = "📍 Location" }) => {
                     className={styles.suggestionItem}
                     onClick={() => {
                       goToLocation(lat, lon);
+                      setShowPopup(false);
                       setSearchText("");
                       setSuggestions([]);
                     }}
@@ -194,10 +195,8 @@ const LocationPickerButton = ({ onSelect, label = "📍 Location" }) => {
             <button
               className={styles.confirmBtn}
               onClick={() => {
-                if (position && typeof onSelect === "function") {
-                  onSelect(position);
-                }
-                setLocation(position); // ✅ Update context
+                setPosition(position);
+                setLocation(position);
                 setShowPopup(false);
               }}
             >

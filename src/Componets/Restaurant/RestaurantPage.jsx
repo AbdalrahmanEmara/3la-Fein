@@ -4,9 +4,11 @@ import Restaurant from "./Restaurant";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Style from "./Restaurant.module.css";
+import categoriesData from "../categoriessec/categorisedata.jsx";
+import { useParams } from "react-router-dom";
 
 const GEOAPIFY_KEY = "1aba76b022024730abfcd18e5a1df166";
-const UNSPLASH_ACCESS_KEY = "pxSlPgRLS-hOJDFue_69DRC9ZxqVm25QhlAfYhEs88s";
+const UNSPLASH_ACCESS_KEY = "AhDouzsd99fNq4NsePSTLN_Gq5RqXE6uyv5K4T6hpiU";
 const fallbackData = {
   name: "Fallback Restaurant",
   location: "Unknown Location",
@@ -31,6 +33,10 @@ function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
 }
 
 export default function RestaurantPage() {
+  const { id } = useParams();
+  const category = categoriesData.find((cat) => String(cat.id) === id);
+  const { title, description, geoCategory } = category;
+
   const [restaurants, setRestaurants] = useState([]);
   const [originalRestaurants, setOriginalRestaurants] = useState([]);
   const [visibleCards, setVisibleCards] = useState(12);
@@ -43,14 +49,14 @@ export default function RestaurantPage() {
     setOriginalRestaurants([]);
 
     const fetchRestaurants = async () => {
-      if (!location) {
+      if (!location && !localStorage.getItem("lastLocation")) {
         toast.error("Please select a location first.");
         return;
       }
 
       try {
         const geoRes = await axios.get(
-          `https://api.geoapify.com/v2/places?categories=catering.restaurant&filter=circle:${location.lon},${location.lat},5000&limit=24&apiKey=${GEOAPIFY_KEY}`
+          `https://api.geoapify.com/v2/places?categories=${geoCategory}&filter=circle:${location.lon},${location.lat},500000&limit=24&apiKey=${GEOAPIFY_KEY}`
         );
 
         const results = geoRes.data.features;
@@ -71,7 +77,7 @@ export default function RestaurantPage() {
               restLon
             ).toFixed(2);
 
-            const query = `${name} ${city} restaurant`;
+            const query = `${city} ${title}`;
             let image = "/background.png";
 
             try {
@@ -118,7 +124,7 @@ export default function RestaurantPage() {
     };
 
     fetchRestaurants();
-  }, [location]);
+  }, [location, id]);
 
   const sortRestaurants = (type) => {
     setFilter(type);
@@ -149,11 +155,8 @@ export default function RestaurantPage() {
   return (
     <div className={`${Style.RestPage} d-flex flex-column`}>
       <div className="d-flex align-items-center flex-column text-center px-2">
-        <h1 className={`${Style.title} mb-3`}>Restaurants</h1>
-        <p className={`${Style.description}`}>
-          Explore the best dining spots near you — handpicked by location and
-          style.
-        </p>
+        <h1 className={`${Style.title} mb-3`}>{title}</h1>
+        <p className={`${Style.description}`}>{description}</p>
       </div>
 
       <div className="container py-4">

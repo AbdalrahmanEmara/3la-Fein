@@ -6,7 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import toast from "react-hot-toast";
 import Style from "./Sign.module.css";
 import InputBox from "../../Componets/Forms/InputBox";
-import img from "/profile/deafult.jpg";
+import img from "../../../public/profile/deafult.jpg";
+import { useState } from "react";
 
 import {
   getUsers,
@@ -16,17 +17,21 @@ import {
 
 function SignUp() {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const validationSchema = Yup.object({
     email: Yup.string().email("Invalid email").required("Email is required"),
+
     password: Yup.string()
+      .required("Password is required")
       .min(6, "Password must be at least 6 characters")
       .max(13, "Password must not exceed 13 characters")
+      .matches(/[A-Z]/, "Password must include at least one uppercase letter")
+      .matches(/\d/, "Password must include at least one number")
       .matches(
-        /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{7,13}$/,
-        "Password must include an uppercase letter, number, and special character"
-      )
-      .required("Password is required"),
+        /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/,
+        "Password must include at least one special character"
+      ),
   });
 
   const handleRegister = (values) => {
@@ -44,9 +49,8 @@ function SignUp() {
     const newUser = {
       email: values.email,
       password: values.password,
-      src: { img }, // default image
+      src: img,
     };
-
     saveUser(newUser);
     setCurrentUser(newUser);
 
@@ -86,7 +90,7 @@ function SignUp() {
         <div className="col-lg-8 col-md-12 d-flex justify-content-center align-items-center">
           <div className={`${Style.content} text-center w-100 px-3 px-md-5`}>
             <div className="logo mb-5">
-              <img className={Style.logoImg} src="/Logo symbol.png" />
+              <img className={Style.logoImg} src="/logo.png" />
             </div>
 
             <h2 className="mb-4">Sign Up</h2>
@@ -131,6 +135,7 @@ function SignUp() {
                   onBlur={formik.handleBlur}
                   placeholder="Enter your password"
                 />
+
                 {formik.touched.password && formik.errors.password && (
                   <p className="text-danger">{formik.errors.password}</p>
                 )}

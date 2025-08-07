@@ -10,10 +10,6 @@ import LocationPickerButton from "../Componets/Location/LocationPickerButton";
 import { useEffect } from "react";
 
 export default function Home() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div>
       <Nav />

@@ -1,5 +1,5 @@
 import Nav from "../../Componets/Nav/Nav";
-import Footer from "../../Componets/Footer/Footer";
+// import Footer from "../../Componets/Footer/Footer";
 import LocationPickerButton from "../../Componets/Location/LocationPickerButton";
 import CategoriesPPage from "../../Componets/CategoriesCard/CategoriesPPage";
 
@@ -9,7 +9,7 @@ const CatPage = () => {
       <LocationPickerButton />
       <Nav />
       <CategoriesPPage />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
