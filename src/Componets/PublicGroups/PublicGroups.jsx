@@ -13,6 +13,7 @@ const people = [
 
 export default function PublicGroups() {
   return (
+
     <div className={Style.publicGroupsContainer}>
       <h2 className={Style.sectionTitle}>Public Groups</h2>
       <button className={Style.bookBtn}>Book now</button>
@@ -23,12 +24,13 @@ export default function PublicGroups() {
         src="/images/wave.svg"
         className={Style.wave}
       />
+
         {people.map((person, index) => (
           <div
             className={`${Style.person} ${Style[`person${index}`]}`}
             key={index}
           >
-            <img src={person.img} alt={`person-${index}`} />
+            <img src={person.img} alt={`person-${index}`} />  
           </div>
         ))}
       </div>

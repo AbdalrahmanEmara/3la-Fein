@@ -88,3 +88,35 @@
   font-style: italic;
   font-size: 1rem;
 }
+@media screen and (max-width: 1111px) {
+  .waveLine {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .wave {
+    display: none; 
+  }
+
+  .person img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .person0,
+  .person1,
+  .person2,
+  .person3,
+  .person4,
+  .person5,
+  .person6 {
+    transform: none !important;
+  }
+
+  .quote {
+    font-size: 0.9rem;
+    margin-top: 3rem;
+    padding: 0 1rem;
+  }
+}
