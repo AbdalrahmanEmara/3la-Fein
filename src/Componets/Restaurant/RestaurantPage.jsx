@@ -6,8 +6,7 @@ import toast from "react-hot-toast";
 import Style from "./Restaurant.module.css";
 
 const GEOAPIFY_KEY = "1aba76b022024730abfcd18e5a1df166";
-const UNSPLASH_ACCESS_KEY = "AhDouzsd99fNq4NsePSTLN_Gq5RqXE6uyv5K4T6hpiU";
-
+const UNSPLASH_ACCESS_KEY = "pxSlPgRLS-hOJDFue_69DRC9ZxqVm25QhlAfYhEs88s";
 const fallbackData = {
   name: "Fallback Restaurant",
   location: "Unknown Location",

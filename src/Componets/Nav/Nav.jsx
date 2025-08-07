@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Nav.module.css";
 import { getCurrentUser } from "../../Componets/Forms/Storage";
+import navImage from "/logo.png";
+import shape from "/Shape.svg";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +30,7 @@ const Nav = () => {
         <Link className={`nav-link ${styles.navLink}`} to="/">
           <div className={`${styles.logo} pe-3`}>
             <img
-              src="./logo.png"
+              src={navImage}
               alt="logo"
               className="rounded-circle me-3"
               style={{ width: "50px", height: "50px" }}
@@ -48,7 +50,7 @@ const Nav = () => {
                     : `${styles.mainBtn} ${styles.butt}`
                 }
               >
-                <img src="./Shape.svg" alt="search" />
+                <img src={shape} alt="search" />
                 {currentUser && <span className="ms-2">Search</span>}
               </button>
             </Link>
@@ -141,7 +143,7 @@ const Nav = () => {
                   : `${styles.mainBtn} ${styles.butt}`
               }
             >
-              <img src="./Shape.svg" alt="search" />
+              <img src={shape} alt="search" />
               {currentUser && <span className="ms-2">Search</span>}
             </button>
           </Link>

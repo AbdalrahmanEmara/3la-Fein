@@ -6,6 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import toast from "react-hot-toast";
 import Style from "./Sign.module.css";
 import InputBox from "../../Componets/Forms/InputBox";
+import img from "/profile/deafult.jpg";
+
 import {
   getUsers,
   saveUser,
@@ -42,7 +44,7 @@ function SignUp() {
     const newUser = {
       email: values.email,
       password: values.password,
-      src: "https://i.ibb.co/3y0x5fH/Avatar.png", // default image
+      src: { img }, // default image
     };
 
     saveUser(newUser);

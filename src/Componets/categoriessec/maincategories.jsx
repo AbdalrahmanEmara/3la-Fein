@@ -4,6 +4,7 @@ import categoriesData from "./categorisedata";
 import Categories from "./categories";
 import styles from "./categoriesstyle.module.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const UNSPLASH_ACCESS_KEY = "F40xPBLNDZNgteLeR4nAeQ0X9yoeJH0bK34kTuElI58";
 
@@ -11,6 +12,7 @@ function MainCategories() {
   const [currentPage, setCurrentPage] = useState(0);
   const [categoriesWithImages, setCategoriesWithImages] = useState([]);
   const cardsPerPage = 3;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchImage = async (query) => {
@@ -109,6 +111,10 @@ function MainCategories() {
               <div
                 key={cat.id}
                 className="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center"
+                onClick={(e) => {
+                  e.preventDefault(); // prevent # from being added
+                  navigate(cat.path);
+                }}
               >
                 <Categories
                   image={cat.image}
