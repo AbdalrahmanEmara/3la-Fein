@@ -1,0 +1,189 @@
+.Restaurant {
+  background-color: #fcfcfd;
+  border-radius: 16px 16px 0px 0px;
+  width: 256px;
+  height: 374px;
+  transition: 0.2s;
+}
+
+.Restaurant img {
+  width: 256px;
+  height: 220px;
+  border-radius: 16px 16px 0px 0px;
+}
+
+.Restaurant:hover {
+  transform: scale(1.02);
+}
+
+p {
+  margin-left: 8px;
+}
+
+.location {
+  color: #23262f;
+  font: 400 12px "Poppins";
+}
+
+.rating {
+  color: #23262f;
+  font: 600 12px "Poppins";
+}
+
+.restHeart {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 32px;
+  background: #fcfcfd;
+  box-shadow: 0 8px 16px -8px rgba(15, 15, 15, 0.1);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.bookButton {
+  width: 95px;
+  height: 28px;
+  padding: 12px 16px;
+  border: 0px;
+  border-radius: 90px;
+  padding: 12px 16px;
+  background-color: #3fafc6;
+  font: 400 12px "Poppins";
+  color: #fcfcfd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.bookButton:hover {
+  background-color: #00a3c4;
+}
+
+.detailButton {
+  width: 95px;
+  height: 28px;
+  border: 2px solid #e6e8ec;
+  border-radius: 90px;
+  padding: 12px 16px;
+  font: 400 12px "Poppins";
+  color: #23262f;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+  margin-left: 8px;
+}
+
+.detailButton:hover {
+  border: 2px solid #b1b5c3;
+  background-color: #f0fcff;
+}
+
+.buttons-container {
+  gap: 22px;
+}
+.container {
+  width: 80% !important;
+  margin: auto !important;
+}
+
+.ShowMoreButton {
+  width: 203px;
+  height: 40px;
+  border: 2px solid #e6e8ec;
+  border-radius: 90px;
+  padding: 12px 16px;
+  font: 700 12px "Poppins";
+  color: #23262f;
+  background-color: transparent;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+  margin-left: 8px;
+}
+.ShowMoreButton:hover {
+  border: 2px solid #b1b5c3;
+  background-color: #f0fcff;
+}
+
+.RestPage {
+  padding: 100px 0px;
+  gap: 24px;
+}
+
+.filterBtn {
+  width: 6.1875rem;
+  height: 1.75rem;
+  /* padding: rem rem; */
+  border: 2px solid #e6e8ec;
+  border-radius: 100px;
+  font: 700 14px "poppins";
+  color: #777e90;
+  background-color: transparent;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.filterBtn:focus {
+  color: #fcfcfd;
+  background-color: #23262f;
+  border: transparent;
+}
+
+.filterBtnContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.title {
+  color: #141416;
+  font-family: "DM Sans";
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 3.5rem;
+  letter-spacing: -0.06rem;
+}
+
+.description {
+  color: #777e90;
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+.filterBtn {
+  padding: 10px 18px;
+  margin: 0 5px;
+  border: none;
+  background: #eee;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filterBtn:hover {
+  background: #ddd;
+}
+
+.active {
+  background: #333;
+  color: white;
+}
