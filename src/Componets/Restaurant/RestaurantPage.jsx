@@ -4,6 +4,7 @@ import Restaurant from "./Restaurant";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Style from "./Restaurant.module.css";
+
 const GEOAPIFY_KEY = "1aba76b022024730abfcd18e5a1df166";
 const UNSPLASH_ACCESS_KEY = "AhDouzsd99fNq4NsePSTLN_Gq5RqXE6uyv5K4T6hpiU";
 
@@ -17,7 +18,7 @@ const fallbackData = {
 
 // Haversine formula to calculate distance in km
 function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
-  const R = 6371; // Radius of the earth in km
+  const R = 6371;
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
   const dLon = ((lon2 - lon1) * Math.PI) / 180;
   const a =
@@ -27,17 +28,20 @@ function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
       Math.sin(dLon / 2) *
       Math.sin(dLon / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  const distance = R * c;
-  return distance;
+  return R * c;
 }
 
 export default function RestaurantPage() {
   const [restaurants, setRestaurants] = useState([]);
+  const [originalRestaurants, setOriginalRestaurants] = useState([]);
   const [visibleCards, setVisibleCards] = useState(12);
+  const [filter, setFilter] = useState("Default");
+
   const { location } = useLocation();
 
   useEffect(() => {
     setRestaurants([]);
+    setOriginalRestaurants([]);
 
     const fetchRestaurants = async () => {
       if (!location) {
@@ -66,7 +70,7 @@ export default function RestaurantPage() {
               location.lon,
               restLat,
               restLon
-            ).toFixed(2); // 2 decimal places
+            ).toFixed(2);
 
             const query = `${name} ${city} restaurant`;
             let image = "/background.png";
@@ -90,26 +94,55 @@ export default function RestaurantPage() {
             return {
               name,
               location: `${distance} km away`,
-              rating: (Math.random() * 2 + 3).toFixed(1),
-              visitors: `${Math.floor(Math.random() * 1000) + 100}+`,
+              distance: parseFloat(distance),
+              rating: parseFloat((Math.random() * 2 + 3).toFixed(1)),
+              visitors: Math.floor(Math.random() * 1000) + 100,
               image,
             };
           })
         );
 
-        if (mappedData.length === 0) {
-          setRestaurants(new Array(24).fill(null).map(() => fallbackData));
-        } else {
-          setRestaurants(mappedData);
-        }
+        const finalData =
+          mappedData.length === 0
+            ? new Array(24).fill(null).map(() => fallbackData)
+            : mappedData;
+
+        setRestaurants(finalData);
+        setOriginalRestaurants(finalData);
+        setFilter("Default");
       } catch (error) {
         console.error("Error fetching data from Geoapify:", error);
-        setRestaurants(new Array(24).fill(null).map(() => fallbackData));
+        const fallback = new Array(24).fill(null).map(() => fallbackData);
+        setRestaurants(fallback);
+        setOriginalRestaurants(fallback);
       }
     };
 
     fetchRestaurants();
   }, [location]);
+
+  const sortRestaurants = (type) => {
+    setFilter(type);
+
+    switch (type) {
+      case "Popular":
+        setRestaurants(
+          [...restaurants].sort((a, b) => b.visitors - a.visitors)
+        );
+        break;
+      case "Nearest":
+        setRestaurants(
+          [...restaurants].sort((a, b) => a.distance - b.distance)
+        );
+        break;
+      case "Best":
+        setRestaurants([...restaurants].sort((a, b) => b.rating - a.rating));
+        break;
+      default:
+        setRestaurants([...originalRestaurants]);
+        break;
+    }
+  };
 
   const showAll = () => setVisibleCards(restaurants.length);
   const showLess = () => setVisibleCards(12);
@@ -126,10 +159,19 @@ export default function RestaurantPage() {
 
       <div className="container py-4">
         <div className={`${Style.filterBtnContainer} justify-content-center`}>
-          <button className={`${Style.filterBtn}`}>Nearest</button>
-          <button className={`${Style.filterBtn}`}>Best</button>
-          <button className={`${Style.filterBtn}`}>Popular</button>
+          {["Default", "Popular", "Nearest", "Best"].map((type) => (
+            <button
+              key={type}
+              className={`${Style.filterBtn} ${
+                filter === type ? Style.active : ""
+              }`}
+              onClick={() => sortRestaurants(type)}
+            >
+              {type}
+            </button>
+          ))}
         </div>
+
         <div className="d-flex flex-wrap justify-content-center gap-4">
           {restaurants.slice(0, visibleCards).map((rest, index) => (
             <Restaurant key={index} {...rest} />
@@ -137,19 +179,17 @@ export default function RestaurantPage() {
         </div>
       </div>
 
-      {visibleCards < restaurants.length ? (
-        <div className="d-flex justify-content-center align-items-center">
-          <button className={`${Style.ShowMoreButton}`} onClick={showAll}>
+      <div className="d-flex justify-content-center align-items-center mt-4">
+        {visibleCards < restaurants.length ? (
+          <button className={Style.ShowMoreButton} onClick={showAll}>
             Show All Restaurant
           </button>
-        </div>
-      ) : (
-        <div className="d-flex justify-content-center align-items-center">
-          <button className={`${Style.ShowMoreButton}`} onClick={showLess}>
+        ) : (
+          <button className={Style.ShowMoreButton} onClick={showLess}>
             Show Less Restaurant
           </button>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

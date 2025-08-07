@@ -169,3 +169,21 @@ p {
   font-weight: 400;
   line-height: 1.5rem;
 }
+
+.filterBtn {
+  padding: 10px 18px;
+  margin: 0 5px;
+  border: none;
+  background: #eee;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filterBtn:hover {
+  background: #ddd;
+}
+
+.active {
+  background: #333;
+  color: white;
+}
