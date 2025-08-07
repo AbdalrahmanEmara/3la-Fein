@@ -1,0 +1,37 @@
+.favoriteList{
+    width: 77%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.favoriteButtonContainer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.favoriteButton{
+    width: 181px;
+    height: 40px;
+    display: flex;
+    padding: 12px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 90px;
+    border: 2px solid var(--Neutrals-6, #E6E8EC);
+    color: #23262F;
+    font: 700 14px 'DM Sans';
+    cursor: pointer;
+}
+
+.flipArrow{
+    transform: rotate(180deg);
+}
+
