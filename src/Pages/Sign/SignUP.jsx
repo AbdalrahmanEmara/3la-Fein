@@ -84,7 +84,7 @@ function SignUp() {
         <div className="col-lg-8 col-md-12 d-flex justify-content-center align-items-center">
           <div className={`${Style.content} text-center w-100 px-3 px-md-5`}>
             <div className="logo mb-5">
-              <img className={Style.logoImg} src="/Logo symbol.png" />
+              <img className={Style.logoImg} src="/logo.png" />
             </div>
 
             <h2 className="mb-4">Sign Up</h2>

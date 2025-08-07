@@ -20,9 +20,6 @@ const Profile = () => {
     <div>
       <Nav />
       <MainHeroSec />
-      <button className="btn btn-danger m-3" onClick={handleLogout}>
-        Logout
-      </button>
       <History />
       <Footer />
     </div>

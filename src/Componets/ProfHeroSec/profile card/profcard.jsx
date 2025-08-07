@@ -5,6 +5,7 @@ import face from "../img/Facebook.png";
 import twit from "../img/Twitter.png";
 import insta from "../img/Instagram.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function ProfileCard({ image, name, description }) {
   const [showAlert, setShowAlert] = useState(false);
@@ -38,7 +39,11 @@ function ProfileCard({ image, name, description }) {
       </div>
 
       <div className="d-flex justify-content-center gap-2 my-5">
-        <button className="btn-log px-3 py-2 text-white">Log Out</button>
+        <button className="btn-log px-3 py-2 text-white">
+          <Link className="text-decoration-none text-white" to="/">
+            Log Out
+          </Link>
+        </button>
         <button className="btn btn-light" onClick={handleShare}>
           <img src={share} alt="share" width="20" />
         </button>
