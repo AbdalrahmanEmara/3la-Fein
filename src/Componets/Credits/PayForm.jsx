@@ -2,8 +2,9 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import styles from "./PayForm.module.css";
+import { addHistoryToCurrentUser } from "../Forms/Storage";
 
-function PayForm() {
+function PayForm({ bookingInfo }) {
   const [formData, setFormData] = useState({
     cardNumber: "",
     cardHolder: "",
@@ -76,6 +77,16 @@ function PayForm() {
       toast.success(
         `✅ Payment method "${method}" selected and card details valid!`
       );
+      const historyEntry = {
+        image: bookingInfo.image,
+        category: bookingInfo.category,
+        totalPrice: bookingInfo.totalPrice,
+        name: bookingInfo.name,
+        timestamp: new Date().toISOString(),
+      };
+
+      addHistoryToCurrentUser(historyEntry);
+      navigate("/profile");
     }
   };
 

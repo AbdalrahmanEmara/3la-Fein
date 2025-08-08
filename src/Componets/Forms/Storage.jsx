@@ -86,3 +86,32 @@ export const isFavorite = (favoriteItemName) => {
 
   return currentUser.favorites.some((item) => item.name === favoriteItemName);
 };
+
+export const addHistoryToCurrentUser = (historyItem) => {
+  const currentUser = getCurrentUser();
+  console.log("Current User before history add:", currentUser);
+
+  if (!currentUser) {
+    console.warn("No current user set");
+    return;
+  }
+
+  if (!Array.isArray(currentUser.history)) {
+    currentUser.history = [];
+  }
+
+  currentUser.history.push(historyItem);
+
+  setCurrentUser(currentUser);
+
+  const users = getUsers();
+  console.log("Users before update:", users);
+
+  const updatedUsers = users.map((user) =>
+    user.id === currentUser.id ? currentUser : user
+  );
+
+  console.log("Updated Users:", updatedUsers);
+
+  localStorage.setItem("users", JSON.stringify(updatedUsers));
+};

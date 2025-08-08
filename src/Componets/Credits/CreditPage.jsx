@@ -6,7 +6,7 @@ import styles from "./Credit.module.css";
 // Helper function to generate random booking price details
 const generateBookingDetails = () => {
   const pricePerNight = (Math.random() * 150 + 50).toFixed(2); // $50.00 to $200.00
-  const nights = Math.floor(Math.random() * 5) + 1; // 1 to 5 nights
+  const nights = 1; //Math.floor(Math.random() * 5) + 1; // 1 to 5 nights
   const discountPercent = (Math.random() * 15 + 5).toFixed(1); // 5.0% to 20.0%
   const serviceFee = (Math.random() * 80 + 20).toFixed(2); // $20.00 to $100.00
 
@@ -42,7 +42,14 @@ function CreditPage({ data }) {
         fadeIn ? styles["fade-enter-active"] : styles["fade-enter"]
       }`}
     >
-      <PayForm />
+      <PayForm
+        bookingInfo={{
+          image: data?.image || "/images/venice.png",
+          category: data?.category?.title || "Category",
+          totalPrice: priceRows.res4 || "$0.00",
+          name: data?.name || "Venice, Rome & Milan",
+        }}
+      />
 
       <BookingCard
         imageSrc={data?.image || "/images/venice.png"}

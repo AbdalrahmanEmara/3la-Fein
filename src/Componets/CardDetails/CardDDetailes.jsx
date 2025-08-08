@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./CardDDetails.module.css";
 import { useNavigate } from "react-router-dom";
+import { getCurrentUser } from "../Forms/Storage";
 
 const CardDDetailes = ({ onClose, data }) => {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
@@ -9,9 +10,14 @@ const CardDDetailes = ({ onClose, data }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/confirmPayment", { state: { props: data } });
-  };
+    const currentUser = getCurrentUser();
 
+    if (!currentUser) {
+      navigate("/signup");
+    } else {
+      navigate("/confirmPayment", { state: { props: data } });
+    }
+  };
   useEffect(() => {
     const scrollY = window.scrollY;
     document.body.style.position = "fixed";

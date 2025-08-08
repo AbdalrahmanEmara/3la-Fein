@@ -2,6 +2,7 @@
   width: 77%;
   height: auto;
   margin: auto;
+  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
