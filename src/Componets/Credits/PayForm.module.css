@@ -1,0 +1,127 @@
+/* Container with no background or box */
+.container {
+  max-width: 480px;
+  margin: 2rem auto;
+  margin-top: 50vw;
+  padding: 2rem 2.5rem;
+  color: #000; /* black text */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Inputs with transparent background but subtle border */
+.input {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  font-size: 1rem;
+  border-radius: 14px;
+  border: 1.8px solid #666;
+  background: transparent;
+  color: #000;
+  box-shadow: none;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+.input::placeholder {
+  color: #555;
+  opacity: 1;
+}
+
+.input:hover,
+.input:focus {
+  border-color: #007bff; /* blue border on focus */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  background: transparent;
+  color: #000;
+}
+
+.select {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 14px;
+  border: 1.8px solid #666;
+  background: transparent;
+  color: #000;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  outline: none;
+  box-shadow: none;
+}
+
+.select:hover,
+.select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  background: transparent;
+}
+
+/* Labels in black with medium weight */
+.label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  display: block;
+  color: #000;
+}
+
+/* Confirm button with blue gradient and margin */
+.confirmBtn {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+  font-weight: 700;
+  padding: 0.75rem 0;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.2rem;
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.75);
+  transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+  margin-top: 1.5rem; /* added margin */
+}
+
+.confirmBtn:hover {
+  background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.9);
+  color: white; /* keep text white on hover */
+}
+
+/* Checkbox label and input */
+.check label {
+  color: #000;
+  cursor: pointer;
+}
+
+.checkbox {
+  margin-right: 0.6rem;
+  width: 18px;
+  height: 18px;
+  accent-color: #007bff;
+  cursor: pointer;
+}
+
+/* Back button styling */
+.back-button {
+  background: none;
+  border: none;
+  padding: 4px;
+  margin-right: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: #007bff; /* blue icon color */
+}
+
+.back-button svg path {
+  fill: #007bff;
+}
+
+.back-button:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+  transform: scale(1.3);
+}

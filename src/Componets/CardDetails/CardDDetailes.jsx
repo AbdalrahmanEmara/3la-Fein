@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./CardDDetails.module.css";
-import img from "/tourcard.png";
+import { useNavigate } from "react-router-dom";
 
 const CardDDetailes = ({ onClose, data }) => {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
   const [shinePos, setShinePos] = useState({ x: 50, y: 50 });
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/confirmPayment", { state: { props: data } });
+  };
 
   useEffect(() => {
     const scrollY = window.scrollY;
@@ -140,11 +145,9 @@ const CardDDetailes = ({ onClose, data }) => {
                 className={`info ${styles.bb} d-flex justify-content-between mb-2`}
               >
                 <p>
-                  {" "}
                   {data.country} - {data.city} - {data.address}
                 </p>
                 <p>
-                  {" "}
                   ⭐{data.rating} ( {data.visitors} visitors)
                 </p>
               </div>
@@ -169,7 +172,10 @@ const CardDDetailes = ({ onClose, data }) => {
               <div className={styles.offer}>
                 Now’s the time, amazing OFFER inside!
               </div>
-              <button className={`${styles.bookBtn} my-1 w-100`}>
+              <button
+                className={`${styles.bookBtn} my-1 w-100`}
+                onClick={handleClick}
+              >
                 Book now
               </button>
             </div>

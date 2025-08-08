@@ -64,6 +64,7 @@ function PublicGroupsPage(groups) {
             font: '500 16px "Poppins"',
             color: "#777E90",
             margin: "0px",
+            textAlign: "center",
           }}
         >
           Join Now to our public groups!

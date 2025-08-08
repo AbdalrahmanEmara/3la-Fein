@@ -9,6 +9,7 @@ import MainCategories from "../Componets/categoriessec/maincategories";
 import LocationPickerButton from "../Componets/Location/LocationPickerButton";
 import DiscoverWeekly from "../Componets/discoverWeekly/discoverWeekly";
 import { useEffect } from "react";
+import CreditPage from "../Componets/Credits/CreditPage";
 
 export default function Home() {
   useEffect(() => {
@@ -40,6 +41,7 @@ export default function Home() {
       </section>
       <section id="Footer">
         <Footer />
+        <CreditPage />
       </section>
     </div>
   );
