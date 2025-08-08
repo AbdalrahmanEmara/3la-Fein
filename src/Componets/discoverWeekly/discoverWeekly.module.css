@@ -1,0 +1,25 @@
+.discoverWeekly {
+  width: 70%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px auto;
+  justify-content: space-evenly;
+  gap: 32px;
+  padding-bottom: 100px;
+}
+
+.discoverTitle {
+  width: 100%;
+  font: 700 48px "DM Sans";
+  color: #23262f;
+  text-align: center;
+}
+
+.discoverDescription {
+  width: 100%;
+  height: auto;
+  color: var(--Neutrals-4, #777e90);
+  font: 400 20px "Poppins";
+  text-align: center;
+}

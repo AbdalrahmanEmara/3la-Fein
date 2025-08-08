@@ -7,7 +7,13 @@ export default function Footer() {
 
   const navigateToSection = (sectionId) => {
     if (window.location.pathname !== "/") {
-      navigate("/", { state: { scrollTo: sectionId } });
+      navigate("/", { replace: false });
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
     } else {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -36,7 +42,8 @@ export default function Footer() {
               <button
                 onClick={() => {
                   navigateToSection("Hero");
-                }}>
+                }}
+              >
                 Hero
               </button>
             </li>
@@ -44,7 +51,8 @@ export default function Footer() {
               <button
                 onClick={() => {
                   navigateToSection("Categories");
-                }}>
+                }}
+              >
                 Categories
               </button>
             </li>
@@ -52,7 +60,8 @@ export default function Footer() {
               <button
                 onClick={() => {
                   navigateToSection("Discover");
-                }}>
+                }}
+              >
                 Discover
               </button>
             </li>
@@ -60,7 +69,8 @@ export default function Footer() {
               <button
                 onClick={() => {
                   navigateToSection("Navigator");
-                }}>
+                }}
+              >
                 Navigator
               </button>
             </li>
@@ -68,7 +78,8 @@ export default function Footer() {
               <button
                 onClick={() => {
                   navigateToSection("Reviews");
-                }}>
+                }}
+              >
                 Reviews
               </button>
             </li>

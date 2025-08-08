@@ -1,0 +1,55 @@
+.publicGroupsTitle {
+  font: 700 48px "DM Sans";
+  color: #141416;
+  margin: 120px 0px 0px 0px;
+  text-align: center;
+}
+
+.publicGroupsPageDiv {
+  width: 95%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-top: 50px;
+}
+.publicGroupsPageDiv p {
+  text-align: center;
+}
+.arrowButtons {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.arrowButtons div {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 4px;
+  margin-bottom: 100px;
+}
+
+.arrowBig {
+  border: 2px solid #e6e8ec;
+  cursor: pointer;
+}
+
+.arrowBig svg {
+  transition: 0.2s;
+}
+
+.arrowBig:hover svg {
+  transform: scale(1.2);
+}

@@ -1,5 +1,4 @@
-
-import bg from "./img/herobg.png"
+import bg from "./img/herobg.png";
 
 function HeroBg() {
   return (
@@ -10,11 +9,10 @@ function HeroBg() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        height: "60vh", 
+        height: "60vh",
         width: "100vw",
       }}
-    >
-    </div>
+    ></div>
   );
 }
 

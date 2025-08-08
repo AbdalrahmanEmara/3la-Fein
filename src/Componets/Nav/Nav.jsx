@@ -2,22 +2,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Nav.module.css";
 import { getCurrentUser } from "../../Componets/Forms/Storage";
-import { useNavigate } from "react-router-dom";
+import navImage from "/logo.png";
+import shape from "/Shape.svg";
 
 const Nav = () => {
-  const navigate = useNavigate();
-
-  const navigateToSection = (sectionId) => {
-    if (window.location.pathname !== "/") {
-      navigate("/", { state: { scrollTo: sectionId } });
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
-
   const [isOpen, setIsOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
@@ -25,6 +13,23 @@ const Nav = () => {
     const user = getCurrentUser();
     setCurrentUser(user);
   }, []);
+
+  const navigateToSection = (sectionId) => {
+    if (window.location.pathname !== "/") {
+      navigate("/", { replace: false });
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <nav
@@ -36,12 +41,13 @@ const Nav = () => {
         width: "70%",
         left: "50%",
         transform: "translateX(-50%)",
-      }}>
+      }}
+    >
       <div className="container">
         <Link className={`nav-link ${styles.navLink}`} to="/">
           <div className={`${styles.logo} pe-1`}>
             <img
-              src="./logo.png"
+              src={navImage}
               alt="logo"
               className="rounded-circle me-3"
               style={{ width: "50px", height: "50px" }}
@@ -59,8 +65,9 @@ const Nav = () => {
                   currentUser
                     ? `${styles.mainBtn} ${styles.searchWide}`
                     : `${styles.mainBtn} ${styles.butt}`
-                }>
-                <img src="./Shape.svg" alt="search" />
+                }
+              >
+                <img src={shape} alt="search" />
                 {currentUser && <span className="ms-2">Search</span>}
               </button>
             </Link>
@@ -69,8 +76,8 @@ const Nav = () => {
             {currentUser ? (
               <Link className="nav-link" to="/profile">
                 <img
-                  src={currentUser.src}
-                  alt="avatar"
+                  src={currentUser.src || "../../../public/profile/deafult.jpg"}
+                  alt=" "
                   className={styles.avatar}
                 />
               </Link>
@@ -87,16 +94,19 @@ const Nav = () => {
           onClick={() => setIsOpen(!isOpen)}
           aria-controls="navbarNav"
           aria-expanded={isOpen}
-          aria-label="Toggle navigation">
+          aria-label="Toggle navigation"
+        >
           <span className="navbar-toggler-icon"></span>
         </button>
 
         {/* Nav Links */}
         <div
           className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}
-          id="navbarNav">
+          id="navbarNav"
+        >
           <ul
-            className={`navbar-nav m-md-0 m-sm-0 mx-lg-auto d-flex justify-content-between w-50 ${styles.navbarFont}`}>
+            className={`navbar-nav m-md-0 m-sm-0 mx-lg-auto d-flex justify-content-between w-50 ${styles.navbarFont}`}
+          >
             <li className="nav-item text-md-center">
               <Link className="nav-link" to="/">
                 Home
@@ -108,23 +118,31 @@ const Nav = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Groups">
+              <Link className="nav-link" to="/publicGroups">
                 Public Groups
               </Link>
             </li>
             <li className="nav-item">
-              <button
-                className="nav-link btn btn-link"
-                onClick={() => navigateToSection("Reviews")}>
+              <div
+                className="nav-link"
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  navigateToSection("Discover");
+                }}
+              >
                 About
-              </button>
+              </div>
             </li>
             <li className="nav-item">
-              <button
-                className="nav-link btn btn-link"
-                onClick={() => navigateToSection("Footer")}>
+              <div
+                className="nav-link"
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  navigateToSection("Footer");
+                }}
+              >
                 Contact
-              </button>
+              </div>
             </li>
             <li
               className="d-lg-none d-sm-block px-3 py-2 mx-auto"
@@ -133,7 +151,8 @@ const Nav = () => {
                 backgroundColor: "transparent",
                 borderRadius: "20px",
                 width: "fit-content",
-              }}>
+              }}
+            >
               <input
                 type="text"
                 style={{ backgroundColor: "transparent", border: "none" }}
@@ -151,8 +170,9 @@ const Nav = () => {
                 currentUser
                   ? `${styles.mainBtn} ${styles.searchWide}`
                   : `${styles.mainBtn} ${styles.butt}`
-              }>
-              <img src="./Shape.svg" alt="search" />
+              }
+            >
+              <img src={shape} alt="search" />
               {currentUser && <span className="ms-2">Search</span>}
             </button>
           </Link>

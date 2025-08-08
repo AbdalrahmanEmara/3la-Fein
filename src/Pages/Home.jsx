@@ -7,29 +7,9 @@ import Footer from "../Componets/Footer/Footer";
 import NavigatorEidget from "../Componets/Navigator/NavigatorWidget/NavigatorEidget";
 import MainCategories from "../Componets/categoriessec/maincategories";
 import LocationPickerButton from "../Componets/Location/LocationPickerButton";
-import DiscoverWeekly from "../Componets/discoverWeekly";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import DiscoverWeekly from "../Componets/discoverWeekly/discoverWeekly";
 
 export default function Home() {
-  const location = useLocation();
-
-useEffect(() => {
-  if (location.state?.scrollTo) {
-    const sectionId = location.state.scrollTo;
-    const element = document.getElementById(sectionId);
-    if (element) {
-      setTimeout(() => {
-        element.scrollIntoView({ behavior: "smooth" });
-      }, 100); // أو 200 لو محتاج وقت أطول للـ DOM
-    }
-  }
-}, [location]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div>
       <Nav />
@@ -37,9 +17,7 @@ useEffect(() => {
         <Hero />
       </section>
       <LocationPickerButton />
-
       <DiscoverWeekly />
-
       <section id="Categories">
         <MainCategories />
       </section>
@@ -55,7 +33,9 @@ useEffect(() => {
       <section id="Reviews">
         <Reviews />
       </section>
-      <Footer id="Footer" />
+      <section id="Footer">
+        <Footer />
+      </section>
     </div>
   );
 }
