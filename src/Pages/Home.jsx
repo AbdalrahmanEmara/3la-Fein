@@ -10,6 +10,10 @@ import LocationPickerButton from "../Componets/Location/LocationPickerButton";
 import DiscoverWeekly from "../Componets/discoverWeekly/discoverWeekly";
 
 export default function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <Nav />

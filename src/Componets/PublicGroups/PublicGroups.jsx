@@ -23,7 +23,8 @@ export default function PublicGroups() {
         {people.map((person, index) => (
           <div
             className={`${Style.person} ${Style[`person${index}`]}`}
-            key={index}>
+            key={index}
+          >
             <img src={person.img} alt={`person-${index}`} />
           </div>
         ))}

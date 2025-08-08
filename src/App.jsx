@@ -7,6 +7,7 @@ import { router } from "./routes";
 import { useEffect } from "react";
 import { useLocation } from "./Context/UserContext.jsx";
 
+// import Testapi from "./Pages/Testapi";
 function App() {
   const { location, setLocation } = useLocation();
 
@@ -30,6 +31,7 @@ function App() {
         <Toaster />
         <RouterProvider router={router} />
       </div>
+      {/* <Testapi /> */}
     </>
   );
 }
