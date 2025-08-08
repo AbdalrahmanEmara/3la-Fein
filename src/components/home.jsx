@@ -1,5 +1,5 @@
-import NavBar from '../navbar';
-  const Home = () => {
+import NavBar from './navbar';
+  const  Hero = () => {
   return (<>
     <NavBar/>
       <div className='landing'>
@@ -17,4 +17,4 @@ import NavBar from '../navbar';
  </div>
  </> )
 }
-export default Home
+export default Hero
