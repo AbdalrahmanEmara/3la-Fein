@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import styles from "./Nav.module.css";
 import { getCurrentUser } from "../../Componets/Forms/Storage";
 import navImage from "/logo.png";
 import shape from "/Shape.svg";
+import { Link, useNavigate } from "react-router-dom";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const user = getCurrentUser();

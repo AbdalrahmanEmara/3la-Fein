@@ -1,21 +1,14 @@
 import Nav from "../../Componets/Nav/Nav";
 import Footer from "../../Componets/Footer/Footer";
-import { useNavigate } from "react-router-dom";
-import {
-  getCurrentUser,
-  clearCurrentUser,
-} from "../../Componets/Forms/Storage";
 import MainHeroSec from "../../Componets/ProfHeroSec/mainHeroSec";
 import History from "../../Componets/History/History";
 import LocationPickerButton from "../../Componets/Location/LocationPickerButton";
+import { useEffect } from "react";
 
 const Profile = () => {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    clearCurrentUser();
-    navigate("/");
-  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>

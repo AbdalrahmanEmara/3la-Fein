@@ -99,7 +99,6 @@ export default function Restaurant(props) {
         style={{ height: "20px" }}
       >
         <button className={styles.detailButton}>Details</button>
-        <button className={styles.bookButton}>Book Now</button>
       </div>
     </div>
   );

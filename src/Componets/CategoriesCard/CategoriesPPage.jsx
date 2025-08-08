@@ -1,7 +1,7 @@
 import styles from "./CategoriesPPage.module.css";
 import CategoriesCCard from "./CategoriesCCard";
 import React, { useState } from "react";
-import CardDDetailes from "./CardDDetailes";
+import CardDDetailes from "../CardDetails/CardDDetailes";
 import style from "../Hero/Hero.module.css";
 import { useNavigate } from "react-router-dom";
 
@@ -13,20 +13,7 @@ const CategoriesPPage = () => {
     <div className={styles.container}>
       <div className={`${styles.pageName}`}>
         <h1>Categories</h1>
-        <p className={styles.paragraph}>
-          Stacks is a production-ready library of stackable content blocks built
-          in React Native.
-        </p>
-
-        <div>
-          <button
-            className={`${style.mainBtn} ${style.start} mt-4`}
-            onClick={() => setShowCard(true)}
-          >
-            3la-fe!n
-          </button>
-          {showCard && <CardDDetailes onClose={() => setShowCard(false)} />}
-        </div>
+        <p className={styles.paragraph}>Discover Our Special Categories</p>
       </div>
 
       <div className={styles.divOne}>

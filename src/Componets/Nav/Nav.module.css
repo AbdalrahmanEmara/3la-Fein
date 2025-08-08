@@ -30,9 +30,13 @@
   align-items: center;
   justify-content: center;
   border-radius: 24px;
-  background: rgba(252, 252, 253, 0.65);
-  backdrop-filter: blur(2.4px);
   padding: 24px 30px;
+  background: rgba(255, 255, 255, 0.3); /* semi-transparent for blur */
+  backdrop-filter: blur(10px); /* blur effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* soft shadow */
+  color: #313131;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* subtle border for glass effect */
 }
 
 @media (max-width: 1291px) {

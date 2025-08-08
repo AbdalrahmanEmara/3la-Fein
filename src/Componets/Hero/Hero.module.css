@@ -62,6 +62,16 @@
   font-weight: 700;
   line-height: 16px;
   text-align: center;
+  background: rgba(46, 167, 191, 0.3); /* semi-transparent for blur */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* soft shadow */
+  color: #ebebeb;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* subtle border for glass effect */
+}
+
+.mainBtn:hover {
+  transform: scale(1.03) translateY(-4px); /* slight lift */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* enhanced shadow */
 }
 
 .start {

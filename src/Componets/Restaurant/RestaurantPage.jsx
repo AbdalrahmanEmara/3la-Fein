@@ -6,6 +6,8 @@ import toast from "react-hot-toast";
 import Style from "./Restaurant.module.css";
 import categoriesData from "../categoriessec/categorisedata.jsx";
 import { useParams } from "react-router-dom";
+import CardDDetailes from "../CardDetails/CardDDetailes.jsx";
+import { motion, AnimatePresence } from "framer-motion";
 
 const GEOAPIFY_KEY = "1aba76b022024730abfcd18e5a1df166";
 const UNSPLASH_ACCESS_KEY = "AhDouzsd99fNq4NsePSTLN_Gq5RqXE6uyv5K4T6hpiU";
@@ -67,8 +69,11 @@ export default function RestaurantPage() {
         const mappedData = await Promise.all(
           results.map(async (place) => {
             const name = place.properties.name || "Unnamed Restaurant";
-            const address = place.properties.address_line1 || "No address";
             const city = place.properties.city || "";
+            const address = place.properties.address_line1 || "No address";
+            const country = place.properties.country || "";
+            const postcode = place.properties.postcode || "";
+            const state = place.properties.state || "";
 
             const restLat = place.geometry.coordinates[1];
             const restLon = place.geometry.coordinates[0];
@@ -94,18 +99,35 @@ export default function RestaurantPage() {
               if (results.length > 0) {
                 const randomIndex = Math.floor(Math.random() * results.length);
                 image = results[randomIndex]?.urls?.small || "/background.png";
+
+                image = imgData?.urls?.small || "/background.png";
+                imageDetails = {
+                  id: imgData.id,
+                  description:
+                    imgData.description || imgData.alt_description || "",
+                  urls: imgData.urls, // full, raw, regular, small, thumb
+                  photographer: imgData.user?.name || "Unknown",
+                  photographerProfile: imgData.user?.links?.html || "",
+                };
               }
             } catch (err) {
               console.warn("Unsplash fetch failed, using fallback.");
             }
 
             return {
-              name,
-              location: `${distance} km away`,
-              distance: parseFloat(distance),
-              rating: parseFloat((Math.random() * 2 + 3).toFixed(1)),
-              visitors: Math.floor(Math.random() * 1000) + 100,
+              name, //
+              location: `${distance} km away`, //
+              distance: parseFloat(distance), //
+              rating: parseFloat((Math.random() * 2 + 3).toFixed(1)), //
+              visitors: Math.floor(Math.random() * 1000) + 100, //
               image,
+              category, //
+              address, //
+              city, //
+              state,
+              country, //
+              postcode, //
+              coordinates: { lat: restLat, lon: restLon },
             };
           })
         );
@@ -157,6 +179,9 @@ export default function RestaurantPage() {
   const showAll = () => setVisibleCards(restaurants.length);
   const showLess = () => setVisibleCards(12);
 
+  const [showCard, setShowCard] = useState(false);
+  const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+
   return (
     <div className={`${Style.RestPage} d-flex flex-column`}>
       <div className="d-flex align-items-center flex-column text-center px-2">
@@ -188,10 +213,28 @@ export default function RestaurantPage() {
             </div>
           )}
           {!loading &&
-            restaurants
-              .slice(0, visibleCards)
-              .map((rest, index) => <Restaurant key={index} {...rest} />)}
+            restaurants.slice(0, visibleCards).map((rest, index) => (
+              <div
+                key={index}
+                onClick={() => {
+                  console.log(rest);
+                  setSelectedRestaurant(rest);
+                  setShowCard(true);
+                }}
+                style={{ cursor: "pointer" }}
+              >
+                <Restaurant {...rest} />
+              </div>
+            ))}
         </div>
+        <AnimatePresence>
+          {showCard && (
+            <CardDDetailes
+              data={selectedRestaurant}
+              onClose={() => setShowCard(false)}
+            />
+          )}
+        </AnimatePresence>
       </div>
 
       <div className="d-flex justify-content-center align-items-center mt-4">

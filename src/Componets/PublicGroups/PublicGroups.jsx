@@ -1,5 +1,5 @@
-import React from "react";
 import Style from "./PublicGroups.module.css";
+import { Link } from "react-router-dom";
 
 const people = [
   { img: "/images/person1.png" },
@@ -15,7 +15,9 @@ export default function PublicGroups() {
   return (
     <div className={Style.publicGroupsContainer}>
       <h2 className={Style.sectionTitle}>Public Groups</h2>
-      <button className={Style.bookBtn}>Book now</button>
+      <Link to="/publicGroups" className="nav-link">
+        <button className={Style.bookBtn}>BookNow</button>
+      </Link>
 
       <div className={Style.waveLine}>
         <img alt="" src="/images/wave.svg" className={Style.wave} />

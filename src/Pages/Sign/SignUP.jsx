@@ -25,7 +25,7 @@ function SignUp() {
     password: Yup.string()
       .required("Password is required")
       .min(6, "Password must be at least 6 characters")
-      .max(13, "Password must not exceed 13 characters")
+      .max(20, "Password must not exceed 20 characters")
       .matches(/[A-Z]/, "Password must include at least one uppercase letter")
       .matches(/\d/, "Password must include at least one number")
       .matches(

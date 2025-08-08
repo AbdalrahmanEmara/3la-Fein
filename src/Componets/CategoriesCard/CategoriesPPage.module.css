@@ -13,7 +13,6 @@
 
 .divOne {
   width: 80vw;
-  height: 200vh;
   margin: 0px auto;
   padding: 10px;
   display: grid;
@@ -121,6 +120,17 @@
   font-size: 14px;
   align-items: center;
   justify-content: center;
+  background: rgba(255, 255, 255, 0.3); /* semi-transparent for blur */
+  backdrop-filter: blur(10px); /* blur effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* soft shadow */
+  color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* subtle border for glass effect */
+}
+
+.button:hover {
+  transform: scale(1.03) translateY(-4px); /* slight lift */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* enhanced shadow */
 }
 
 .text {
