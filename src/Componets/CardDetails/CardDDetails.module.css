@@ -49,7 +49,10 @@
 }
 
 .cardRight {
-  flex: 1.2; /* Make image section slightly bigger */
+  flex: none; /* prevent flex-grow */
+  max-width: 400px; /* max width the image container can grow */
+  width: 100%; /* let it shrink below max-width */
+  height: auto; /* height adjusts based on content */
   position: relative;
   display: flex;
 }
@@ -68,8 +71,8 @@
 }
 
 .cardRight img {
-  width: 100%;
-  height: 100%; /* Fill container height */
+  width: 100%; /* fill container width */
+  height: auto; /* keep aspect ratio */
   border-radius: 15px;
   object-fit: cover;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
@@ -122,12 +125,17 @@
 @media (max-width: 780px) {
   .cardContainer {
     width: 95vw;
+    max-height: 90vh; /* max height relative to viewport */
     padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto; /* allow vertical scrolling if content too tall */
+    padding: 40px;
   }
 
   .cardContent {
     flex-direction: column-reverse;
     gap: 15px;
+    margin: 0;
   }
 
   .cardLeft,
@@ -137,10 +145,16 @@
     height: auto;
   }
 
+  .cardRight {
+    max-height: 300px;
+    /* limit image container height */
+  }
+
   .cardRight img {
     width: 100%;
-    height: auto;
-    max-height: 300px;
+    height: 100%; /* fill container height */
+    max-height: 300px; /* prevent image from getting too tall */
+    object-fit: cover;
     border-radius: 10px;
   }
 

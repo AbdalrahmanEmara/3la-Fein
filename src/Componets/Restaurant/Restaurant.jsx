@@ -4,10 +4,14 @@ import {
   addFavoriteToCurrentUser,
   removeFavoriteFromCurrentUser,
   isFavorite,
+  getCurrentUser,
 } from "../Forms/Storage";
 import Categories from "../categoriessec/categories";
+import { useNavigate } from "react-router-dom";
 
 export default function Restaurant(props) {
+  const navigate = useNavigate();
+
   const [heartColor, setHeartColor] = useState(() =>
     isFavorite(props.name) ? "#FD7FE9" : "#B1B5C4"
   );
@@ -15,6 +19,12 @@ export default function Restaurant(props) {
 
   const changeColor = (e) => {
     e.stopPropagation();
+    const currentUser = getCurrentUser();
+
+    if (!currentUser) {
+      navigate("/signup");
+      return;
+    }
 
     setHeartColor((prevColor) => {
       if (prevColor === "#B1B5C4") {

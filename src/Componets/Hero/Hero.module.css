@@ -111,3 +111,30 @@
 .landing::before {
   box-shadow: 0 60px 80px rgba(4, 0, 255, 0.1);
 }
+.textBlock h1 {
+  font-family: "Rajdhani", sans-serif; /* modern, techy, clean */
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+  color: #00f0ff; /* cool cyan */
+  background: linear-gradient(90deg, #00f0ff, #00c8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.7));
+  transition: filter 0.3s ease;
+}
+
+.textBlock h1:hover {
+  filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.9));
+}
+
+.textBlock p {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #a0eaff;
+  letter-spacing: 0.05em;
+  margin-top: 10px;
+  opacity: 0.85;
+}

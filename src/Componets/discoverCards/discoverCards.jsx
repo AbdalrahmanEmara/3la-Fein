@@ -5,15 +5,26 @@ import {
   isFavorite,
   addFavoriteToCurrentUser,
   removeFavoriteFromCurrentUser,
+  getCurrentUser,
 } from "../Forms/Storage";
+import { useNavigate } from "react-router-dom";
 
 function DiscoverCards(place) {
+  const navigate = useNavigate();
+
   const [heartColor, setHeartColor] = useState(() =>
     isFavorite(place.name) ? "#FD7FE9" : "#B1B5C4"
   );
 
   const changeColor = (e) => {
     e.stopPropagation();
+
+    const currentUser = getCurrentUser();
+
+    if (!currentUser) {
+      navigate("/signup");
+      return;
+    }
 
     if (isFavorite(place.name)) {
       // remove from favorites

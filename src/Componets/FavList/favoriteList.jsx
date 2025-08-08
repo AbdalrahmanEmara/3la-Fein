@@ -42,23 +42,29 @@ function FavoriteList(favoriteList) {
         Favorite List
       </p>
 
-      {favoriteBatch.map((favoriteList) => (
-        <DiscoverCards
-          name={favoriteList.name}
-          image={favoriteList.image}
-          category={favoriteList.category}
-          rating={favoriteList.rating}
-          visitors={favoriteList.visitors}
-          isOpen={favoriteList.isOpen}
-          openDate={favoriteList.openDate}
-          id={favoriteList.id}
-          onCardClick={() => {
-            setSelectedRestaurant(favoriteList);
-            setShowCard(true);
-          }}
-          key={favoriteList.id}
-        />
-      ))}
+      {favoriteBatch.length === 0 ? (
+        <p style={{ color: "#666", fontSize: "18px", marginTop: "1rem" }}>
+          No favorite list
+        </p>
+      ) : (
+        favoriteBatch.map((favoriteList) => (
+          <DiscoverCards
+            name={favoriteList.name}
+            image={favoriteList.image}
+            category={favoriteList.category}
+            rating={favoriteList.rating}
+            visitors={favoriteList.visitors}
+            isOpen={favoriteList.isOpen}
+            openDate={favoriteList.openDate}
+            id={favoriteList.id}
+            onCardClick={() => {
+              setSelectedRestaurant(favoriteList);
+              setShowCard(true);
+            }}
+            key={favoriteList.id}
+          />
+        ))
+      )}
 
       <div className={Style.favoriteButtonContainer}>
         <div onClick={Button} className={Style.favoriteButton}>

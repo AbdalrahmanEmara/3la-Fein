@@ -2,6 +2,23 @@ import { FaCheckCircle } from "react-icons/fa";
 import Style from "./Discover.module.css";
 
 const HeroSection = () => {
+  const navigateToSection = (sectionId) => {
+    if (window.location.pathname !== "/") {
+      navigate("/", { replace: false });
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <section className={Style.heroSection}>
       <div className={Style.heroContent}>
@@ -33,7 +50,14 @@ const HeroSection = () => {
           </li>
         </ul>
 
-        <button className={Style.heroButton}>Learn more</button>
+        <button
+          className={Style.heroButton}
+          onClick={() => {
+            navigateToSection("Hero");
+          }}
+        >
+          Use Now
+        </button>
       </div>
 
       <div className={Style.heroImage}>

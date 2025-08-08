@@ -22,7 +22,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className={Style.footer}>
+    <footer className={Style.footer} id="Footer">
       <div className={Style.footerContent}>
         <div className={`${Style.logoCol} ${Style.footerCol}`}>
           <div className={Style.logo}>
