@@ -3,7 +3,7 @@ import BookingCard from "../Credits/BookingCard";
 import "./Credit.css";
 function CreditPage() {
   return (
-    <div className="container main-page d-flex justfy-content-between vh-100">
+    <div className="container main-page d-flex justfy-content-between vh-100  ">
       <PayForm />
       <BookingCard
         imageSrc="/images/venice.png"

@@ -18,7 +18,7 @@ const BookingCard = ({
   cancellationPolicy,
 }) => {
   return (
-    <div className="booking-card">
+    <div className="booking-card mt-4">
       <div className="header-image">
         <img src={imageSrc} alt={title} />
       </div>
