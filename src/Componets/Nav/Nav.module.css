@@ -100,6 +100,12 @@
     font-size: 13px;
     padding: 8px 10px;
   }
+  .searchText {
+    display: none;
+  }
+  .navbar-title {
+    display: none;
+  }
 }
 
 .butt {
@@ -135,4 +141,90 @@
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #3fafc6;
+}
+
+/* Existing styles you already had remain above... */
+
+/* Search Dropdown Container */
+.searchDropdown {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  padding: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+  animation: fadeIn 2s ease;
+  z-index: 2000;
+}
+
+.searchDropdown.desktop {
+  position: fixed;
+  top: 80px; /* just under your navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  padding: 10px;
+  border-radius: 12px;
+  z-index: 2000;
+}
+
+.searchDropdown.mobile {
+  position: fixed;
+  top: 60px;
+  left: 5%;
+  width: 90%;
+  padding: 10px;
+  border-radius: 12px;
+  z-index: 2000;
+}
+
+/* Input styling */
+.searchInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.searchInput::placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Search result item */
+.searchItem {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.searchItem:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.searchItem img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 8px;
+}
+
+/* Hide search text on small screens */
+@media screen and (max-width: 480px) {
+  .searchText {
+    display: none;
+  }
+  .navbar-title {
+    display: none;
+  }
 }

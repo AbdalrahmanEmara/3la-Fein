@@ -9,6 +9,7 @@ import NotFound from "./Pages/NotFound";
 import PublicGroupFullPage from "./Pages/PublicGroups/PublicGroupFullPage";
 import CreditPage from "./Componets/Credits/CreditPage";
 import ConfirmPayment from "./Pages/ConfirmPayment/ConfirmPayment";
+import GroupMember from "./Componets/Groups/GroupMember";
 
 export const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
   { path: "/categories/:id", element: <CategoryRestaurantPage /> },
   { path: "/credits", element: <CreditPage /> },
   { path: "/confirmPayment", element: <ConfirmPayment props /> },
+  { path: "/groupDetails", element: <GroupMember /> },
   {
     path: "/publicGroups",
     element: <PublicGroupFullPage />,

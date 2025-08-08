@@ -1,0 +1,49 @@
+.container {
+  padding: 20px;
+}
+
+.groupName span {
+  color: #3FA9C6;
+}
+@media  (max-width:335px) {
+  .groupName span{
+    font-size: 20px;
+  }
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  margin: 40px auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+@media (max-width:770px) {
+  .wrapper{
+    flex-direction: column;
+  }
+  .left,
+  .right{
+    width: 100% !important;
+  }
+  
+}
+.left {
+  width: 40%;
+}
+
+.right {
+ padding: 10px;
+ width:60%;
+}
+.join{
+  border: none;
+  background-color: #3FAFC6;
+  border-radius: 30px;
+  color: white;
+  padding: 15px;
+  margin-top: 20px;
+  width: 100%;
+  font-size: 20px;
+  box-shadow: 0 0 6px 6px #74bfd4;
+}
