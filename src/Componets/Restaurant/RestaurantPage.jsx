@@ -240,11 +240,11 @@ export default function RestaurantPage() {
       <div className="d-flex justify-content-center align-items-center mt-4">
         {visibleCards < restaurants.length ? (
           <button className={Style.ShowMoreButton} onClick={showAll}>
-            Show All Restaurant
+            Show All
           </button>
         ) : (
           <button className={Style.ShowMoreButton} onClick={showLess}>
-            Show Less Restaurant
+            Show Less
           </button>
         )}
       </div>

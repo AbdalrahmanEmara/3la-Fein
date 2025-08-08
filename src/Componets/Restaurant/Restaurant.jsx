@@ -1,16 +1,40 @@
 import React, { useState } from "react";
 import styles from "./Restaurant.module.css";
+import {
+  addFavoriteToCurrentUser,
+  removeFavoriteFromCurrentUser,
+  isFavorite,
+} from "../Forms/Storage";
+import Categories from "../categoriessec/categories";
 
 export default function Restaurant(props) {
-  const [heartColor, setHeartColor] = useState("#B1B5C4");
+  const [heartColor, setHeartColor] = useState(() =>
+    isFavorite(props.name) ? "#FD7FE9" : "#B1B5C4"
+  );
+  const { image, name, location, rating, visitors, category } = props;
 
-  const changeColor = () => {
-    setHeartColor((prevColor) =>
-      prevColor === "#B1B5C4" ? "#FD7FE9" : "#B1B5C4"
-    );
+  const changeColor = (e) => {
+    e.stopPropagation();
+
+    setHeartColor((prevColor) => {
+      if (prevColor === "#B1B5C4") {
+        // Add to favorites
+        addFavoriteToCurrentUser({
+          name,
+          image,
+          location,
+          rating,
+          visitors,
+          category,
+        });
+        return "#FD7FE9";
+      } else {
+        // Remove from favorites
+        removeFavoriteFromCurrentUser(name);
+        return "#B1B5C4";
+      }
+    });
   };
-
-  const { image, name, location, rating, visitors } = props;
 
   return (
     <div className={`${styles.Restaurant} position-relative`}>
