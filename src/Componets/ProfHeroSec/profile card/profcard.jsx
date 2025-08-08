@@ -101,10 +101,17 @@ function ProfileCard({ name, description }) {
       </div>
 
       <div className="d-flex justify-content-center gap-2 my-5">
-        <button className="btn-log px-3 py-2 text-white" onClick={handleLogout}>
-          Log Out
+        <button
+          className="btn-log px-3 py-2 text-white"
+          onClick={() => {
+            const confirmLogout = window.confirm("Are you sure to log out?");
+            if (confirmLogout) {
+              handleLogout();
+            }
+          }}
+        >
+          Log Out{" "}
         </button>
-
         <button type="button" className="btn btn-light" onClick={handleShare}>
           <img src={share} alt="share" width="20" />
         </button>

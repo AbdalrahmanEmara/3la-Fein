@@ -1,8 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import Style from "./Footer.module.css";
+import * as Yup from "yup";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import toast from "react-hot-toast";
 
 export default function Footer() {
   const navigate = useNavigate();
+
+  const validationSchema = Yup.object({
+    email: Yup.string().email("Invalid email").required("Email is required"),
+  });
 
   const navigateToSection = (sectionId) => {
     if (window.location.pathname !== "/") {
@@ -105,12 +112,54 @@ export default function Footer() {
           <h5>
             JOIN OUR COMMUNITY<span className={Style.emoji}>🔥</span>
           </h5>
-          <div className={Style.subscribeForm}>
-            <input type="email" placeholder="Enter your email" />
-            <button>
-              <span>&#8594;</span>
-            </button>
-          </div>
+
+          <Formik
+            initialValues={{ email: "" }}
+            validationSchema={validationSchema}
+            onSubmit={(values, { resetForm }) => {
+              console.log("Email submitted:", values.email);
+              toast.success(
+                "You've successfully joined! Please check your email",
+                {
+                  position: "bottom-center",
+                  duration: 2500,
+                }
+              );
+              setTimeout(() => {
+                toast.success(
+                  "A new update is coming soon! A complete trips program feature to enhance your experience!",
+                  {
+                    position: "bottom-center",
+                    duration: 3500,
+                  }
+                );
+              }, 1000);
+              resetForm();
+            }}
+          >
+            {({ errors, touched }) => (
+              <Form className={Style.subscribeForm}>
+                <div className={Style.inputWrapper}>
+                  <Field
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    className={`${
+                      errors.email && touched.email ? Style.errorInput : ""
+                    }`}
+                  />
+                  <button type="submit">
+                    <span>&#8594;</span>
+                  </button>
+                </div>
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className={Style.errorMessage}
+                />
+              </Form>
+            )}
+          </Formik>
         </div>
       </div>
     </footer>

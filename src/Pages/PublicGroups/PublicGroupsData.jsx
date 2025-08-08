@@ -9,6 +9,33 @@ const publicGroupsItems = [
     adminName: "Ethan",
     currentMembers: "5",
     maxMembers: "8",
+    members: [
+      {
+        name: "Olivia",
+        rating: "4.9",
+        image: "https://randomuser.me/api/portraits/women/20.jpg",
+      },
+      {
+        name: "Noah",
+        rating: "4.4",
+        image: "https://randomuser.me/api/portraits/men/21.jpg",
+      },
+      {
+        name: "Emma",
+        rating: "4.3",
+        image: "https://randomuser.me/api/portraits/women/22.jpg",
+      },
+      {
+        name: "Mason",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/men/23.jpg",
+      },
+      {
+        name: "Ava",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/24.jpg",
+      },
+    ],
   },
   {
     name: "Urban Cyclists",
@@ -20,6 +47,48 @@ const publicGroupsItems = [
     adminName: "Sophia",
     currentMembers: "8",
     maxMembers: "8",
+    members: [
+      {
+        name: "Liam",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/men/25.jpg",
+      },
+      {
+        name: "Isabella",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/women/26.jpg",
+      },
+      {
+        name: "James",
+        rating: "4.4",
+        image: "https://randomuser.me/api/portraits/men/27.jpg",
+      },
+      {
+        name: "Mia",
+        rating: "4.9",
+        image: "https://randomuser.me/api/portraits/women/28.jpg",
+      },
+      {
+        name: "Benjamin",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/men/29.jpg",
+      },
+      {
+        name: "Charlotte",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/women/30.jpg",
+      },
+      {
+        name: "Lucas",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/men/31.jpg",
+      },
+      {
+        name: "Amelia",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/32.jpg",
+      },
+    ],
   },
   {
     name: "Pizza Masters",
@@ -31,6 +100,38 @@ const publicGroupsItems = [
     adminName: "Marco",
     currentMembers: "6",
     maxMembers: "8",
+    members: [
+      {
+        name: "Ella",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/women/33.jpg",
+      },
+      {
+        name: "Oliver",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/men/34.jpg",
+      },
+      {
+        name: "Sofia",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/35.jpg",
+      },
+      {
+        name: "Henry",
+        rating: "4.4",
+        image: "https://randomuser.me/api/portraits/men/36.jpg",
+      },
+      {
+        name: "Zoe",
+        rating: "4.9",
+        image: "https://randomuser.me/api/portraits/women/37.jpg",
+      },
+      {
+        name: "Jackson",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/men/38.jpg",
+      },
+    ],
   },
   {
     name: "Travel & Hike",
@@ -42,6 +143,43 @@ const publicGroupsItems = [
     adminName: "Ava",
     currentMembers: "7",
     maxMembers: "8",
+    members: [
+      {
+        name: "Ethan",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/men/39.jpg",
+      },
+      {
+        name: "Madison",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/40.jpg",
+      },
+      {
+        name: "Sebastian",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/men/41.jpg",
+      },
+      {
+        name: "Chloe",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/women/42.jpg",
+      },
+      {
+        name: "Daniel",
+        rating: "4.4",
+        image: "https://randomuser.me/api/portraits/men/43.jpg",
+      },
+      {
+        name: "Lily",
+        rating: "4.9",
+        image: "https://randomuser.me/api/portraits/women/44.jpg",
+      },
+      {
+        name: "Matthew",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/men/45.jpg",
+      },
+    ],
   },
   {
     name: "Bookworms Club",
@@ -53,6 +191,43 @@ const publicGroupsItems = [
     adminName: "Liam",
     currentMembers: "7",
     maxMembers: "8",
+    members: [
+      {
+        name: "Abigail",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/46.jpg",
+      },
+      {
+        name: "Joseph",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/men/47.jpg",
+      },
+      {
+        name: "Emily",
+        rating: "4.9",
+        image: "https://randomuser.me/api/portraits/women/48.jpg",
+      },
+      {
+        name: "David",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/men/49.jpg",
+      },
+      {
+        name: "Mia",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/women/50.jpg",
+      },
+      {
+        name: "Andrew",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/men/51.jpg",
+      },
+      {
+        name: "Charlotte",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/women/52.jpg",
+      },
+    ],
   },
   {
     name: "Nature Photographers",
@@ -64,6 +239,48 @@ const publicGroupsItems = [
     adminName: "Olivia",
     currentMembers: "8",
     maxMembers: "8",
+    members: [
+      {
+        name: "Daniel",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/men/53.jpg",
+      },
+      {
+        name: "Grace",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/54.jpg",
+      },
+      {
+        name: "Joseph",
+        rating: "4.9",
+        image: "https://randomuser.me/api/portraits/men/55.jpg",
+      },
+      {
+        name: "Ella",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/56.jpg",
+      },
+      {
+        name: "David",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/men/57.jpg",
+      },
+      {
+        name: "Sophia",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/women/58.jpg",
+      },
+      {
+        name: "Matthew",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/men/59.jpg",
+      },
+      {
+        name: "Madison",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/women/60.jpg",
+      },
+    ],
   },
   {
     name: "Fitness Freaks",
@@ -75,6 +292,38 @@ const publicGroupsItems = [
     adminName: "Noah",
     currentMembers: "6",
     maxMembers: "8",
+    members: [
+      {
+        name: "Lily",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/women/61.jpg",
+      },
+      {
+        name: "James",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/men/62.jpg",
+      },
+      {
+        name: "Amelia",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/women/63.jpg",
+      },
+      {
+        name: "Henry",
+        rating: "4.4",
+        image: "https://randomuser.me/api/portraits/men/64.jpg",
+      },
+      {
+        name: "Sofia",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/65.jpg",
+      },
+      {
+        name: "Benjamin",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/men/66.jpg",
+      },
+    ],
   },
   {
     name: "Coding Ninjas",
@@ -86,6 +335,48 @@ const publicGroupsItems = [
     adminName: "Mia",
     currentMembers: "8",
     maxMembers: "8",
+    members: [
+      {
+        name: "David",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/men/67.jpg",
+      },
+      {
+        name: "Emma",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/women/68.jpg",
+      },
+      {
+        name: "Michael",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/men/69.jpg",
+      },
+      {
+        name: "Isabella",
+        rating: "4.9",
+        image: "https://randomuser.me/api/portraits/women/70.jpg",
+      },
+      {
+        name: "Joseph",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/men/71.jpg",
+      },
+      {
+        name: "Emily",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/women/72.jpg",
+      },
+      {
+        name: "William",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/men/73.jpg",
+      },
+      {
+        name: "Charlotte",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/74.jpg",
+      },
+    ],
   },
   {
     name: "Beach Volleyball",
@@ -97,6 +388,38 @@ const publicGroupsItems = [
     adminName: "Emma",
     currentMembers: "6",
     maxMembers: "8",
+    members: [
+      {
+        name: "Lucas",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/men/75.jpg",
+      },
+      {
+        name: "Ella",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/76.jpg",
+      },
+      {
+        name: "Logan",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/men/77.jpg",
+      },
+      {
+        name: "Zoe",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/78.jpg",
+      },
+      {
+        name: "Jacob",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/men/79.jpg",
+      },
+      {
+        name: "Mia",
+        rating: "4.4",
+        image: "https://randomuser.me/api/portraits/women/80.jpg",
+      },
+    ],
   },
   {
     name: "Art & Paint Society",
@@ -108,6 +431,33 @@ const publicGroupsItems = [
     adminName: "Grace",
     currentMembers: "5",
     maxMembers: "8",
+    members: [
+      {
+        name: "Michael",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/men/81.jpg",
+      },
+      {
+        name: "Sophia",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/women/82.jpg",
+      },
+      {
+        name: "Alexander",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/men/83.jpg",
+      },
+      {
+        name: "Charlotte",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/women/84.jpg",
+      },
+      {
+        name: "Ethan",
+        rating: "4.9",
+        image: "https://randomuser.me/api/portraits/men/85.jpg",
+      },
+    ],
   },
   {
     name: "Board Game Nights",
@@ -119,6 +469,48 @@ const publicGroupsItems = [
     adminName: "Lucas",
     currentMembers: "8",
     maxMembers: "8",
+    members: [
+      {
+        name: "Isabella",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/women/86.jpg",
+      },
+      {
+        name: "Benjamin",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/men/87.jpg",
+      },
+      {
+        name: "Amelia",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/women/88.jpg",
+      },
+      {
+        name: "Henry",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/men/89.jpg",
+      },
+      {
+        name: "Mia",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/women/90.jpg",
+      },
+      {
+        name: "James",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/men/91.jpg",
+      },
+      {
+        name: "Ella",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/92.jpg",
+      },
+      {
+        name: "William",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/men/93.jpg",
+      },
+    ],
   },
   {
     name: "Street Foodies",
@@ -130,6 +522,43 @@ const publicGroupsItems = [
     adminName: "Isabella",
     currentMembers: "7",
     maxMembers: "8",
+    members: [
+      {
+        name: "Jacob",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/men/94.jpg",
+      },
+      {
+        name: "Ella",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/women/95.jpg",
+      },
+      {
+        name: "Ethan",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/men/96.jpg",
+      },
+      {
+        name: "Grace",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/97.jpg",
+      },
+      {
+        name: "James",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/men/98.jpg",
+      },
+      {
+        name: "Mia",
+        rating: "4.9",
+        image: "https://randomuser.me/api/portraits/women/99.jpg",
+      },
+      {
+        name: "Alexander",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/men/100.jpg",
+      },
+    ],
   },
   {
     name: "Pet Lovers United",
@@ -141,6 +570,38 @@ const publicGroupsItems = [
     adminName: "Jack",
     currentMembers: "6",
     maxMembers: "8",
+    members: [
+      {
+        name: "Charlotte",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/women/101.jpg",
+      },
+      {
+        name: "Oliver",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/men/102.jpg",
+      },
+      {
+        name: "Ella",
+        rating: "4.9",
+        image: "https://randomuser.me/api/portraits/women/103.jpg",
+      },
+      {
+        name: "Henry",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/men/104.jpg",
+      },
+      {
+        name: "Sophia",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/women/105.jpg",
+      },
+      {
+        name: "James",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/men/106.jpg",
+      },
+    ],
   },
   {
     name: "Yoga Harmony",
@@ -152,6 +613,33 @@ const publicGroupsItems = [
     adminName: "Ella",
     currentMembers: "5",
     maxMembers: "8",
+    members: [
+      {
+        name: "Mason",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/men/107.jpg",
+      },
+      {
+        name: "Sophia",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/women/108.jpg",
+      },
+      {
+        name: "Jackson",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/men/109.jpg",
+      },
+      {
+        name: "Emma",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/110.jpg",
+      },
+      {
+        name: "Benjamin",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/men/111.jpg",
+      },
+    ],
   },
   {
     name: "Language Exchange Hub",
@@ -163,6 +651,48 @@ const publicGroupsItems = [
     adminName: "Oliver",
     currentMembers: "8",
     maxMembers: "8",
+    members: [
+      {
+        name: "Mia",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/112.jpg",
+      },
+      {
+        name: "William",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/men/113.jpg",
+      },
+      {
+        name: "Ava",
+        rating: "4.9",
+        image: "https://randomuser.me/api/portraits/women/114.jpg",
+      },
+      {
+        name: "James",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/men/115.jpg",
+      },
+      {
+        name: "Isabella",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/116.jpg",
+      },
+      {
+        name: "Liam",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/men/117.jpg",
+      },
+      {
+        name: "Sophia",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/women/118.jpg",
+      },
+      {
+        name: "Jacob",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/men/119.jpg",
+      },
+    ],
   },
   {
     name: "Mountain Bikers Crew",
@@ -174,6 +704,43 @@ const publicGroupsItems = [
     adminName: "Zoe",
     currentMembers: "7",
     maxMembers: "8",
+    members: [
+      {
+        name: "Ethan",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/men/120.jpg",
+      },
+      {
+        name: "Madison",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/121.jpg",
+      },
+      {
+        name: "Sebastian",
+        rating: "4.8",
+        image: "https://randomuser.me/api/portraits/men/122.jpg",
+      },
+      {
+        name: "Chloe",
+        rating: "4.5",
+        image: "https://randomuser.me/api/portraits/women/123.jpg",
+      },
+      {
+        name: "Daniel",
+        rating: "4.9",
+        image: "https://randomuser.me/api/portraits/men/124.jpg",
+      },
+      {
+        name: "Lily",
+        rating: "4.7",
+        image: "https://randomuser.me/api/portraits/women/125.jpg",
+      },
+      {
+        name: "Matthew",
+        rating: "4.6",
+        image: "https://randomuser.me/api/portraits/men/126.jpg",
+      },
+    ],
   },
 ];
 
