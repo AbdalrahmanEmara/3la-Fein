@@ -1,7 +1,31 @@
 import { FaCheckCircle } from "react-icons/fa";
 import Style from "./Discover.module.css";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react"; // import useState
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
+  const [buttonText, setButtonText] = useState("Learn more"); // state for button label
+
+  const navigateToSection = (sectionId) => {
+    setButtonText("Use now");
+    if (window.location.pathname !== "/") {
+      navigate("/", { replace: false });
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <section className={Style.heroSection}>
       <div className={Style.heroContent}>
@@ -33,7 +57,13 @@ const HeroSection = () => {
           </li>
         </ul>
 
-        <button className={Style.heroButton}>Learn more</button>
+        <button
+          className={Style.heroButton}
+          onClick={() => {
+            navigateToSection("Hero");
+          }}>
+          {buttonText}
+        </button>
       </div>
 
       <div className={Style.heroImage}>

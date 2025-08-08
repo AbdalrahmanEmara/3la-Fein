@@ -42,8 +42,7 @@ const Nav = () => {
         width: "70%",
         left: "50%",
         transform: "translateX(-50%)",
-      }}
-    >
+      }}>
       <div className="container">
         <Link className={`nav-link ${styles.navLink}`} to="/">
           <div className={`${styles.logo} pe-1`}>
@@ -66,8 +65,7 @@ const Nav = () => {
                   currentUser
                     ? `${styles.mainBtn} ${styles.searchWide}`
                     : `${styles.mainBtn} ${styles.butt}`
-                }
-              >
+                }>
                 <img src={shape} alt="search" />
                 {currentUser && <span className="ms-2">Search</span>}
               </button>
@@ -95,20 +93,17 @@ const Nav = () => {
           onClick={() => setIsOpen(!isOpen)}
           aria-controls="navbarNav"
           aria-expanded={isOpen}
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
 
         {/* Nav Links */}
         <div
           className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}
-          id="navbarNav"
-        >
+          id="navbarNav">
           <ul
-            className={`navbar-nav m-md-0 m-sm-0 mx-lg-auto d-flex justify-content-between w-50 ${styles.navbarFont}`}
-          >
-            <li className="nav-item text-md-center">
+            className={`navbar-nav m-md-0 m-sm-0 mx-lg-auto d-flex justify-content-between w-50 ${styles.navbarFont}`}>
+            <li className="nav-item">
               <Link className="nav-link" to="/">
                 Home
               </Link>
@@ -129,8 +124,7 @@ const Nav = () => {
                 style={{ cursor: "pointer" }}
                 onClick={() => {
                   navigateToSection("Discover");
-                }}
-              >
+                }}>
                 About
               </div>
             </li>
@@ -140,8 +134,7 @@ const Nav = () => {
                 style={{ cursor: "pointer" }}
                 onClick={() => {
                   navigateToSection("Footer");
-                }}
-              >
+                }}>
                 Contact
               </div>
             </li>
@@ -151,9 +144,8 @@ const Nav = () => {
                 border: "1px solid #f4f4f4",
                 backgroundColor: "transparent",
                 borderRadius: "20px",
-                width: "fit-content",
-              }}
-            >
+                width: "100%",
+              }}>
               <input
                 type="text"
                 style={{ backgroundColor: "transparent", border: "none" }}
@@ -171,8 +163,7 @@ const Nav = () => {
                 currentUser
                   ? `${styles.mainBtn} ${styles.searchWide}`
                   : `${styles.mainBtn} ${styles.butt}`
-              }
-            >
+              }>
               <img src={shape} alt="search" />
               {currentUser && <span className="ms-2">Search</span>}
             </button>
