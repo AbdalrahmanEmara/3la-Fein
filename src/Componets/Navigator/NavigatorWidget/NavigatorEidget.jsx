@@ -13,8 +13,8 @@ const NavigatorEidget = () => {
               💡
             </span>
           }
-          title="Tell us what you want to do"
-          text="Select the types of activities you're interested in — from outdoor fun to cultural, educational, or relaxing experiences."
+          title="We'll give you recommendations"
+          text="Get fresh and exciting ideas for things to do anytime. We make it easy to explore new experiences."
         />
         <Navigator
           color="yellow"
@@ -23,8 +23,8 @@ const NavigatorEidget = () => {
               ⚡
             </span>
           }
-          title="Share your travel preferences"
-          text="Let us know your location, time, and who you're going with. We'll tailor everything to your vibe and availability."
+          title="Join groups with shared interests"
+          text="Meet and connect with people who share your passions. Build meaningful connections through shared activities."
         />
         <Navigator
           color="pink"
@@ -33,8 +33,8 @@ const NavigatorEidget = () => {
               ⭐
             </span>
           }
-          title="We'll give you recommendations"
-          text="Get personalized suggestions instantly. Explore events, activities, and groups that match your interests."
+          title="Discover trending events near you"
+          text="Discover activities perfectly matched to your preferences, and we help you find trending events near you"
         />
       </div>
     </>

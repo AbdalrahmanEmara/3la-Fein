@@ -157,6 +157,11 @@
   background-color: white;
 }
 
+.black {
+  color: black;
+  text-decoration: none;
+}
+
 .subscribeForm {
   display: flex;
   flex-direction: column;
