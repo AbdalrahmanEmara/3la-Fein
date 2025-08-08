@@ -130,20 +130,22 @@ function PayForm({ bookingInfo }) {
             value={method}
             onChange={handleChange}
           >
-            <option value="Nganthuy">Nganthuy</option>
-            <option value="Audi">Audi</option>
-            <option value="veini">vieni</option>
+            <option value="visa">Visa</option>
+            <option value="mastercard">MasterCard</option>
+            <option value="amex">American Express</option>
+            <option value="discover">Discover</option>
+            <option value="jcb">JCB</option>
           </select>
         </div>
 
-        <h3 className="mb-3">Credit Card</h3>
+        <h3 className="mb-3 mt-3">Credit Card</h3>
 
         <div className="d-flex align-items-center mb-4">
           <img src="Visa.png" alt="Visa" />
           <img src="g13.png" alt="Card logos" />
         </div>
 
-        <div>
+        <div className="mb-3">
           <label className={styles.label}>CARD NUMBER</label>
           <input
             type="text"
@@ -161,7 +163,7 @@ function PayForm({ bookingInfo }) {
           )}
         </div>
 
-        <div>
+        <div className="mb-3">
           <label className={styles.label}>CARD HOLDER</label>
           <input
             type="text"
@@ -177,7 +179,7 @@ function PayForm({ bookingInfo }) {
         </div>
 
         <div
-          className={`mb-3 d-flex justify-content-between gx-3 ${styles.info}`}
+          className={`mb-3 d-flex justify-content-between gx-5 ${styles.info}`}
         >
           <div>
             <label className={styles.label}>EXPIRATION DATE</label>

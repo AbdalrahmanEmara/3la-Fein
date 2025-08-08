@@ -11,7 +11,7 @@ const CategoriesPPage = () => {
 
   return (
     <div className={styles.container}>
-      <div className={`${styles.pageName}`}>
+      <div className={`mb-3 ${styles.pageName}`}>
         <h1>Categories</h1>
         <p className={styles.paragraph}>Discover Our Special Categories</p>
       </div>

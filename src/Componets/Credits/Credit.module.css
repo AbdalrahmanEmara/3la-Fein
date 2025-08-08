@@ -204,7 +204,9 @@
   align-items: center;
   height: 100vh;
   margin-top: 100px;
-  gap: 2rem;
+  gap: 27rem;
+  min-height: calc(100vh - 100px);
+  height: auto;
 }
 
 /* Stack vertically on smaller screens */
@@ -214,6 +216,13 @@
     height: auto;
     margin-top: 2rem;
     align-items: stretch;
+    gap: 1rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 1300px) {
+  .main-page {
+    gap: 10rem;
+    min-height: 0vh;
   }
 }
 
