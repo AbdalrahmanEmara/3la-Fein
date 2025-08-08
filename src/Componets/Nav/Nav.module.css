@@ -190,7 +190,7 @@
   font-size: 14px;
   margin-bottom: 10px;
   background: rgba(255, 255, 255, 0.25);
-  color: #fff;
+  color: #000000;
 }
 
 .searchInput::placeholder {
@@ -205,6 +205,11 @@
   cursor: pointer;
   border-radius: 6px;
   transition: background 0.2s ease;
+  color: #000000 !important;
+}
+
+.searchItem span {
+  color: #000000 !important;
 }
 
 .searchItem:hover {
@@ -219,7 +224,6 @@
   margin-right: 8px;
 }
 
-/* Hide search text on small screens */
 @media screen and (max-width: 480px) {
   .searchText {
     display: none;
