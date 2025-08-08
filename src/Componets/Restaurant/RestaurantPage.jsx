@@ -41,6 +41,7 @@ export default function RestaurantPage() {
   const [originalRestaurants, setOriginalRestaurants] = useState([]);
   const [visibleCards, setVisibleCards] = useState(12);
   const [filter, setFilter] = useState("Default");
+  const [loading, setLoading] = useState(false);
 
   const { location } = useLocation();
 
@@ -53,6 +54,8 @@ export default function RestaurantPage() {
         toast.error("Please select a location first.");
         return;
       }
+
+      setLoading(true);
 
       try {
         const geoRes = await axios.get(
@@ -120,6 +123,8 @@ export default function RestaurantPage() {
         const fallback = new Array(24).fill(null).map(() => fallbackData);
         setRestaurants(fallback);
         setOriginalRestaurants(fallback);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -174,10 +179,18 @@ export default function RestaurantPage() {
           ))}
         </div>
 
-        <div className="d-flex flex-wrap justify-content-center gap-4">
-          {restaurants.slice(0, visibleCards).map((rest, index) => (
-            <Restaurant key={index} {...rest} />
-          ))}
+        <div
+          className={`${Style.cardsWrapper} d-flex flex-wrap justify-content-center gap-4`}
+        >
+          {loading && (
+            <div className={Style.loadingOverlay}>
+              <div className={Style.loadingSpinner} />
+            </div>
+          )}
+          {!loading &&
+            restaurants
+              .slice(0, visibleCards)
+              .map((rest, index) => <Restaurant key={index} {...rest} />)}
         </div>
       </div>
 

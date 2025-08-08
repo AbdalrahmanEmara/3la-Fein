@@ -28,7 +28,7 @@ const popularPlaces = [
   { name: "London", lat: 51.5072, lon: -0.1276 },
 ];
 
-const LocationPickerButton = ({ onSelect, label = "📍 Location" }) => {
+const LocationPickerButton = ({ onSelect, label = "Location" }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -86,6 +86,18 @@ const LocationPickerButton = ({ onSelect, label = "📍 Location" }) => {
     setLocation({ lat, lon });
   };
 
+  useEffect(() => {
+    if (showPopup) {
+      document.body.style.overflow = "hidden"; // 🚫 disable scroll
+    } else {
+      document.body.style.overflow = ""; // ✅ enable scroll again
+    }
+
+    return () => {
+      document.body.style.overflow = ""; // cleanup on unmount
+    };
+  }, [showPopup]);
+
   return (
     <>
       {/* Floating Location Button */}
@@ -94,7 +106,7 @@ const LocationPickerButton = ({ onSelect, label = "📍 Location" }) => {
           className={styles.locationBtn}
           onClick={() => setShowPopup(true)}
         >
-          {label}
+          📍 <span>{label}</span>
         </button>
       </div>
 

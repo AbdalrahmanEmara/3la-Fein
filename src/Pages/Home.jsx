@@ -8,7 +8,6 @@ import NavigatorEidget from "../Componets/Navigator/NavigatorWidget/NavigatorEid
 import MainCategories from "../Componets/categoriessec/maincategories";
 import LocationPickerButton from "../Componets/Location/LocationPickerButton";
 import DiscoverWeekly from "../Componets/discoverWeekly/discoverWeekly";
-import { useEffect } from "react";
 
 export default function Home() {
   return (
@@ -34,7 +33,9 @@ export default function Home() {
       <section id="Reviews">
         <Reviews />
       </section>
-      <Footer />
+      <section id="Footer">
+        <Footer />
+      </section>
     </div>
   );
 }

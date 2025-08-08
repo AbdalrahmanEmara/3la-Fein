@@ -25,7 +25,6 @@
   }
 }
 
-
 .navbarCustom {
   display: flex;
   align-items: center;
@@ -99,7 +98,6 @@
   }
 }
 
-
 .butt {
   border: 2px solid #e6e8ec;
   display: flex;
@@ -134,4 +132,3 @@
   object-fit: cover;
   border: 2px solid #3fafc6;
 }
-

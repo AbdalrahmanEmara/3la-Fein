@@ -14,6 +14,23 @@ const Nav = () => {
     setCurrentUser(user);
   }, []);
 
+  const navigateToSection = (sectionId) => {
+    if (window.location.pathname !== "/") {
+      navigate("/", { replace: false });
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-light ${styles.navbarCustom} align-items-center justify-content-center`}
@@ -59,8 +76,8 @@ const Nav = () => {
             {currentUser ? (
               <Link className="nav-link" to="/profile">
                 <img
-                  src={currentUser.src}
-                  alt="avatar"
+                  src={currentUser.src || "../../../public/profile/deafult.jpg"}
+                  alt=" "
                   className={styles.avatar}
                 />
               </Link>
@@ -106,14 +123,26 @@ const Nav = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">
+              <div
+                className="nav-link"
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  navigateToSection("Discover");
+                }}
+              >
                 About
-              </Link>
+              </div>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Contact">
+              <div
+                className="nav-link"
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  navigateToSection("Footer");
+                }}
+              >
                 Contact
-              </Link>
+              </div>
             </li>
             <li
               className="d-lg-none d-sm-block px-3 py-2 mx-auto"

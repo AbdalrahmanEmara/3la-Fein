@@ -38,24 +38,31 @@ function ProfileCard({ name, description }) {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      const url = URL.createObjectURL(file);
-      setImageURL(url);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64 = reader.result; // Data URL string
 
-      const user = getCurrentUser();
+        const user = getCurrentUser();
+        if (user) {
+          user.src = base64;
 
-      if (user) {
-        user.src = url;
-        localStorage.setItem("currentUser", JSON.stringify(user));
+          // Save to current user storage
+          localStorage.setItem("currentUser", JSON.stringify(user));
 
-        const users = getUsers();
-        const updatedUsers = users.map((u) =>
-          u.email === user.email ? { ...u, src: url } : u
-        );
+          // Also update in users list
+          const users = getUsers();
+          const updatedUsers = users.map((u) =>
+            u.email === user.email ? { ...u, src: base64 } : u
+          );
+          localStorage.setItem("users", JSON.stringify(updatedUsers));
 
-        localStorage.setItem("users", JSON.stringify(updatedUsers));
-        setCurrentUser(user);
-        setCurrentUserState(user);
-      }
+          // Update both localStorage and state
+          setCurrentUser(user);
+          setCurrentUserState(user);
+          setImageURL(base64);
+        }
+      };
+      reader.readAsDataURL(file); // <-- converts to base64
     }
   };
 
