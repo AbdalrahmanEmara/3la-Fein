@@ -87,9 +87,18 @@ export default function Footer() {
         <div className={`${Style.footerCol}`}>
           <h5>Support</h5>
           <ul>
-            <li>Customer Support</li>
+            <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className={`${Style.black}`}>Customer Support</a></li>
+            <li>Contact Channels
+              <div class="d-flex justify-content-start gap-3 mb-4">
+                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                <img alt="facebook" width="20" src="/src/Componets/ProfHeroSec/img/Facebook.png" /></a>
+                <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+                <img alt="twitter" width="20" src="/src/Componets/ProfHeroSec/img/Twitter.png" /></a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                <img alt="instagram" width="20" src="/src/Componets/ProfHeroSec/img/Instagram.png" /></a>
+                </div>
+            </li>
             <li>Privacy & Policy</li>
-            <li>Contact Channels</li>
           </ul>
         </div>
         <div className={`${Style.footerCol} ${Style.subscribeCol}`}>
