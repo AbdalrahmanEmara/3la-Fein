@@ -10,7 +10,6 @@
   gap: 2rem;
   text-align: left;
   justify-items: center;
-  margin: 0 160px;
 }
 
 .footerCol {
@@ -99,13 +98,23 @@
   font-size: 1.1rem;
 }
 
-
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 992px) {
   .footerContent {
-    margin: 0 3rem;
+    margin: 0 5rem;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .footerContent {
+    margin: 0 160px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .footerContent {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 2rem;
+    margin: 0 3rem;
   }
 
   .subscribeForm {
@@ -129,23 +138,6 @@
     justify-content: center;
   }
 
-  .subscribeForm {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .subscribeCol input {
-    width: 100%;
-    border-radius: 20px;
-    margin-bottom: 0.5rem;
-  }
-
-  .subscribeForm button {
-    border-radius: 20px;
-    width: 100%;
-    height: 40px;
-  }
-
   .footerCol ul {
     padding-left: 0;
   }
@@ -154,9 +146,55 @@
     font-size: 0.95rem;
   }
   .logoCol p {
-  margin: 0 auto;
-  max-width: 100%;
-  text-align: center;
+    margin: 0 auto;
+    max-width: 100%;
+    text-align: center;
   }
 }
 
+.footerLi button {
+  border: 0;
+  background-color: white;
+}
+
+.black {
+  color: black;
+  text-decoration: none;
+}
+
+.subscribeForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.inputWrapper {
+  display: flex;
+}
+.subscribeCol input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+  height: 42px;
+}
+
+.subscribeForm button {
+  background-color: #3fafc6;
+  border: none;
+  color: white;
+  padding: 0 1rem;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  height: 42px;
+  font-size: 1.2rem;
+}
+
+.errorMessage {
+  color: #ff4d4f;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  font-weight: 500;
+  padding-left: 10px;
+}

@@ -7,6 +7,7 @@ import Footer from "../Componets/Footer/Footer";
 import NavigatorEidget from "../Componets/Navigator/NavigatorWidget/NavigatorEidget";
 import MainCategories from "../Componets/categoriessec/maincategories";
 import LocationPickerButton from "../Componets/Location/LocationPickerButton";
+import DiscoverWeekly from "../Componets/discoverWeekly/discoverWeekly";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -17,14 +18,29 @@ export default function Home() {
   return (
     <div>
       <Nav />
-      <Hero />
+      <section id="Hero">
+        <Hero />
+      </section>
       <LocationPickerButton />
-      <MainCategories />
-      <PublicGroups />
-      <Discover />
-      <NavigatorEidget />
-      <Reviews />
-      <Footer />
+      <DiscoverWeekly />
+      <section id="Categories">
+        <MainCategories />
+      </section>
+      <section id="Groups">
+        <PublicGroups />
+      </section>
+      <section id="Discover">
+        <Discover />
+      </section>
+      <section id="Navigator">
+        <NavigatorEidget />
+      </section>
+      <section id="Reviews">
+        <Reviews />
+      </section>
+      <section id="Footer">
+        <Footer />
+      </section>
     </div>
   );
 }

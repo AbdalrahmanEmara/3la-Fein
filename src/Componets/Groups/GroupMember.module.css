@@ -1,0 +1,153 @@
+.container {
+  padding: 100px 20px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+.left {
+  flex: 1;
+}
+
+.right {
+  flex: 1;
+}
+
+/* Header with back button */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #23262f;
+}
+
+.groupName {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 10px 0 20px;
+  margin-bottom: 30px;
+}
+
+.groupName span {
+  font-weight: 600;
+  color: #3fafc6;
+}
+
+/* Cards container */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Member card */
+.memberCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.memberCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Admin card special styling */
+.adminCard {
+  background: linear-gradient(135deg, #ffeeb2, #fff6d8);
+}
+
+/* Avatar */
+.memberAvatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #3fafc6;
+}
+
+/* Info text */
+.memberInfo {
+  flex: 1;
+}
+
+.memberName {
+  font-size: 18px;
+  font-weight: 600;
+  color: #23262f;
+}
+
+.memberRating {
+  font-size: 14px;
+  color: #3fafc6;
+}
+
+/* Join button */
+.join {
+  border: none;
+  background-color: #3fafc6;
+  border-radius: 50px;
+  color: white;
+  padding: 15px;
+  margin-top: 20px;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 0 8px rgba(63, 175, 198, 0.5);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.join:hover {
+  background-color: #3399ad;
+}
+
+.join:disabled {
+  background-color: #a0a0a0; /* gray */
+  box-shadow: none; /* remove glow */
+  cursor: not-allowed; /* no pointer */
+  opacity: 0.7; /* slightly faded */
+}
+
+.join:disabled:hover {
+  background-color: #a0a0a0; /* prevent hover color change */
+}
+
+.youCard {
+  background: linear-gradient(135deg, #b2dfff, #d8f0ff);
+  /* subtle blue gradient */
+}
+
+.youCard .memberAvatar {
+  border-color: #1f95c4; /* a deeper blue */
+}

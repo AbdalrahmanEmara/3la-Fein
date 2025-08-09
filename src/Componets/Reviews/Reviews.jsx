@@ -1,11 +1,16 @@
-// <<<<<<< HEAD:src/components/Reviews.jsx
-import React from "react";
 import CardReview from "./CardReview";
 import OtherReviewsHead from "./OtherReviewsHead";
+import React, { useState } from "react";
 
 import Style from "./ReviewStyle.module.css";
 
 const Reviews = () => {
+  const [count, setCount] = useState(0);
+
+  const handleClick = (id) => {
+    setCount(id);
+  };
+
   return (
     <section className={Style["main-section-review"]}>
       <div className={Style["main-container"]}>
@@ -17,29 +22,33 @@ const Reviews = () => {
             </p>
             <button className={Style["btn--contact--us"]}>Contact Us</button>
           </div>
-          <CardReview />
+          <CardReview count={count} setCount={setCount} />
         </div>
         <div className={Style["client-pagingation"]}>
           <div className={Style["list-reviews"]}>
             <OtherReviewsHead
               name="Isabelle"
-              job="fr"
+              job="BA at Robin"
               image="/images/person1.png"
+              onClick={() => handleClick(0)}
             />
             <OtherReviewsHead
-              name="ali"
-              job="fr"
+              name="Jonas"
+              job="Computer Science"
               image="/images/person2.png"
+              onClick={() => handleClick(1)}
             />
             <OtherReviewsHead
-              name="ali"
-              job="fr"
+              name="Omar"
+              job="UX Designer"
               image="/images/person3.png"
+              onClick={() => handleClick(2)}
             />
-            <OtherReviewsHead 
-              name="ali"
-              job="fr"
+            <OtherReviewsHead
+              name="Margrete"
+              job="Product Manager"
               image="/images/person4.png"
+              onClick={() => handleClick(3)}
             />
           </div>
         </div>

@@ -1,16 +1,50 @@
 import React, { useState } from "react";
 import styles from "./Restaurant.module.css";
+import {
+  addFavoriteToCurrentUser,
+  removeFavoriteFromCurrentUser,
+  isFavorite,
+  getCurrentUser,
+} from "../Forms/Storage";
+import Categories from "../categoriessec/categories";
+import { useNavigate } from "react-router-dom";
 
 export default function Restaurant(props) {
-  const [heartColor, setHeartColor] = useState("#B1B5C4");
+  const navigate = useNavigate();
 
-  const changeColor = () => {
-    setHeartColor((prevColor) =>
-      prevColor === "#B1B5C4" ? "#FD7FE9" : "#B1B5C4"
-    );
+  const [heartColor, setHeartColor] = useState(() =>
+    isFavorite(props.name) ? "#FD7FE9" : "#B1B5C4"
+  );
+  const { image, name, location, rating, visitors, category } = props;
+
+  const changeColor = (e) => {
+    e.stopPropagation();
+    const currentUser = getCurrentUser();
+
+    if (!currentUser) {
+      navigate("/signup");
+      return;
+    }
+
+    setHeartColor((prevColor) => {
+      if (prevColor === "#B1B5C4") {
+        // Add to favorites
+        addFavoriteToCurrentUser({
+          name,
+          image,
+          location,
+          rating,
+          visitors,
+          category,
+        });
+        return "#FD7FE9";
+      } else {
+        // Remove from favorites
+        removeFavoriteFromCurrentUser(name);
+        return "#B1B5C4";
+      }
+    });
   };
-
-  const { image, name, location, rating, visitors } = props;
 
   return (
     <div className={`${styles.Restaurant} position-relative`}>
@@ -99,7 +133,6 @@ export default function Restaurant(props) {
         style={{ height: "20px" }}
       >
         <button className={styles.detailButton}>Details</button>
-        <button className={styles.bookButton}>Book Now</button>
       </div>
     </div>
   );

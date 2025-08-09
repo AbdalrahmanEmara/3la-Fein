@@ -3,32 +3,35 @@ import React, { useState } from "react";
 import Style from "./ReviewStyle.module.css";
 import CurrentReviewHead from "./CurrentReviewHead";
 
-const CardReview = () => {
-  
+const CardReview = ({ count, setCount }) => {
   const current__reviews = [
     <CurrentReviewHead
-      name="Isabelle O'Conner"
+      name="Isabelle"
       job="BA at Robin"
       image="/images/person1.png"
+      description="I love how easy it is to find events that actually match what I enjoy.
+        Whether I'm in the mood for something outdoors or cultural, 3la Fe!n
+        always has great suggestions!"
     />,
     <CurrentReviewHead
-      name="Malak"
-      job="Computer Sience"
+      name="Jonas"
+      job="Computer Science"
       image="/images/person2.png"
+      description="Thanks to 3la Fe!n, I discovered local adventures I never knew existed. It completely changed how I spend my weekends!"
     />,
     <CurrentReviewHead
-      name="Isabelle O'Conner"
-      job="BA at Robin"
+      name="Omar"
+      job="UX Designer"
       image="/images/person3.png"
+      description="One click and I had a list of cool things to do. Super helpful when I have no idea what I’m in the mood for."
     />,
     <CurrentReviewHead
-      name="Malak"
-      job="Computer Sience"
+      name="Margrete"
+      job="Product Manager"
       image="/images/person4.png"
+      description="I was honestly surprised by how accurate the recommendations were. It’s like the app just *gets* me — every suggestion felt spot-on!"
     />,
   ];
-
-  const [count, setCount] = useState(0);
 
   const handleNext = () => {
     setCount((prev) => (prev === current__reviews.length - 1 ? 0 : prev + 1));
@@ -40,14 +43,7 @@ const CardReview = () => {
 
   return (
     <section className={Style["card-review"]}>
-      <div className={Style["current-review"]}>
-        {current__reviews[count]}
-        <p className={Style["review-content-text"]}>
-          An enim nullam tempor gravida donec enim congue magna at pretium purus
-          pretium ligula rutrum luctus risus diam eget risus varius blandit sit
-          amet non magna.
-        </p>
-      </div>
+      <div className={Style["current-review"]}>{current__reviews[count]}</div>
       <div className={Style["btn-container"]}>
         <button onClick={handlePrev} className={Style["btn-prev-review"]}>
           <svg
@@ -55,7 +51,8 @@ const CardReview = () => {
             width="25"
             height="24"
             viewBox="0 0 25 24"
-            fill="none">
+            fill="none"
+          >
             <path
               fill-rule="evenodd"
               clip-rule="evenodd"
@@ -70,7 +67,8 @@ const CardReview = () => {
             width="25"
             height="24"
             viewBox="0 0 25 24"
-            fill="none">
+            fill="none"
+          >
             <path
               fill-rule="evenodd"
               clip-rule="evenodd"
@@ -85,25 +83,3 @@ const CardReview = () => {
 };
 
 export default CardReview;
-// =======
-// import Style from "./ReviewStyle.module.css";
-// import CurrentReviewHead from "./CurrentReviewHead";
-
-// const CardReview = () => {
-//   return (
-//     <section className={Style["card-review"]}>
-//       <div className={Style["current-review"]}>
-//         <CurrentReviewHead name="Isabelle O'Conner" job="BA at Robin" />
-
-//         <p className={Style["review-content-text"]}>
-//           An enim nullam tempor gravida donec enim congue magna at pretium purus
-//           pretium ligula rutrum luctus risusd diam eget risus varius blandit sit
-//           amet non magna.
-//         </p>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default CardReview;
-// >>>>>>> 50406cac44b90b704be828f16be253136a0e1aea:src/Componets/Reviews/CardReview.jsx

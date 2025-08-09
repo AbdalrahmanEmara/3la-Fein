@@ -1,27 +1,24 @@
 import Nav from "../../Componets/Nav/Nav";
 import Footer from "../../Componets/Footer/Footer";
-import { useNavigate } from "react-router-dom";
-import {
-  getCurrentUser,
-  clearCurrentUser,
-} from "../../Componets/Forms/Storage";
 import MainHeroSec from "../../Componets/ProfHeroSec/mainHeroSec";
 import History from "../../Componets/History/History";
 import LocationPickerButton from "../../Componets/Location/LocationPickerButton";
+import { useEffect } from "react";
+import FavoriteList from "../../Componets/FavList/favoriteList";
 
 const Profile = () => {
-  const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-  const handleLogout = () => {
-    clearCurrentUser();
-    navigate("/");
-  };
-
+  const places = (JSON.parse(localStorage.getItem("currentUser")) || {})
+    .favorites;
   return (
     <div>
       <LocationPickerButton />
       <Nav />
       <MainHeroSec />
+      <FavoriteList favoriteList={places} />
       <History />
       <Footer />
     </div>

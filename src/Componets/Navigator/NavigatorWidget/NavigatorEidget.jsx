@@ -13,8 +13,8 @@ const NavigatorEidget = () => {
               💡
             </span>
           }
-          title="Tell us what you want to do"
-          text="Fully layered dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt..."
+          title="We'll give you recommendations"
+          text="Get fresh and exciting ideas for things to do anytime. We make it easy to explore new experiences."
         />
         <Navigator
           color="yellow"
@@ -23,8 +23,8 @@ const NavigatorEidget = () => {
               ⚡
             </span>
           }
-          title="Share your travel preference"
-          text="Fully layered dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt..."
+          title="Join groups with shared interests"
+          text="Meet and connect with people who share your passions. Build meaningful connections through shared activities."
         />
         <Navigator
           color="pink"
@@ -33,8 +33,8 @@ const NavigatorEidget = () => {
               ⭐
             </span>
           }
-          title="We'll give you recommendations"
-          text="Fully layered dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt..."
+          title="Discover trending events near you"
+          text="Discover activities perfectly matched to your preferences, and we help you find trending events near you"
         />
       </div>
     </>

@@ -6,6 +6,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import toast from "react-hot-toast";
 import Style from "./Sign.module.css";
 import InputBox from "../../Componets/Forms/InputBox";
+import img from "../../../public/profile/deafult.jpg";
+import { useState } from "react";
+
 import {
   getUsers,
   saveUser,
@@ -14,17 +17,21 @@ import {
 
 function SignUp() {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const validationSchema = Yup.object({
     email: Yup.string().email("Invalid email").required("Email is required"),
+
     password: Yup.string()
+      .required("Password is required")
       .min(6, "Password must be at least 6 characters")
-      .max(13, "Password must not exceed 13 characters")
+      .max(20, "Password must not exceed 20 characters")
+      .matches(/[A-Z]/, "Password must include at least one uppercase letter")
+      .matches(/\d/, "Password must include at least one number")
       .matches(
-        /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{7,13}$/,
-        "Password must include an uppercase letter, number, and special character"
-      )
-      .required("Password is required"),
+        /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/,
+        "Password must include at least one special character"
+      ),
   });
 
   const handleRegister = (values) => {
@@ -42,9 +49,8 @@ function SignUp() {
     const newUser = {
       email: values.email,
       password: values.password,
-      src: "https://i.ibb.co/3y0x5fH/Avatar.png", // default image
+      src: img,
     };
-
     saveUser(newUser);
     setCurrentUser(newUser);
 
@@ -129,6 +135,7 @@ function SignUp() {
                   onBlur={formik.handleBlur}
                   placeholder="Enter your password"
                 />
+
                 {formik.touched.password && formik.errors.password && (
                   <p className="text-danger">{formik.errors.password}</p>
                 )}

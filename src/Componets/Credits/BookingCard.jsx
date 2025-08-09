@@ -1,4 +1,4 @@
-import React from "react";
+import styles from "./Credit.module.css";
 
 const BookingCard = ({
   imageSrc,
@@ -18,60 +18,40 @@ const BookingCard = ({
   cancellationPolicy,
 }) => {
   return (
-    <div className="booking-card">
-      <div className="header-image">
+    <div className={styles.bookingCard + " mt-4"}>
+      <div className={styles.headerImage}>
         <img src={imageSrc} alt={title} />
       </div>
-      <div className="content">
-        <p className="title">{title}</p>
-        <p className="subtitle">{subtitle}</p>
-        <p className="trim">
-          <span></span>
-          <p className="blue">
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="15"
-                height="14"
-                viewBox="0 0 15 12"
-                fill="none"
-              >
-                <path
-                  d="M7.5013 11.667C8.73898 11.667 9.92596 11.1753 10.8011 10.3002C11.6763 9.42499 12.168 8.238 12.168 7.00033C12.168 5.76265 11.6763 4.57566 10.8011 3.70049C9.92596 2.82532 8.73898 2.33366 7.5013 2.33366C6.26363 2.33366 5.07664 2.82532 4.20147 3.70049C3.3263 4.57566 2.83464 5.76265 2.83464 7.00033C2.83464 8.238 3.3263 9.42499 4.20147 10.3002C5.07664 11.1753 6.26363 11.667 7.5013 11.667ZM7.5013 1.16699C8.26735 1.16699 9.02589 1.31788 9.73362 1.61103C10.4414 1.90418 11.0844 2.33386 11.6261 2.87554C12.1678 3.41721 12.5974 4.06027 12.8906 4.76801C13.1838 5.47574 13.3346 6.23428 13.3346 7.00033C13.3346 8.54742 12.7201 10.0312 11.6261 11.1251C10.5321 12.2191 9.0484 12.8337 7.5013 12.8337C4.27547 12.8337 1.66797 10.2087 1.66797 7.00033C1.66797 5.45323 2.28255 3.9695 3.37651 2.87554C4.47047 1.78157 5.95421 1.16699 7.5013 1.16699ZM7.79297 4.08366V7.14616L10.418 8.70366L9.98047 9.42116L6.91797 7.58366V4.08366H7.79297Z"
-                  fill="#3FAFC6"
-                />
-              </svg>
-            </span>
-            <span className="status">{status}</span>
-          </p>
-          <span className="dates">{dates}</span>
-        </p>
-        <div className="priceDetails">
+      <div className={styles.content}>
+        <p className={styles.title}>{title}</p>
+        <p className={styles.subtitle}>{subtitle}</p>
+
+        <div className={styles.priceDetails}>
           <p>{priceDetails}</p>
         </div>
-        <div className="receiptDetails">
-          <p className="FirRow">
+        <div className={styles.receiptDetails}>
+          <p className={styles.FirRow}>
             <span></span>
-            <span className="row1">{row1}</span>
-            <span className="res1">{res1}</span>
+            <span className={styles.row1}>{row1}</span>
+            <span className={styles.res1}>{res1}</span>
           </p>
-          <p className="SecRow">
+          <p className={styles.SecRow}>
             <span></span>
-            <span className="row2">{row2}</span>
-            <span className="res2">{res2}</span>
+            <span className={styles.row2}>{row2}</span>
+            <span className={styles.res2}>{res2}</span>
           </p>
-          <p className="ThrRow">
+          <p className={styles.ThrRow}>
             <span></span>
-            <span className="row3">{row3}</span>
-            <span className="res3">{res3}</span>
+            <span className={styles.row3}>{row3}</span>
+            <span className={styles.res3}>{res3}</span>
           </p>
-          <p className="FourthRow">
+          <p className={styles.FourthRow}>
             <span></span>
-            <span className="row4">{row4}</span>
-            <span className="res4">{res4}</span>
+            <span className={styles.row4}>{row4}</span>
+            <span className={styles.res4}>{res4}</span>
           </p>
         </div>
-        <div className="footer-note">
+        <div className={styles.footerNote}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -80,8 +60,8 @@ const BookingCard = ({
             fill="none"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M7.9987 13.333C10.9442 13.333 13.332 10.9452 13.332 7.99967C13.332 5.05416 10.9442 2.66634 7.9987 2.66634C5.05318 2.66634 2.66536 5.05416 2.66536 7.99967C2.66536 10.9452 5.05318 13.333 7.9987 13.333ZM7.9987 14.6663C11.6806 14.6663 14.6654 11.6816 14.6654 7.99967C14.6654 4.31778 11.6806 1.33301 7.9987 1.33301C4.3168 1.33301 1.33203 4.31778 1.33203 7.99967C1.33203 11.6816 4.3168 14.6663 7.9987 14.6663Z"
               fill="#777E91"
             />

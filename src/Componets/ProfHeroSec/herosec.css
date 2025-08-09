@@ -21,10 +21,21 @@
 }
 
 .about-card-prof {
-  font-size: 12px;
-  padding: 2.8rem !important;
+  font-size: 14px;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(46, 167, 191, 0.3); /* semi-transparent for blur */
+  backdrop-filter: blur(10px); /* blur effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* soft shadow */
+  color: #313131;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* subtle border for glass effect */
 }
 
+.about-card-prof:hover {
+  transform: scale(1.03) translateY(-4px); /* slight lift */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* enhanced shadow */
+}
 .hero-section {
   height: 350px;
   position: relative;
@@ -49,7 +60,21 @@
   flex: 1 1 100%;
 }
 
-@media (min-width: 768px) {
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .card-section {
+    margin-top: -80px;
+  }
+
+  
+  .card-section .col-lg-7 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+
+@media (min-width: 991px) and (max-width: 1200px) {
   .card-section .col-lg-5 {
     flex: 0 0 40%;
     max-width: 40%;
@@ -61,16 +86,19 @@
   }
 }
 
-@media (max-width: 767px) {
-  .card-section {
-    margin-top: -80px;
+
+@media (min-width: 1201px) {
+  .card-section .col-lg-5 {
+    flex: 0 0 38%; 
+    max-width: 38%;
   }
 
-  .card-section .col-lg-5,
   .card-section .col-lg-7 {
-    max-width: 100%;
+    flex: 0 0 60%;
+    max-width: 60%;
   }
 }
+
 .alert {
   position: absolute;
   top: 20px;

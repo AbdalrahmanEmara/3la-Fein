@@ -1,5 +1,5 @@
 .landing {
-  background-image: url(./IMG.png);
+  background-image: url(../../../public/IMG.png);
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -62,6 +62,16 @@
   font-weight: 700;
   line-height: 16px;
   text-align: center;
+  background: rgba(46, 167, 191, 0.3); /* semi-transparent for blur */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* soft shadow */
+  color: #ebebeb;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* subtle border for glass effect */
+}
+
+.mainBtn:hover {
+  transform: scale(1.03) translateY(-4px); /* slight lift */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* enhanced shadow */
 }
 
 .start {
@@ -100,4 +110,31 @@
 
 .landing::before {
   box-shadow: 0 60px 80px rgba(4, 0, 255, 0.1);
+}
+.textBlock h1 {
+  font-family: "Rajdhani", sans-serif; /* modern, techy, clean */
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+  color: #00f0ff; /* cool cyan */
+  background: linear-gradient(90deg, #00f0ff, #00c8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.7));
+  transition: filter 0.3s ease;
+}
+
+.textBlock h1:hover {
+  filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.9));
+}
+
+.textBlock p {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #a0eaff;
+  letter-spacing: 0.05em;
+  margin-top: 10px;
+  opacity: 0.85;
 }

@@ -1,11 +1,42 @@
+@media screen and (max-width: 480px) {
+  .container {
+    padding-left: 0 !important;
+  }
+  .logo {
+    font-size: 20px !important;
+    padding: 0 !important;
+  }
+  .logo img {
+    width: 35px !important;
+    height: 35px !important;
+  }
+  .navbar-toggler-icon {
+    width: 1em;
+    height: 1em;
+  }
+  .navbar-toggler {
+    padding: 2px 7px !important;
+  }
+}
+
+@media screen and (min-width: 481px) {
+  .nav-link {
+    font-size: 27px !important;
+  }
+}
+
 .navbarCustom {
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 24px;
-  background: rgba(252, 252, 253, 0.65);
-  backdrop-filter: blur(2.4px);
   padding: 24px 30px;
+  background: rgba(255, 255, 255, 0.3); /* semi-transparent for blur */
+  backdrop-filter: blur(10px); /* blur effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* soft shadow */
+  color: #313131;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* subtle border for glass effect */
 }
 
 @media (max-width: 1291px) {
@@ -64,6 +95,18 @@
   text-align: center;
   margin-right: 10px !important;
 }
+@media screen and (max-width: 480px) {
+  .mainBtn {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+  .searchText {
+    display: none;
+  }
+  .navbar-title {
+    display: none;
+  }
+}
 
 .butt {
   border: 2px solid #e6e8ec;
@@ -98,4 +141,94 @@
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #3fafc6;
+}
+
+/* Existing styles you already had remain above... */
+
+/* Search Dropdown Container */
+.searchDropdown {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  padding: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+  animation: fadeIn 2s ease;
+  z-index: 2000;
+}
+
+.searchDropdown.desktop {
+  position: fixed;
+  top: 80px; /* just under your navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  padding: 10px;
+  border-radius: 12px;
+  z-index: 2000;
+}
+
+.searchDropdown.mobile {
+  position: fixed;
+  top: 60px;
+  left: 5%;
+  width: 90%;
+  padding: 10px;
+  border-radius: 12px;
+  z-index: 2000;
+}
+
+/* Input styling */
+.searchInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  color: #000000;
+}
+
+.searchInput::placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Search result item */
+.searchItem {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+  color: #000000 !important;
+}
+
+.searchItem span {
+  color: #000000 !important;
+}
+
+.searchItem:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.searchItem img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 8px;
+}
+
+@media screen and (max-width: 480px) {
+  .searchText {
+    display: none;
+  }
+  .navbar-title {
+    display: none;
+  }
 }
