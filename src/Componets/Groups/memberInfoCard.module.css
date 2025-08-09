@@ -1,0 +1,50 @@
+.card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #e0f7fa;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.admin {
+  background: rgba(246, 201, 45, 0.40);
+  border: 2px solid #F6C92D;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+ 
+.member {
+background: rgba(63, 175, 198, 0.40);
+ border-radius: 12px;
+border: 1px solid var(--Primary-1, #3FAFC6);
+}
+
+.profilephoto {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.reviews {
+  font-size: 12px;
+  color: #353945;
+  font-size: 15px;
+font-style: normal;
+font-weight: 500;
+}
+.info{
+    display: flex;
+    gap:5px;
+}
+.visable{
+  display: flex;
+}
+.none{
+  display: none;
+}

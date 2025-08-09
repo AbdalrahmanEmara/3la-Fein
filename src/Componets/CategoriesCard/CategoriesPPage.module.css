@@ -1,0 +1,150 @@
+.pageName {
+  width: 100vw;
+  text-align: center;
+  /* margin: 0 0 0 10vw; */
+}
+.pageName h1 {
+  color: #141416;
+  font-family: "DM Sans";
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 3.5rem;
+  letter-spacing: -0.06rem;
+}
+.paragraph {
+  color: #777e90;
+}
+
+.container {
+  margin: 200px auto;
+}
+
+.divOne {
+  width: 80vw;
+  margin: 0px auto;
+  padding: 10px;
+  display: grid;
+  gap: 10px;
+  grid-template-areas:
+    "divTwo divThree divThree"
+    "divTwo divFour divFive"
+    "divThree2 divThree2 divTwo2"
+    "divFour2 divFive2 divTwo2";
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.divTwo {
+  grid-area: divTwo;
+  position: relative;
+}
+
+.divThree {
+  grid-area: divThree;
+  position: relative;
+}
+
+.divFour {
+  grid-area: divFour;
+  position: relative;
+}
+
+.divFive {
+  grid-area: divFive;
+  position: relative;
+}
+
+.divTwo2 {
+  grid-area: divTwo2;
+  position: relative;
+}
+
+.divThree2 {
+  grid-area: divThree2;
+  position: relative;
+}
+
+.divFour2 {
+  grid-area: divFour2;
+  position: relative;
+}
+
+.divFive2 {
+  grid-area: divFive2;
+  position: relative;
+}
+
+@media (max-width: 992px) {
+  .divOne {
+    grid-template-areas:
+      "divTwo divThree"
+      "divFour divFive"
+      "divThree2 divTwo2"
+      "divFour2 divFive2";
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .divOne {
+    grid-template-areas:
+      "divTwo"
+      "divThree"
+      "divFour"
+      "divFive"
+      "divThree2"
+      "divFour2"
+      "divFive2"
+      "divTwo2";
+    grid-template-columns: 1fr;
+  }
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.overlayContent {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.button {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 50px;
+  padding: 5px 10px;
+  font-size: 14px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.3); /* semi-transparent for blur */
+  backdrop-filter: blur(10px); /* blur effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* soft shadow */
+  color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* subtle border for glass effect */
+}
+
+.button:hover {
+  transform: scale(1.03) translateY(-4px); /* slight lift */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* enhanced shadow */
+}
+
+.text {
+  margin-top: 5px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 4px #3fafc6;
+}

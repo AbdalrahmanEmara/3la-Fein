@@ -1,0 +1,165 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.cardContainer {
+  background: white;
+  border-radius: 20px;
+  color: rgb(230, 230, 230);
+  padding: 30px;
+  width: 90vw;
+  max-width: 1500px; /* Bigger desktop width */
+  padding: 3%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  cursor: pointer;
+  border: none;
+  transform: scale(1.3);
+}
+
+.cardContent {
+  display: flex;
+  gap: 20px;
+  align-items: stretch; /* Make left and right equal height */
+}
+
+.cardLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.cardRight {
+  flex: none; /* prevent flex-grow */
+  max-width: 400px; /* max width the image container can grow */
+  width: 100%; /* let it shrink below max-width */
+  height: auto; /* height adjusts based on content */
+  position: relative;
+  display: flex;
+}
+
+.cardRight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 187, 212, 0.15) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  pointer-events: none;
+}
+
+.cardRight img {
+  width: 100%; /* fill container width */
+  height: auto; /* keep aspect ratio */
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.badge {
+  display: inline-block;
+  background: #cdedff18;
+  color: black !important;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.status {
+  color: green;
+  font-weight: bold;
+}
+
+.offer {
+  background: #fff2c454;
+  padding: 10px;
+  border: 2px solid #ffd44579;
+  border-radius: 0px 20px 0px 20px;
+  margin: 15px 0;
+}
+
+.bookBtn {
+  background: #00bbd462;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.kelo {
+  color: black;
+}
+
+.title {
+  text-align: start;
+}
+
+.bb {
+  border-bottom: 1px solid lightgray;
+}
+
+/* Mobile adjustments */
+@media (max-width: 780px) {
+  .cardContainer {
+    width: 95vw;
+    max-height: 90vh; /* max height relative to viewport */
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto; /* allow vertical scrolling if content too tall */
+    padding: 40px;
+  }
+
+  .cardContent {
+    flex-direction: column-reverse;
+    gap: 15px;
+    margin: 0;
+  }
+
+  .cardLeft,
+  .cardRight {
+    flex: none;
+    width: 100%;
+    height: auto;
+  }
+
+  .cardRight {
+    max-height: 300px;
+    /* limit image container height */
+  }
+
+  .cardRight img {
+    width: 100%;
+    height: 100%; /* fill container height */
+    max-height: 300px; /* prevent image from getting too tall */
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .info {
+    flex-direction: column;
+    text-align: center;
+  }
+}

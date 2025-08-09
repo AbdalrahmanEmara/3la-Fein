@@ -1,0 +1,238 @@
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.popup {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 650px;
+  width: 95%;
+  animation: scaleUp 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+.searchBox {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.myLocationBtn {
+  background-color: #ffc107;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.suggestionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 120px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.suggestionItem {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.suggestionItem:hover {
+  background-color: #f0f0f0;
+}
+
+.popularList {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.popularBtn {
+  background-color: #e0e0e0;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.map {
+  height: 300px;
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.confirmBtn {
+  background-color: #28a745;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.confirmBtn:hover {
+  background-color: #218838;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.floatingWrapper {
+  position: fixed;
+  bottom: 30px; /* Changed from top to bottom */
+  right: 30px; /* Distance from right */
+  z-index: 1001;
+  backdrop-filter: blur(4px);
+  background: rgba(252, 252, 253, 0.65);
+  border-radius: 54px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: popIn 0.3s ease-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.locationBtn {
+  border: none;
+  border-radius: 90px;
+  background: #3fafc6;
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  color: white;
+  font-family: "DM Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.locationBtn:hover {
+  transform: scale(1.05);
+  background-color: #38a3b8;
+}
+
+@keyframes popIn {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .floatingWrapper {
+    bottom: 20px;
+    right: 20px;
+    top: auto; /* Make sure top is disabled */
+  }
+}
+
+/* ✅ Responsive styles */
+@media (max-width: 768px) {
+  .popup {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .searchBox {
+    width: 100%;
+  }
+
+  .myLocationBtn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hide label text on very small screens but keep icon */
+  .locationBtn {
+    padding: 10px;
+    font-size: 16px;
+    gap: 0; /* No gap between icon and text */
+  }
+
+  .locationBtn span {
+    display: none; /* This hides the text if you wrap it in <span> */
+  }
+
+  /* Popup adjustments */
+  .popup {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .header h3 {
+    font-size: 16px;
+  }
+
+  .map {
+    height: 200px;
+  }
+}
