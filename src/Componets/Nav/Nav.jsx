@@ -221,7 +221,7 @@ const Nav = () => {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/publicGroups">
-                  Public Groups
+                  Groups
                 </Link>
               </li>
               <li className="nav-item">
