@@ -11,6 +11,7 @@ import {
   setCurrentUser,
 } from "../../Forms/Storage";
 import { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 
 function ProfileCard({ name, description }) {
   const [showAlert, setShowAlert] = useState(false);
@@ -68,16 +69,7 @@ function ProfileCard({ name, description }) {
 
   return (
     <div className="text-center p-3 prof-card position-relative">
-      {showAlert && (
-        <div className="alert alert-light border shadow px-4 py-2">
-          Profile link is copied
-          <button
-            type="button"
-            className="btn-close ms-2"
-            onClick={() => setShowAlert(false)}
-          ></button>
-        </div>
-      )}
+      {showAlert && toast.success(`Profile link is copied`)}
 
       <div className="mx-auto py-3">
         {currentUser?.src ? (
@@ -89,7 +81,6 @@ function ProfileCard({ name, description }) {
           ></div>
         )}
       </div>
-
       <h5 className="my-3">
         {currentUser?.email ? currentUser.email.split("@")[0] : ""}
       </h5>

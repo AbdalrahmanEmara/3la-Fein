@@ -75,7 +75,7 @@ function PayForm({ bookingInfo }) {
     e.preventDefault();
     if (validate()) {
       toast.success(
-        `✅ Payment method "${method}" selected and card details valid!`
+        `Payment method "${method}" selected and card details valid!`
       );
       const historyEntry = {
         image: bookingInfo.image,

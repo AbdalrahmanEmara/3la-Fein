@@ -51,59 +51,61 @@ function CreditPageGroup() {
           fadeIn ? styles["fade-enter-active"] : styles["fade-enter"]
         }`}
       >
-        <PayForm
-          bookingInfo={{
-            image: data.image || "/images/venice.png",
-            category: `${data.category} - Group` || "Category",
-            totalPrice: `$${yourTotal.toFixed(2)}`,
-            name: data.name || "Venice, Rome & Milan",
-          }}
-        />
-
-        <BookingCard
-          imageSrc={data.image || "/images/venice.png"}
-          title={data.name || "Venice, Rome & Milan"}
-          subtitle={data.category || "Category"}
-          status="Opened"
-          dates="Sunday - Thursday"
-          priceDetails="Price Details"
-          row1={`$${basePrice.toFixed(2)} x ${updatedMembers} members`}
-          res1={`$${subtotal.toFixed(2)}`}
-          row2={`${(discountPercent * 100).toFixed(0)}% campaign discount`}
-          res2={`-$${discountAmount.toFixed(2)}`}
-          row3="Service fee"
-          res3={`$${serviceFee.toFixed(2)}`}
-          row4="Group Total"
-          res4={`$${totalGroupPrice.toFixed(2)}`}
-          cancellationPolicy={`Location: ${data.location || data.name}`}
-        />
-
-        <div
-          style={{
-            marginTop: "1.5rem",
-            borderTop: "1px solid #ccc",
-            paddingTop: "1rem",
-            fontSize: "16px",
-            fontWeight: "600",
-            color: "#333",
-            maxWidth: "400px",
-          }}
-        >
+        <div className="d-flex align-items-center flex-column">
+          <PayForm
+            bookingInfo={{
+              image: data.image || "/images/venice.png",
+              category: `${data.category} - Group` || "Category",
+              totalPrice: `$${yourTotal.toFixed(2)}`,
+              name: data.name || "Venice, Rome & Milan",
+            }}
+          />
           <div
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "0.25rem",
+              marginTop: ".5rem",
+              borderTop: "1px solid #ccc",
+              paddingTop: "1rem",
+              fontSize: "16px",
+              fontWeight: "600",
+              color: "#333",
+              maxWidth: "400px",
             }}
           >
-            <span>Your Payment</span>
-            <span>${yourTotal.toFixed(2)}</span>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: "0.25rem",
+              }}
+            >
+              <span>Your Payment</span>
+              <span>${yourTotal.toFixed(2)}</span>
+            </div>
+            <div
+              style={{ fontWeight: "normal", fontSize: "14px", color: "#555" }}
+            >
+              {`(Includes service fee of $${serviceFee.toFixed(2)})`}
+            </div>
           </div>
-          <div
-            style={{ fontWeight: "normal", fontSize: "14px", color: "#555" }}
-          >
-            {`(Includes service fee of $${serviceFee.toFixed(2)})`}
-          </div>
+        </div>
+        <div>
+          <BookingCard
+            imageSrc={data.image || "/images/venice.png"}
+            title={data.name || "Venice, Rome & Milan"}
+            subtitle={data.category || "Category"}
+            status="Opened"
+            dates="Sunday - Thursday"
+            priceDetails="Price Details"
+            row1={`$${basePrice.toFixed(2)} x ${updatedMembers} members`}
+            res1={`$${subtotal.toFixed(2)}`}
+            row2={`${(discountPercent * 100).toFixed(0)}% campaign discount`}
+            res2={`-$${discountAmount.toFixed(2)}`}
+            row3="Service fee"
+            res3={`$${serviceFee.toFixed(2)}`}
+            row4="Group Total"
+            res4={`$${totalGroupPrice.toFixed(2)}`}
+            cancellationPolicy={`Location: ${data.location || data.name}`}
+          />
         </div>
       </div>
       <Footer />
