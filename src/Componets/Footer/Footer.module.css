@@ -15,6 +15,7 @@
 .footerCol {
   flex: 1;
   min-width: 180px;
+  justify-items: center;
 }
 
 .logoCol p {
