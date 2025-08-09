@@ -82,10 +82,16 @@
   font-size: 20px;
 }
 
-@media (max-width: 992px) {
+@media (min-width: 601px) and (max-width: 992px) {
   .textBlock h1 {
     font-size: 60px;
     line-height: 60px;
+  }
+}
+@media (max-width: 600px) {
+  .textBlock h1 {
+    font-size: 40px !important;
+    line-height: 20px;
   }
 }
 
@@ -117,23 +123,15 @@
   font-size: 64px;
   line-height: 1.1;
   letter-spacing: 0.08em;
-  color: #00f0ff; /* cool cyan */
-  background: linear-gradient(90deg, #00f0ff, #00c8ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.7));
-  transition: filter 0.3s ease;
-}
-
-.textBlock h1:hover {
-  filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.9));
+  color: rgb(250, 250, 250); /* semi-transparent for blur */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .textBlock p {
   font-family: "Rajdhani", sans-serif;
   font-weight: 400;
   font-size: 18px;
-  color: #a0eaff;
+  color: #ffffff;
   letter-spacing: 0.05em;
   margin-top: 10px;
   opacity: 0.85;
