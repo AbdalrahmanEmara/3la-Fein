@@ -2,8 +2,13 @@ import PublicGroupsCards from "../../Componets/discoverCards/publicGroupsCards";
 import Style from "./publicGroupsPage.module.css";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { getCurrentUser } from "../../Componets/Forms/Storage";
 
 function PublicGroupsPage(groups) {
+  const navigate = useNavigate();
+  const isUser = getCurrentUser();
+
   const [groupsLength, setGroupsLength] = useState(
     Math.ceil((groups?.groups?.length || 0) / 8)
   );
@@ -29,23 +34,41 @@ function PublicGroupsPage(groups) {
 
   const cardVariants = {
     enter: (direction) => ({
-      x: direction > 0 ? 50 : -50,
+      x: direction > 0 ? 80 : -80, // slide from left or right
       opacity: 0,
-      scale: 0.95,
+      scale: 0.96, // slight shrink
     }),
     center: {
       x: 0,
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.4 },
+      transition: {
+        type: "spring",
+        stiffness: 90,
+        damping: 20,
+      },
     },
     exit: (direction) => ({
-      x: direction > 0 ? -50 : 50,
+      x: direction > 0 ? -80 : 80, // slide opposite way
       opacity: 0,
-      scale: 0.95,
-      transition: { duration: 0.3 },
+      scale: 0.96,
+      transition: { duration: 0.35 },
     }),
   };
+
+  // Image preloading
+  const preloadImages = (images) => {
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  };
+
+  useEffect(() => {
+    const currentBatch = (groups?.groups || []).slice(c - 8, c);
+    preloadImages(currentBatch.map((g) => g.image));
+    setGroupsBatch(currentBatch);
+  }, [c]);
 
   return (
     <div style={{ width: "77%", height: "auto", margin: "auto" }}>
@@ -80,6 +103,11 @@ function PublicGroupsPage(groups) {
               animate="center"
               exit="exit"
               layout
+              onClick={() =>
+                isUser
+                  ? navigate("/publicGroups/groupDetails", { state: group })
+                  : navigate("/signup")
+              }
             >
               <PublicGroupsCards
                 image={group.image}
