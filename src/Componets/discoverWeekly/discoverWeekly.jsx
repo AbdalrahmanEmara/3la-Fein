@@ -1,7 +1,6 @@
 import DiscoverCards from "../discoverCards/discoverCards";
 import Style from "./discoverWeekly.module.css";
 import CardDDetailes from "../CardDetails/CardDDetailes";
-import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 function DiscoverWeekly() {
@@ -101,7 +100,7 @@ function DiscoverWeekly() {
       <div style={{ width: "100%" }}>
         <p className={Style.discoverTitle}>Discover Weekly</p>
         <p className={Style.discoverDescription}>
-          An enim nullam tempor sapien gravida donec enim ipsum
+          Discover popular Places Near You!
         </p>
       </div>
 
@@ -124,14 +123,12 @@ function DiscoverWeekly() {
         />
       ))}
 
-      <AnimatePresence>
-        {showCard && (
-          <CardDDetailes
-            data={selectedRestaurant}
-            onClose={() => setShowCard(false)}
-          />
-        )}
-      </AnimatePresence>
+      {showCard && (
+        <CardDDetailes
+          data={selectedRestaurant}
+          onClose={() => setShowCard(false)}
+        />
+      )}
     </div>
   );
 }

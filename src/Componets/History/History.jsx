@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getCurrentUser } from "../Forms/Storage"; // Adjust the import path as needed
+import { getCurrentUser } from "../Forms/Storage"; // Adjust path if needed
 import styles from "./History.module.css";
 
 const History = () => {
@@ -41,8 +41,14 @@ const History = () => {
                   : "Unknown Category"}
               </span>
               <p className={styles.tripDate}>
-                Booked at: {new Date(item.timestamp).toLocaleString()}
+                Paid at: {new Date(item.timestamp).toLocaleString()}
               </p>
+              {item.bookingDate && (
+                <p className={styles.tripDate}>
+                  Booking Date:{" "}
+                  {new Date(item.bookingDate).toLocaleDateString()}
+                </p>
+              )}
               <p className={styles.tripPrice}>{item.totalPrice || "$0.00"}</p>
             </div>
           </div>

@@ -36,6 +36,15 @@ function ProfileCard({ name, description }) {
     }
   }, [currentUser, navigate]);
 
+  // Toast effect on showAlert change
+  useEffect(() => {
+    if (showAlert) {
+      toast.success("Profile link is copied");
+      // Reset showAlert so toast won't keep firing repeatedly
+      setShowAlert(false);
+    }
+  }, [showAlert]);
+
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -69,8 +78,6 @@ function ProfileCard({ name, description }) {
 
   return (
     <div className="text-center p-3 prof-card position-relative">
-      {showAlert && toast.success(`Profile link is copied`)}
-
       <div className="mx-auto py-3">
         {currentUser?.src ? (
           <img src={currentUser.src} alt={name} className="rounded-circle" />

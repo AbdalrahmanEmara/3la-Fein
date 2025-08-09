@@ -12,7 +12,7 @@ function CreditPageGroup() {
 
   const [fadeIn, setFadeIn] = useState(false);
 
-  // Extract base price and current members from data
+  // Extract base price and current members from data safely
   const basePrice = data.row1
     ? parseFloat(data.row1.split("$")[1].split(" ")[0])
     : 100;
@@ -25,18 +25,19 @@ function CreditPageGroup() {
 
   const serviceFee = data.row3 ? parseFloat(data.res3.replace("$", "")) : 50;
 
-  // Increase members count by 1 (you join)
+  // Updated members count including the current user joining
   const updatedMembers = currentMembers + 1;
 
-  // Calculate new total group price with updated members count
+  // Calculate total group price
   const subtotal = basePrice * updatedMembers;
   const discountAmount = subtotal * discountPercent;
   const totalGroupPrice = subtotal - discountAmount + serviceFee;
 
-  // Calculate your payment (just 1 member)
+  // Calculate your personal payment share
   const yourSubtotal = basePrice * 1;
   const yourDiscountAmount = yourSubtotal * discountPercent;
-  const yourTotal = yourSubtotal - yourDiscountAmount + serviceFee;
+  const serviceFeePerMember = serviceFee / updatedMembers;
+  const yourTotal = yourSubtotal - yourDiscountAmount + serviceFeePerMember;
 
   useEffect(() => {
     setFadeIn(true);
@@ -84,7 +85,9 @@ function CreditPageGroup() {
             <div
               style={{ fontWeight: "normal", fontSize: "14px", color: "#555" }}
             >
-              {`(Includes service fee of $${serviceFee.toFixed(2)})`}
+              {`(Includes your share of service fee: $${serviceFeePerMember.toFixed(
+                2
+              )})`}
             </div>
           </div>
         </div>
