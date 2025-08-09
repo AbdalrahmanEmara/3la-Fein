@@ -3,6 +3,9 @@ import Style from "./Footer.module.css";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import toast from "react-hot-toast";
+import face from "/src/Componets/ProfHeroSec/img/Facebook.png";
+import twi from "/src/Componets/ProfHeroSec/img/Twitter.png";
+import ins from "/src/Componets/ProfHeroSec/img/Instagram.png";
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -102,33 +105,21 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img
-                    alt="facebook"
-                    width="20"
-                    src="/src/Componets/ProfHeroSec/img/Facebook.png"
-                  />
+                  <img alt="facebook" width="20" src={face} />
                 </a>
                 <a
                   href="https://www.twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img
-                    alt="twitter"
-                    width="20"
-                    src="/src/Componets/ProfHeroSec/img/Twitter.png"
-                  />
+                  <img alt="twitter" width="20" src={twi} />
                 </a>
                 <a
                   href="https://www.instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img
-                    alt="instagram"
-                    width="20"
-                    src="/src/Componets/ProfHeroSec/img/Instagram.png"
-                  />
+                  <img alt="instagram" width="20" src={ins} />
                 </a>
               </div>
             </li>
