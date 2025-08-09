@@ -15,7 +15,7 @@ export default function PublicGroups() {
   return (
     <div className={Style.publicGroupsContainer}>
       <h2 className={Style.sectionTitle}>Public Groups</h2>
-      <Link to="/publicGroups" className="nav-link">
+      <Link to="/publicGroups" className={Style["nav-link"]}>
         <button className={Style.bookBtn}>BookNow</button>
       </Link>
 

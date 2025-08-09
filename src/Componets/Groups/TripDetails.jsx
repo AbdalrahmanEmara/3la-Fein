@@ -4,25 +4,33 @@ import { useLocation } from "react-router-dom";
 const TripDetails = ({ joined }) => {
   const location = useLocation();
   const group = location.state;
-  console.log(joined);
-  // Dynamic price data
+
+  // Basic price details
   const basePrice = 100;
-  const members = parseInt(group.currentMembers, 10);
   const discount = 0.1;
   const serviceFee = 50;
 
-  const subtotal = basePrice * members;
+  // Parse members count safely, fallback to 0 if invalid
+  const membersCount = Number.isFinite(parseInt(group?.currentMembers, 10))
+    ? parseInt(group.currentMembers, 10)
+    : 0;
+
+  // Convert joined boolean to number (0 or 1)
+  const joinedCount = joined ? 1 : 0;
+
+  // Calculate subtotal and discount
+  const subtotal = basePrice * (membersCount + joinedCount);
   const discountAmount = subtotal * discount;
   const total = subtotal - discountAmount + serviceFee;
 
   return (
     <div className={styles.container}>
       {/* Dynamic Group Image */}
-      <img src={group.image} alt={group.name} className={styles.image} />
+      <img src={group?.image} alt={group?.name} className={styles.image} />
 
       {/* Dynamic Title & Category */}
-      <h2>{group.name}</h2>
-      <p className={styles.location}>{group.category}</p>
+      <h2>{group?.name}</h2>
+      <p className={styles.location}>{group?.category}</p>
 
       {/* Status */}
       <div className={styles.status}>
@@ -52,17 +60,15 @@ const TripDetails = ({ joined }) => {
         <h3>Price details</h3>
         <div className={styles.priceRow}>
           <span className={styles.process}>
-            ${basePrice} × {members + joined} members
+            ${basePrice} × {membersCount + joinedCount} members
           </span>
           <span className={styles.result}>
-            ${basePrice * (members + joined)}
+            ${basePrice * (membersCount + joinedCount)}
           </span>
         </div>
         <div className={styles.priceRow}>
           <span className={styles.process}>10% campaign discount</span>
-          <span className={styles.result}>
-            −${discountAmount + (joined ? 10 : 0)}
-          </span>
+          <span className={styles.result}>−${discountAmount.toFixed(2)}</span>
         </div>
         <div className={styles.priceRow}>
           <span className={styles.process}>Service fee</span>
@@ -70,12 +76,7 @@ const TripDetails = ({ joined }) => {
         </div>
         <div className={`${styles.priceRow} ${styles.total}`}>
           <strong>Total</strong>
-          <strong>
-            $
-            {basePrice * (members + joined) -
-              (discountAmount + (joined ? 10 : 0)) +
-              serviceFee}
-          </strong>
+          <strong>${total.toFixed(2)}</strong>
         </div>
       </div>
     </div>

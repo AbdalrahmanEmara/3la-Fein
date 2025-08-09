@@ -10,7 +10,7 @@ import CardDDetailes from "../CardDetails/CardDDetailes.jsx";
 import { motion, AnimatePresence } from "framer-motion";
 
 const GEOAPIFY_KEY = "1aba76b022024730abfcd18e5a1df166";
-const UNSPLASH_ACCESS_KEY = "AhDouzsd99fNq4NsePSTLN_Gq5RqXE6uyv5K4T6hpiU";
+const UNSPLASH_ACCESS_KEY = "3BWQ42HBNbBOe4Ts9vX85aZ7aicVZQXmBPBbUHV7ebQ";
 const fallbackData = {
   name: "Fallback Restaurant",
   location: "Unknown Location",
@@ -85,7 +85,23 @@ export default function RestaurantPage() {
               restLon
             ).toFixed(2);
 
-            const query = `${city} ${title}`;
+            const randomWords = [
+              "view",
+              "landscape",
+              "tourism",
+              "travel",
+              "scenery",
+              "destination",
+              "adventure",
+              "city",
+              "nature",
+              "explore",
+            ];
+
+            const randomWord =
+              randomWords[Math.floor(Math.random() * randomWords.length)];
+            const query = `${city} ${title} ${randomWord}`;
+
             let image = "/background.png";
 
             try {
