@@ -9,7 +9,7 @@ import { AnimatePresence } from "framer-motion";
 import CardDDetailes from "../CardDetails/CardDDetailes";
 
 const GEOAPIFY_KEY = "1aba76b022024730abfcd18e5a1df166";
-const UNSPLASH_ACCESS_KEY = "AhDouzsd99fNq4NsePSTLN_Gq5RqXE6uyv5K4T6hpiU";
+const UNSPLASH_ACCESS_KEY = "F40xPBLNDZNgteLeR4nAeQ0X9yoeJH0bK34kTuElI58";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,14 +19,37 @@ const Nav = () => {
   const [loading, setLoading] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
+  // New: store user location read from localStorage
+  const [userLocation, setUserLocation] = useState(null);
+
   const [showCard, setShowCard] = useState(false);
   const [selectedPlace, setSelectedPlace] = useState(null);
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Get current user from storage
     const user = getCurrentUser();
     setCurrentUser(user);
+
+    // Read location from localStorage and parse
+    const storedLoc = localStorage.getItem("lastLocation");
+    if (storedLoc) {
+      try {
+        const parsedLoc = JSON.parse(storedLoc);
+        // Basic validation
+        if (
+          parsedLoc &&
+          typeof parsedLoc.lat === "number" &&
+          typeof parsedLoc.lon === "number"
+        ) {
+          setUserLocation(parsedLoc);
+        }
+      } catch (e) {
+        // Ignore parse errors, no location set
+        setUserLocation(null);
+      }
+    }
   }, []);
 
   const navigateToSection = (sectionId) => {
@@ -53,28 +76,48 @@ const Nav = () => {
     }
     setLoading(true);
     try {
-      const geoRes = await axios.get(
-        `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(
-          query
-        )}&limit=1&apiKey=${GEOAPIFY_KEY}`
-      );
+      let lat, lon;
 
-      if (!geoRes.data.features.length) {
-        setSearchResults([]);
-        setLoading(false);
-        return;
+      if (userLocation) {
+        lat = userLocation.lat;
+        lon = userLocation.lon;
+      } else {
+        const geoRes = await axios.get(
+          `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(
+            query
+          )}&limit=1&apiKey=${GEOAPIFY_KEY}`
+        );
+        if (!geoRes.data.features.length) {
+          setSearchResults([]);
+          setLoading(false);
+          return;
+        }
+        lat = geoRes.data.features[0].properties.lat;
+        lon = geoRes.data.features[0].properties.lon;
       }
 
-      const { lat, lon } = geoRes.data.features[0].properties;
+      const categories =
+        "catering.restaurant,catering.cafe,entertainment.cinema,commercial.shopping_mall,entertainment.culture";
 
       const placesRes = await axios.get(
-        `https://api.geoapify.com/v2/places?categories=catering.restaurant&filter=circle:${lon},${lat},5000&limit=5&apiKey=${GEOAPIFY_KEY}`
+        `https://api.geoapify.com/v2/places?categories=${encodeURIComponent(
+          categories
+        )}&text=${encodeURIComponent(
+          query
+        )}&filter=circle:${lon},${lat},500000&limit=500&apiKey=${GEOAPIFY_KEY}`
       );
 
       const places = placesRes.data.features || [];
 
+      // Client-side filter by name (case-insensitive)
+      const filteredPlaces = places.filter(
+        (place) =>
+          place.properties.name &&
+          place.properties.name.toLowerCase().includes(query.toLowerCase())
+      );
+
       const resultsWithImages = await Promise.all(
-        places.map(async (place) => {
+        filteredPlaces.map(async (place) => {
           const name = place.properties.name || query;
           let imageUrl = null;
           try {
@@ -94,6 +137,7 @@ const Nav = () => {
       setSearchResults(resultsWithImages);
     } catch (err) {
       console.error("Search error:", err);
+      setSearchResults([]);
     } finally {
       setLoading(false);
     }
@@ -242,7 +286,7 @@ const Nav = () => {
               setSearchQuery(e.target.value);
               handleSearch(e.target.value);
             }}
-            placeholder="Search places..."
+            placeholder="Search Places Near Your Location"
           />
           {loading ? (
             <div style={{ color: "#fff" }}>Loading...</div>

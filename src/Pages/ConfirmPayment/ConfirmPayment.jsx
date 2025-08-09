@@ -8,7 +8,14 @@ const ConfirmPayment = () => {
   const data = location.state?.props;
 
   return (
-    <div>
+    <div
+      style={{
+        paddingTop: "80px",
+        paddingBottom: "100px",
+        minHeight: "100vh",
+        boxSizing: "border-box",
+      }}
+    >
       <Nav />
       <CreditPage data={data} />
       <Footer />
