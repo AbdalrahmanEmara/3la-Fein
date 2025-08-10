@@ -1,8 +1,17 @@
 .pageName {
-  width: 50vw;
-  margin: 0 0 0 10vw;
+  width: 100vw;
+  text-align: center;
+  /* margin: 0 0 0 10vw; */
 }
-
+.pageName h1 {
+  color: #141416;
+  font-family: "DM Sans";
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 3.5rem;
+  letter-spacing: -0.06rem;
+}
 .paragraph {
   color: #777e90;
 }

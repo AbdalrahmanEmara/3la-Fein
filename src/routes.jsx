@@ -9,6 +9,8 @@ import NotFound from "./Pages/NotFound";
 import PublicGroupFullPage from "./Pages/PublicGroups/PublicGroupFullPage";
 import CreditPage from "./Componets/Credits/CreditPage";
 import ConfirmPayment from "./Pages/ConfirmPayment/ConfirmPayment";
+import GroupDetailsPage from "./Pages/GroupDetailPage/GroupDetailsPage";
+import CreditPageGroup from "./Componets/Credits/CreditPageGroup";
 
 export const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -18,7 +20,9 @@ export const router = createBrowserRouter([
   { path: "/categories", element: <CatPage /> },
   { path: "/categories/:id", element: <CategoryRestaurantPage /> },
   { path: "/credits", element: <CreditPage /> },
+  { path: "/creditsGroup", element: <CreditPageGroup /> },
   { path: "/confirmPayment", element: <ConfirmPayment props /> },
+  { path: "/publicGroups/groupDetails", element: <GroupDetailsPage /> },
   {
     path: "/publicGroups",
     element: <PublicGroupFullPage />,

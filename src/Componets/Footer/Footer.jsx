@@ -3,9 +3,9 @@ import Style from "./Footer.module.css";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import toast from "react-hot-toast";
-import face from "../ProfHeroSec/img/Facebook.png";
-import twit from "../ProfHeroSec/img/Twitter.png";
-import insta from "../ProfHeroSec/img/Instagram.png";
+import face from "/src/Componets/ProfHeroSec/img/Facebook.png";
+import twi from "/src/Componets/ProfHeroSec/img/Twitter.png";
+import ins from "/src/Componets/ProfHeroSec/img/Instagram.png";
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -99,34 +99,29 @@ export default function Footer() {
           <ul>
             <li>
               Contact Channels
-              <div className="mt-3 ">
-                      <a
-                        href="https://www.facebook.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-light me-2"
-                      >
-                        <img src={face} alt="facebook" style={{ maxWidth: "20px" }} />
-                      </a>
-              
-                      <a
-                        href="https://www.twitter.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-light  me-2"
-                      >
-                        <img src={twit} alt="twitter" style={{ maxWidth: "20px" }} />
-                      </a>
-              
-                      <a
-                        href="https://www.instagram.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-light  me-2"
-                      >
-                        <img src={insta} alt="instagram" style={{ maxWidth: "20px" }} />
-                      </a>
-                    </div>
+              <div class="d-flex justify-content-start gap-3 mb-4">
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img alt="facebook" width="20" src={face} />
+                </a>
+                <a
+                  href="https://www.twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img alt="twitter" width="20" src={twi} />
+                </a>
+                <a
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img alt="instagram" width="20" src={ins} />
+                </a>
+              </div>
             </li>
           </ul>
         </div>
