@@ -160,7 +160,7 @@ export default function Hero() {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <h1>Discover the most engaging places</h1>
-            <p>Let's giving 45,000 Activities are ready for you</p>
+            <p>Over 45,000 Activities Are Ready to Explore!</p>
           </motion.div>
 
           <motion.div

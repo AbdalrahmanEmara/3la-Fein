@@ -2,7 +2,7 @@ const ProfilecardData = [
   {
     id: 1,
     name: " ",
-    description: "Member since Mar 15, 2017",
+    description: "Member since Aug 10, 2025",
   },
 ];
 

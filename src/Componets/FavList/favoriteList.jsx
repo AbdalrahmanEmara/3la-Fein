@@ -37,13 +37,20 @@ function FavoriteList(favoriteList) {
   return (
     <div className={Style.favoriteList}>
       <p
-        style={{ font: '600 24px "Poppins"', color: "#23262F", width: "100%" }}
+        style={{ font: '900 32px "Poppins"', color: "#23262F", width: "100%" }}
       >
         Favorite List
       </p>
 
       {favoriteBatch.length === 0 ? (
-        <p style={{ color: "#666", fontSize: "18px", marginTop: "1rem" }}>
+        <p
+          style={{
+            color: "#666",
+            fontSize: "23px",
+            marginTop: "1rem",
+          }}
+          className="m-auto"
+        >
           No favorite list
         </p>
       ) : (

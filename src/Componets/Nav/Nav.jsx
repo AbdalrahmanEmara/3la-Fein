@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import styles from "./Nav.module.css";
 import { getCurrentUser } from "../../Componets/Forms/Storage";
 import navImage from "/logo.png";
@@ -8,8 +8,8 @@ import axios from "axios";
 import { AnimatePresence } from "framer-motion";
 import CardDDetailes from "../CardDetails/CardDDetailes";
 
-const GEOAPIFY_KEY = "1aba76b022024730abfcd18e5a1df166";
-const UNSPLASH_ACCESS_KEY = "F40xPBLNDZNgteLeR4nAeQ0X9yoeJH0bK34kTuElI58";
+const GEOAPIFY_KEY = "3668e22034314d6089e367caea812747";
+const UNSPLASH_ACCESS_KEY = "pxSlPgRLS-hOJDFue_69DRC9ZxqVm25QhlAfYhEs88s";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,26 +18,23 @@ const Nav = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
-
-  // New: store user location read from localStorage
   const [userLocation, setUserLocation] = useState(null);
-
   const [showCard, setShowCard] = useState(false);
   const [selectedPlace, setSelectedPlace] = useState(null);
 
   const navigate = useNavigate();
 
+  // Ref for search dropdown container
+  const searchRef = useRef(null);
+
   useEffect(() => {
-    // Get current user from storage
     const user = getCurrentUser();
     setCurrentUser(user);
 
-    // Read location from localStorage and parse
     const storedLoc = localStorage.getItem("lastLocation");
     if (storedLoc) {
       try {
         const parsedLoc = JSON.parse(storedLoc);
-        // Basic validation
         if (
           parsedLoc &&
           typeof parsedLoc.lat === "number" &&
@@ -46,11 +43,30 @@ const Nav = () => {
           setUserLocation(parsedLoc);
         }
       } catch (e) {
-        // Ignore parse errors, no location set
         setUserLocation(null);
       }
     }
   }, []);
+
+  // Click outside handler for closing search dropdown
+  useEffect(() => {
+    if (!searchOpen) return;
+
+    function handleClickOutside(event) {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target) &&
+        event.target.id !== "searchToggleBtn"
+      ) {
+        setSearchOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [searchOpen]);
 
   const navigateToSection = (sectionId) => {
     if (window.location.pathname !== "/") {
@@ -104,12 +120,11 @@ const Nav = () => {
           categories
         )}&text=${encodeURIComponent(
           query
-        )}&filter=circle:${lon},${lat},500000&limit=500&apiKey=${GEOAPIFY_KEY}`
+        )}&filter=circle:${lon},${lat},500000&limit=200&apiKey=${GEOAPIFY_KEY}`
       );
 
       const places = placesRes.data.features || [];
 
-      // Client-side filter by name (case-insensitive)
       const filteredPlaces = places.filter(
         (place) =>
           place.properties.name &&
@@ -179,7 +194,6 @@ const Nav = () => {
         }}
       >
         <div className="container">
-          {/* Logo */}
           <Link className={`nav-link ${styles.navLink}`} to="/">
             <div className={`${styles.logo} pe-1`}>
               <img
@@ -192,7 +206,6 @@ const Nav = () => {
             </div>
           </Link>
 
-          {/* Burger Menu */}
           <button
             className="navbar-toggler"
             type="button"
@@ -201,7 +214,6 @@ const Nav = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          {/* Nav Links */}
           <div
             className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}
             id="navbarNav"
@@ -221,7 +233,7 @@ const Nav = () => {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/publicGroups">
-                  Public Groups
+                  Groups
                 </Link>
               </li>
               <li className="nav-item">
@@ -245,9 +257,9 @@ const Nav = () => {
             </ul>
           </div>
 
-          {/* Search Button */}
           <div style={{ position: "relative" }}>
             <button
+              id="searchToggleBtn"
               className={styles.mainBtn}
               onClick={() => setSearchOpen(!searchOpen)}
             >
@@ -256,7 +268,6 @@ const Nav = () => {
             </button>
           </div>
 
-          {/* Profile / Sign Up */}
           <Link className="nav-link" to={currentUser ? "/profile" : "/signup"}>
             {currentUser ? (
               <img
@@ -271,9 +282,9 @@ const Nav = () => {
         </div>
       </nav>
 
-      {/* Search Dropdown */}
       {searchOpen && (
         <div
+          ref={searchRef}
           className={`${styles.searchDropdown} ${
             isMobile ? styles.mobile : styles.desktop
           }`}
@@ -287,9 +298,10 @@ const Nav = () => {
               handleSearch(e.target.value);
             }}
             placeholder="Search Places Near Your Location"
+            autoFocus
           />
           {loading ? (
-            <div style={{ color: "#fff" }}>Loading...</div>
+            <div style={{ color: "black" }}>Loading...</div>
           ) : (
             searchResults.map((place) => (
               <div
@@ -307,7 +319,6 @@ const Nav = () => {
         </div>
       )}
 
-      {/* Card Popup */}
       <AnimatePresence>
         {showCard && selectedPlace && (
           <CardDDetailes

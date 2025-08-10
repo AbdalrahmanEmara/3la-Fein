@@ -10,18 +10,17 @@ function PayForm({ bookingInfo }) {
     cardHolder: "",
     expiryDate: "",
     cvc: "",
+    bookingDate: "", // new field
     saveCard: false,
   });
 
   const [errors, setErrors] = useState({});
-  const [method, setMethod] = useState("Nganthuy");
+  const [method, setMethod] = useState("visa");
 
   const navigate = useNavigate();
 
   const formatCardNumber = (value) => {
-    // Remove all non-digit chars
     const digits = value.replace(/\D/g, "").substring(0, 16);
-    // Insert spaces every 4 digits
     return digits.replace(/(.{4})/g, "$1 ").trim();
   };
 
@@ -45,8 +44,6 @@ function PayForm({ bookingInfo }) {
 
   const validate = () => {
     let newErrors = {};
-
-    // Remove spaces before validation
     const rawCardNumber = formData.cardNumber.replace(/\s/g, "");
 
     if (!/^\d{16}$/.test(rawCardNumber)) {
@@ -67,6 +64,22 @@ function PayForm({ bookingInfo }) {
     if (!/^\d{3,4}$/.test(formData.cvc)) {
       newErrors.cvc = "CVC must be 3 or 4 digits";
     }
+
+    // Validate bookingDate
+    if (!formData.bookingDate) {
+      newErrors.bookingDate = "Please select a booking date";
+    } else {
+      const today = new Date();
+      const bookingDate = new Date(formData.bookingDate);
+      // Normalize time parts to ignore time of day
+      today.setHours(0, 0, 0, 0);
+      bookingDate.setHours(0, 0, 0, 0);
+
+      if (bookingDate < today) {
+        newErrors.bookingDate = "Booking date cannot be in the past";
+      }
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -82,6 +95,7 @@ function PayForm({ bookingInfo }) {
         category: bookingInfo.category,
         totalPrice: bookingInfo.totalPrice,
         name: bookingInfo.name,
+        bookingDate: formData.bookingDate,
         timestamp: new Date().toISOString(),
       };
 
@@ -152,7 +166,7 @@ function PayForm({ bookingInfo }) {
             name="cardNumber"
             value={formData.cardNumber}
             onChange={handleChange}
-            maxLength={19} // 16 digits + 3 spaces
+            maxLength={19}
             className={styles.input}
             placeholder="1234 5678 9012 3456"
             inputMode="numeric"
@@ -210,6 +224,22 @@ function PayForm({ bookingInfo }) {
             />
             {errors.cvc && <small className="text-danger">{errors.cvc}</small>}
           </div>
+        </div>
+
+        {/* New Booking Date Input */}
+        <div className="mb-3">
+          <label className={styles.label}>Booking Date</label>
+          <input
+            type="date"
+            name="bookingDate"
+            value={formData.bookingDate}
+            onChange={handleChange}
+            className={styles.input}
+            min={new Date().toISOString().split("T")[0]} // disable past dates
+          />
+          {errors.bookingDate && (
+            <small className="text-danger">{errors.bookingDate}</small>
+          )}
         </div>
 
         <button type="submit" className={`btn ${styles.confirmBtn}`}>

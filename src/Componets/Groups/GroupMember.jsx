@@ -6,7 +6,7 @@ import { getCurrentUser } from "../../Componets/Forms/Storage";
 
 // Helper function outside the component
 const getUserImageSrc = (imgString) => {
-  if (!imgString) return "/defaultUser.png";
+  if (!imgString) return "/profile/deafult.jpg"; // default fallback from public folder
 
   if (
     imgString.startsWith("data:image") ||
@@ -51,17 +51,17 @@ const GroupMember = () => {
   useEffect(() => {
     if (!group) return;
 
-    // Build admin member card
+    // Build admin member card with normalized image src
     const admin = {
-      img: group.adminPic,
+      img: getUserImageSrc(group.adminPic),
       name: group.adminName,
       role: "admin",
       rating: group.rating || "5.0",
     };
 
-    // Build normal member cards
+    // Build normal member cards with normalized image src
     const normalMembers = (group.members || []).map((m) => ({
-      img: m.image,
+      img: getUserImageSrc(m.image),
       name: m.name,
       role: "member",
       rating: m.rating,
@@ -72,13 +72,13 @@ const GroupMember = () => {
       (item) => item.name === group.name
     );
 
-    // Create "You" member card if visited
+    // Create "You" member card if visited, normalized image src
     const youMember = userVisitedGroup
       ? [
           {
             img: getUserImageSrc(currentUser?.src),
             name: currentUser?.email
-              ? currentUser.email.split("@")[0] + "        (You)"
+              ? currentUser.email.split("@")[0] + " (You)"
               : "You",
             role: "member",
             rating: "3.6",
@@ -119,9 +119,17 @@ const GroupMember = () => {
     (item) => item.name === group.name
   );
 
-  const isDisabled = group.members.length >= 8;
+  const isDisabled = Array.isArray(group.members) && group.members.length >= 8;
+
+  const currentMembersCount = group.currentMembers
+    ? Number(group.currentMembers)
+    : 0;
+  const safeMembersCount = Number.isFinite(currentMembersCount)
+    ? currentMembersCount
+    : 0;
+
   const priceDetails = generatePriceDetails(
-    parseInt(group.currentMembers, 10) + (isUserJoined ? 1 : 0)
+    safeMembersCount + (isUserJoined ? 1 : 0)
   );
 
   return (
@@ -157,12 +165,16 @@ const GroupMember = () => {
                     src={member.img}
                     alt={member.name}
                     className={styles.memberAvatar}
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "/profile/deafult.jpg";
+                    }}
                   />
                   <div className={styles.memberInfo}>
                     <p className={styles.memberName}>
                       {member.role === "admin"
                         ? "👑 Admin"
-                        : member.role === "you"
+                        : member.name.includes("(You)")
                         ? "👤 You"
                         : "Member"}{" "}
                       {member.name}
